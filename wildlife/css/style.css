@@ -173,7 +173,7 @@ a:active {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 
-  font-size: 23px;
+font-size: 23px;
   line-height: 27px;
 
   text-align: center;
@@ -243,13 +243,32 @@ h2 {
   justify-content: center;
 }
 
-.sliders-items-img {
+.slider-items{
+  text-align: center;
   margin-right: 60px;
 }
-
 .sliders-items:last-child {
   margin-right: 0px;
 }
+
+.slider-h4{
+  width: 300px;
+  margin-top: 247px;
+  position: absolute;
+  font-size: 22px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.slider-p{
+  position: absolute;
+  width: 300px;
+  height: 27px;
+  margin-top: 293px;
+  font-size: 17px;
+  line-height: 27px;
+}
+
 /*Latest arcitcle styles end*/
 
 /*Get notification styles start*/
@@ -302,7 +321,6 @@ h2 {
 .button-submit {
   width: 120px;
   height: 60px;
-
   background: #cd6326;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid #cd6326;
@@ -313,6 +331,15 @@ h2 {
   font-size: 23px;
   line-height: 27px;
   color: #f7f7f7;
+}
+
+.button-submit:hover {
+  background: #E39128;
+  border: 1px solid#E39128;;
+}
+.button-submit:active {
+   background: #8F5613;;
+  border: 1px solid#8F5613;;
 }
 /*Get notification styles end*/
 
