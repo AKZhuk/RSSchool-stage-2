@@ -39,6 +39,7 @@ html {
   width: 1440px;
 }
 body {
+
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
@@ -50,7 +51,9 @@ body {
 a {
   text-decoration: none !important;
   color: #f7f7f7;
-  font-family: Roboto;
+  font-style: normal;
+font-weight: normal;
+line-height: 60px !important
 }
 
 a:hover {
@@ -84,6 +87,7 @@ a:active {
 }
 
 .header-logo-text {
+  font-family: Roboto;
   font-size: 32px;
   line-height: 60px;
   text-transform: uppercase;
@@ -117,6 +121,8 @@ a:active {
 }
 
 .header-link-btn {
+  font-style: normal;
+font-weight: normal;
   font-family: Roboto;
   display: flex;
   justify-content: center;
@@ -295,7 +301,7 @@ h2 {
 
   flex-wrap: wrap;
   padding-top: 60px;
-  padding-bottom: 240px;
+  padding-bottom: 237px;
 }
 .subscribe-email {
   width: 510px;
