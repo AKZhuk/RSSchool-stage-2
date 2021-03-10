@@ -23,7 +23,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 piano.addEventListener("click", function (e) {
-  let a = e.target
+  let a = e.target;
   e.target.classList.add("active");
   console.log(a);
   playAudio(e.target.dataset.note);
@@ -34,4 +34,9 @@ function playAudio(key) {
   audio.currentTime = 0;
   audio.src = `http://127.0.0.1:5500/akzhuk-JSFE2021Q1/virtual-piano/assets/audio/${key}.mp3`;
   audio.play();
+}
+function activateFullscreen(element) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  }
 }
