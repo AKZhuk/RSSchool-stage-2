@@ -97,6 +97,10 @@ body {
 .piano-key:hover {
   background-color: #fff;
 }
+
+
+
+
 .keys-sharp {
   position: absolute;
   top: 0;
@@ -121,6 +125,12 @@ body {
 .piano-key.sharp.piano-key-active {
   transform: scale(0.96);
 }
+
+.piano-key-active::before,
+.piano-key-active::after,
+.sharp.piano-key-active::before {
+  color: #00b4a4!important
+}
 .piano-key.none {
   background-color: transparent;
   border: 0;
@@ -141,6 +151,11 @@ body {
   left: 20px;
   transition: 0.3s;
 }
+
+.key-letter::before {
+  content: attr(data-letter);
+}
+
 .piano-key::after {
   display: none;
   content: attr(data-letter);
