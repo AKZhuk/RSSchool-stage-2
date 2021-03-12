@@ -5,18 +5,18 @@ const buttonFullScreen = document.querySelector(".openfullscreen");
 const switchButtonContainer = document.querySelector(".btn-container");
 const switchButtons = document.querySelectorAll(".btn");
 const letterNote = {
-  d: "c",
-  f: "d",
-  g: "e",
-  h: "f",
-  j: "g",
-  k: "a",
-  l: "b",
-  r: "c♯",
-  t: "d♯",
-  u: "f♯",
-  i: "g♯",
-  o: "a♯",
+  D: "c",
+  F: "d",
+  G: "e",
+  H: "f",
+  J: "g",
+  K: "a",
+  L: "b",
+  R: "c♯",
+  T: "d♯",
+  U: "f♯",
+  I: "g♯",
+  O: "a♯",
 };
 
 switchButtonContainer.addEventListener("click", (e) => {
@@ -27,23 +27,33 @@ switchButtonContainer.addEventListener("click", (e) => {
 });
 
 window.addEventListener("keydown", (e) => {
-  if (e.key in letterNote) {
-    let pianoKeyLetter = document.querySelector(`[data-letter=${e.key.toUpperCase()}]`);
+  let pressKey=e.code[3]
+  if (pressKey in letterNote) {
+    let pianoKeyLetter = document.querySelector(`[data-letter=${pressKey}]`);
     changeClassList(pianoKeyLetter);
-    playAudio(letterNote[e.key]);
-    setTimeout((pressedPianoKey) => {
+    playAudio(letterNote[pressKey]);
+    setTimeout(() => {
       changeClassList(pianoKeyLetter);
     }, 100);
   }
 });
 
+piano.addEventListener("mouseover", function (e) {
+  if (e.buttons==1){
+  changeClassList(e.relatedTarget);
+  changeClassList(e.target);
+  playAudio(e.target.dataset.note);
+}
+});
+
 piano.addEventListener("mousedown", function (e) {
+
   changeClassList(e.target);
   playAudio(e.target.dataset.note);
 });
 
-piano.addEventListener("mouseover", function (e) {
-  changeClassList(e.relatedTarget)
+piano.addEventListener("mouseup", function (e) {
+  changeClassList(e.target)
 });
 
 buttonFullScreen.addEventListener("mousedown", function () {
