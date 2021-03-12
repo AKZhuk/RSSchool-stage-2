@@ -2,8 +2,8 @@ const docElement = document.documentElement;
 const piano = document.querySelector(".piano");
 const pianoKey = document.querySelectorAll(".piano-key");
 const buttonFullScreen = document.querySelector(".openfullscreen");
-const switchButton = document.querySelector(".btn-container");
-
+const switchButtonContainer = document.querySelector(".btn-container");
+const switchButtons = document.querySelectorAll(".btn");
 const letterNote = {
   d: "c",
   f: "d",
@@ -19,29 +19,34 @@ const letterNote = {
   o: "a♯",
 };
 
-switchButton.addEventListener("click", (e) => {
+switchButtonContainer.addEventListener("click", (e) => {
   if (!e.target.classList.contains("btn-active")) {
     pianoKey.forEach((item) => item.classList.toggle("key-letter"));
-    document.querySelector(".btn-active").classList.remove("btn-active");
-    e.target.classList.add("btn-active");
+    switchButtons.forEach((item) => item.classList.toggle("btn-active"));
   }
 });
 
 window.addEventListener("keydown", (e) => {
   if (e.key in letterNote) {
+    let pianoKeyLetter = document.querySelector(`[data-letter=${e.key.toUpperCase()}]`);
+    changeClassList(pianoKeyLetter);
     playAudio(letterNote[e.key]);
+    setTimeout((pressedPianoKey) => {
+      changeClassList(pianoKeyLetter);
+    }, 100);
   }
 });
 
 piano.addEventListener("mousedown", function (e) {
-  e.target.classList.add("piano-key-active");
+  changeClassList(e.target);
   playAudio(e.target.dataset.note);
 });
-piano.addEventListener("mouseup", function (e) {
-  e.target.classList.remove("piano-key-active");
+
+piano.addEventListener("mouseover", function (e) {
+  changeClassList(e.relatedTarget)
 });
 
-buttonFullScreen.addEventListener("click", function () {
+buttonFullScreen.addEventListener("mousedown", function () {
   if (docElement.requestFullscreen) {
     docElement.requestFullscreen();
   }
@@ -55,4 +60,8 @@ function playAudio(key) {
   audio.currentTime = 0;
   audio.src = `http://127.0.0.1:5500/akzhuk-JSFE2021Q1/virtual-piano/assets/audio/${key}.mp3`;
   audio.play();
+}
+
+function changeClassList(item, changeClass = "piano-key-active") {
+  item.classList.toggle(changeClass);
 }
