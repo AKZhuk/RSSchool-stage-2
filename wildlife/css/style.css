@@ -28,11 +28,7 @@ footer {
   max-width: 1440px;
   margin: 0 auto;
 }
-/**,
-*::before,
-*::after {
-  box-sizing: inherit;
-}*/
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -96,12 +92,11 @@ a:active {
   justify-content: space-between;
 }
 
-.header-logo-pic{
+.header-logo-pic {
   width: 70px;
   height: 60px;
   background: url(/akzhuk-JSFE2021Q1/wildlife/img/svg/logo.svg);
 }
-
 
 .header-list {
   display: flex;
@@ -436,16 +431,13 @@ footer {
 }
 
 #facebook-logo {
-
   background: url(../img/svg/Facebook-logo.svg);
 }
 
-
-li{
+li {
   transition: all 0.5s;
 }
 #facebook-logo:hover {
-
   background: url(../img/svg/Facebook-logo-hover.svg);
 }
 
@@ -471,4 +463,3 @@ li{
   background: url(../img/svg/tg-logo-hover.svg);
 }
 /*Footer styles end*/
-
