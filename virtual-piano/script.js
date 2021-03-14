@@ -27,7 +27,7 @@ switchButtonContainer.addEventListener("click", (e) => {
 });
 
 window.addEventListener("keydown", (e) => {
-  let pressKey=e.code[3]
+  let pressKey = e.code[3];
   if (pressKey in letterNote) {
     let pianoKeyLetter = document.querySelector(`[data-letter=${pressKey}]`);
     changeClassList(pianoKeyLetter);
@@ -39,21 +39,20 @@ window.addEventListener("keydown", (e) => {
 });
 
 piano.addEventListener("mouseover", function (e) {
-  if (e.buttons==1){
-  changeClassList(e.relatedTarget);
-  changeClassList(e.target);
-  playAudio(e.target.dataset.note);
-}
+  if (e.buttons == 1) {
+    changeClassList(e.relatedTarget);
+    changeClassList(e.target);
+    playAudio(e.target.dataset.note);
+  }
 });
 
 piano.addEventListener("mousedown", function (e) {
-
   changeClassList(e.target);
   playAudio(e.target.dataset.note);
 });
 
 piano.addEventListener("mouseup", function (e) {
-  changeClassList(e.target)
+  changeClassList(e.target);
 });
 
 buttonFullScreen.addEventListener("mousedown", function () {
@@ -68,7 +67,7 @@ buttonFullScreen.addEventListener("mousedown", function () {
 function playAudio(key) {
   const audio = new Audio();
   audio.currentTime = 0;
-  audio.src = `http://127.0.0.1:5500/akzhuk-JSFE2021Q1/virtual-piano/assets/audio/${key}.mp3`;
+  audio.src = `https://rolling-scopes-school.github.io/akzhuk-JSFE2021Q1/virtual-piano/assets/audio/${key}.mp3`;
   audio.play();
 }
 
