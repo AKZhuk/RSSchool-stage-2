@@ -18,7 +18,6 @@
       url("../fonts/roboto-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-
 html {
   box-sizing: border-box;
 }
@@ -40,7 +39,7 @@ footer {
 }
 
 .main-arround-wrapper {
-  background:     #cccccc;
+  background: #cccccc;
 }
 
 .arround-wrapper {
@@ -80,17 +79,27 @@ a:hover {
 a:active {
   color: #8f5613;
 }
-.header-wrapper, .header-logo {
+.header-wrapper,
+.header-logo {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-
 .header-logo-pic {
   width: 70px;
   height: 60px;
   background: url(/akzhuk-JSFE2021Q1/wildlife/img/svg/logo.svg);
+}
+
+.header-logo:hover > .header-logo-pic {
+  transition: all 0.5s;
+  background: url(/akzhuk-JSFE2021Q1/wildlife/img/svg/logo-hover.svg) no-repeat;
+}
+
+.header-logo:active > .header-logo-pic {
+  transition: all 0.5s;
+  background: url(/akzhuk-JSFE2021Q1/wildlife/img/svg/logo-active.svg) no-repeat;
 }
 
 .header-list {
@@ -102,7 +111,7 @@ a:active {
   margin-right: 61px;
 }
 
-.header-item:first-child{
+.header-item:first-child {
   position: relative;
   right: 4px;
 }
@@ -121,7 +130,8 @@ a:active {
   margin-left: 15px;
 }
 
-.header-link-svg-1, .header-item-search {
+.header-link-svg-1,
+.header-item-search {
   height: 32px;
   width: 32px;
   display: inline-block;
@@ -204,6 +214,7 @@ a:active {
   font-family: Roboto;
   color: #f7f7f7;
   border-style: none;
+  cursor: pointer;
 }
 
 .donate-submit:hover {
@@ -247,12 +258,13 @@ a:active {
   justify-content: center;
 }
 
-.slider-arrow{
+.slider-arrow {
   transition: all 0.5s;
   height: 57px;
   width: 30px;
   display: inline-block;
   align-items: center;
+  cursor: pointer;
 }
 
 .left-slider-arrow {
@@ -284,14 +296,14 @@ a:active {
 .slider-items:hover {
   opacity: 0.7;
   transition: all 0.5s;
-  color:  #e39128;
+  color: #e39128;
   cursor: pointer;
 }
 
 .slider-items:active {
   opacity: 0.5;
   transition: all 0.5s;
-  color:   #8f5613;
+  color: #8f5613;
   cursor: pointer;
 }
 
@@ -401,7 +413,7 @@ footer {
   margin-right: 85px;
 }
 
-.footer-item:first-child{
+.footer-item:first-child {
   position: relative;
   right: 5px;
 }
@@ -455,7 +467,7 @@ footer {
   background: url(../img/svg/tg-logo-hover.svg);
 }
 
-.social-link-item{
+.social-link-item {
   cursor: pointer;
   transition: all 0.5s;
 }
