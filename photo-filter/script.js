@@ -1,7 +1,31 @@
+const baseImgUrl =
+  "https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/";
 const fullScreen = document.querySelector(".fullscreen");
-
 const filters = document.querySelector(".filters");
 const buttonsContainer = document.querySelector(".btn-container");
+const buttons = document.querySelectorAll(".btn");
+const images = [
+  "01",
+  "02",
+  "03",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+];
+let i = 0;
 
 fullScreen.addEventListener("mousedown", function () {
   if (document.documentElement.requestFullscreen) {
@@ -17,8 +41,10 @@ filters.addEventListener("input", (e) => {
 });
 
 buttonsContainer.addEventListener("click", (e) => {
+  resetStatusActive();
+  addStatusActive(e.target);
   if (e.target.classList.contains("btn-reset")) resetStyles();
-  if (e.target.classList.contains("btn-next")) getImage();
+  if (e.target.classList.contains("btn-next")) getImage(e.target);
 });
 
 const resetStyles = () => {
@@ -28,9 +54,29 @@ const resetStyles = () => {
   });
 };
 
-const getImage = () => {
+const resetStatusActive = () => {
+  buttons.forEach((button) => {
+    button.classList.remove("btn-active");
+  });
+};
+
+const addStatusActive = (btn) => {
+  btn.classList.add("btn-active");
+};
+
+const getImage = (btn) => {
   let timeOfDay = getCurrentTime();
-  console.log(timeOfDay);
+  if (i === 19) i = 0;
+  const img = new Image();
+  img.src = baseImgUrl + timeOfDay + `/${images[i]}.jpg`;
+  img.onload = () => {
+    document.querySelector("img").setAttribute("src", img.src);
+  };
+  i++;
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.disabled = false;
+  }, 1000);
 };
 
 const getCurrentTime = () => {
