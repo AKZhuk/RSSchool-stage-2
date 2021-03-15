@@ -3,6 +3,7 @@ const baseImgUrl =
 const fullScreen = document.querySelector(".fullscreen");
 const filters = document.querySelector(".filters");
 const buttonsContainer = document.querySelector(".btn-container");
+const fileImport = document.querySelector(".btn-load--input");
 const buttons = document.querySelectorAll(".btn");
 const images = [
   "01",
@@ -37,20 +38,34 @@ fullScreen.addEventListener("mousedown", function () {
 });
 
 filters.addEventListener("input", (e) => {
-  e.target.nextElementSibling.value = e.target.value;
+  setStyle(e.target);
+});
+
+fileImport.addEventListener("change", (e) => {
+  const file = fileImport.files[0];
+  console.log(file);
 });
 
 buttonsContainer.addEventListener("click", (e) => {
   resetStatusActive();
-  addStatusActive(e.target);
+  setStatusActive(e.target);
   if (e.target.classList.contains("btn-reset")) resetStyles();
   if (e.target.classList.contains("btn-next")) getImage(e.target);
 });
 
+const setStyle = (filter) => {
+  filter.nextElementSibling.value = filter.value;
+  const unit = filter.dataset.sizing;
+  document.documentElement.style.setProperty(
+    `--${filter.name}`,
+    filter.value + unit
+  );
+};
+
 const resetStyles = () => {
-  filters.querySelectorAll("input").forEach((item) => {
-    item.value = item.getAttribute("value");
-    item.nextElementSibling.value = item.value;
+  filters.querySelectorAll("input").forEach((filter) => {
+    filter.value = filter.getAttribute("value");
+    setStyle(filter);
   });
 };
 
@@ -60,7 +75,7 @@ const resetStatusActive = () => {
   });
 };
 
-const addStatusActive = (btn) => {
+const setStatusActive = (btn) => {
   btn.classList.add("btn-active");
 };
 
