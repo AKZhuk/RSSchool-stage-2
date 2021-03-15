@@ -47,6 +47,7 @@ fileImport.addEventListener("change", (e) => {
   reader.onload = () => {
     const img = new Image();
     img.src = reader.result;
+    drawImage(img.src);
     document.querySelector("img").setAttribute("src", img.src);
   };
   reader.readAsDataURL(file);
@@ -57,6 +58,7 @@ buttonsContainer.addEventListener("click", (e) => {
   setStatusActive(e.target);
   if (e.target.classList.contains("btn-reset")) resetStyles();
   if (e.target.classList.contains("btn-next")) getImage(e.target);
+  if (e.target.classList.contains("btn-save")) saveImage(e.target);
 });
 
 const setStyle = (filter) => {
@@ -96,6 +98,7 @@ const getImage = (button) => {
     document.querySelector("img").setAttribute("src", img.src);
   };
   i++;
+  drawImage(img.src);
   button.disabled = true;
   setTimeout(() => {
     button.disabled = false;
@@ -114,3 +117,27 @@ const getCurrentTime = () => {
     return "night";
   }
 };
+
+const saveImage = (button) => {
+  button.setAttribute("download", "image.jpg");
+  button.setAttribute(
+    "href",
+    canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+  );
+};
+
+const canvas = document.querySelector("canvas");
+
+function drawImage(src) {
+  const img = new Image();
+  img.setAttribute("crossOrigin", "anonymous");
+  img.src = src;
+  img.onload = function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+  };
+}
+
+drawImage();
