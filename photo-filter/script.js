@@ -43,7 +43,13 @@ filters.addEventListener("input", (e) => {
 
 fileImport.addEventListener("change", (e) => {
   const file = fileImport.files[0];
-  console.log(file);
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.src = reader.result;
+    document.querySelector("img").setAttribute("src", img.src);
+  };
+  reader.readAsDataURL(file);
 });
 
 buttonsContainer.addEventListener("click", (e) => {
@@ -75,11 +81,13 @@ const resetStatusActive = () => {
   });
 };
 
-const setStatusActive = (btn) => {
-  btn.classList.add("btn-active");
+const setStatusActive = (button) => {
+  if (button.classList.contains("btn")) {
+    button.classList.add("btn-active");
+  }
 };
 
-const getImage = (btn) => {
+const getImage = (button) => {
   let timeOfDay = getCurrentTime();
   if (i === 19) i = 0;
   const img = new Image();
@@ -88,9 +96,9 @@ const getImage = (btn) => {
     document.querySelector("img").setAttribute("src", img.src);
   };
   i++;
-  btn.disabled = true;
+  button.disabled = true;
   setTimeout(() => {
-    btn.disabled = false;
+    button.disabled = false;
   }, 1000);
 };
 
