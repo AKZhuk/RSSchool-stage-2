@@ -6,9 +6,6 @@
   font-size: 10px;
 }
 
-h1 {
-  color: aqua;
-}
 
 .logo{
   background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/logo_light.svg);
@@ -16,7 +13,7 @@ h1 {
   height: 42px;
 }
 
-.first-screen{
+.promo{
   width: 100%;
   height: 940px;
   background: url(../assets/images/mountains.jpg) no-repeat;
@@ -26,3 +23,15 @@ h1 {
 
 .footer{height: 751px;
 background: #333333;}
+
+.pets-in-zoo__card{
+  width: 278px;
+height: 399px;
+}
+.panda{
+  background: url(../assets/images/panda.jpg);
+}
+
+.eagles{
+  background: url(../assets/images/eagles.jpg);
+}
