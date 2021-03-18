@@ -1,0 +1,11 @@
+//placeholders
+%transition {
+  transition: all 0.3s ease-out;
+}
+
+@mixin font($size, $height, $weight: 900, $style: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+}

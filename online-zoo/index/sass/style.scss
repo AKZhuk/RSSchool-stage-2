@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
+@import "base";
+@import "layouts";
+@import "abstract";
+
+.wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
+.bg-additional {
+  background: $color-bg-additional;
+}
+.layout-2-column .layout-3-column {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  border-radius: 3px;
+  border: none;
+  width: 245px;
+  height: 55px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.8rem;
+  line-height: 21px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-bg-primary;
+  margin: 32px 0 100px 0;
+}
+//header style
+header {
+  box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+  padding: 16px 0 24px 0;
+}
+
+.navigation__link {
+  @include font(1.6rem, 19px, normal);
+  padding-right: 122px;
+}
+a:hover {
+  font-weight: 900;
+  text-decoration: underline !important;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.promo {
+  width: 100%;
+  height: 940px;
+  background: url(../assets/images/mountains.jpg) no-repeat;
+}
+
+.footer {
+  min-height: 751px;
+  background: $color-gray-1;
+}
+
+.pets-in-zoo__card {
+  width: 278px;
+  height: 399px;
+}
+.panda {
+  background: url(../assets/images/panda.jpg);
+}
+.eagles {
+  background: url(../assets/images/eagles.jpg);
+}
+
+.gorilla {
+  background: url(../assets/images/gorilla.jpg);
+}
+
+.crocodile {
+  background: url(../assets/images/crocodile.jpg);
+}

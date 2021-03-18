@@ -4,121 +4,251 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
-    />
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Online zoo</title>
   </head>
-  <header class="header">
-    <div class="wrapper">
-      <a href="" class="logo">Logo</a>
-      <nav class="header__navigation">
-        <ul class="navigation">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Map</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Design</a></li>
-        </ul>
-      </nav>
-      <label class="header__switch">
-        <input type="checkbox" />
-        <span class="slider-round"></span>
-      </label>
-    </div>
-  </header>
+
   <body>
-    <section class="promo">
-      <h1>Watch your favorite animal online</h1>
-      <div class="promo_button">
-        <button class="button">watch online</button>
+    <header class="header">
+      <div class="wrapper header__wrapper">
+        <a href="" class="logo"
+          ><object
+            data="../assets/icons/logo/logo_light.svg"
+            type="image/svg+xml"
+          ></object
+        ></a>
+        <nav class="header__navigation">
+          <ul class="navigation">
+            <li class="navigation__link"><a href="#">About</a></li>
+            <li class="navigation__link"><a href="#">Map</a></li>
+            <li class="navigation__link"><a href="#">Contact Us</a></li>
+            <li class="navigation__link"><a href="#">Design</a></li>
+          </ul>
+        </nav>
+        <label class="header__switch">
+          <input type="checkbox" />
+          <span class="slider-round"></span>
+        </label>
       </div>
-      <div class="promo_gallery"></div>
-      <div class="promo_social">
-        <ul class="social">
-          <li class="social__link"><a href="">insta</a></li>
-          <li class="social__link"><a href="">insta</a></li>
-          <li class="social__link"><a href="">insta</a></li>
-          <li class="social__link"><a href="">insta</a></li>
-        </ul>
+    </header>
+    <section class="promo">
+      <div class="wrapper">
+        <h1 class="promo__title">Watch your favorite animal online</h1>
+        <div class="promo_button">
+          <button class="button">watch online</button>
+        </div>
+        <div class="promo_gallery"></div>
+        <div class="promo_social">
+          <ul class="social">
+            <li class="social__link">
+              <a href=""
+                ><object
+                  data="../assets/icons/social/instagram.svg"
+                  type="image/svg+xml"
+                ></object
+              ></a>
+            </li>
+            <li class="social__link">
+              <a href=""
+                ><object
+                  data="../assets/icons/social/twitter.svg"
+                  type="image/svg+xml"
+                ></object
+              ></a>
+            </li>
+            <li class="social__link">
+              <a href=""
+                ><object
+                  data="../assets/icons/social/youtube.svg"
+                  type="image/svg+xml"
+                ></object
+              ></a>
+            </li>
+            <li class="social__link">
+              <a href=""
+                ><object
+                  data="../assets/icons/social/vk.svg"
+                  type="image/svg+xml"
+                ></object
+              ></a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
     <section class="how-it-works">
-      <h2 class="section-title">How it works?</h2>
-      <p class="section-descrition">
-        As a voice for wildlife, we are devastated by the impact of the 2020
-        Australian bushfires on precious species and their habitat, and we are
-        determined to assist in all aspects, including providing veterinary
-        support and raising much-needed emergency funds. Zoo Online saves
-        wildlife and inspires everyone to make conservation a priority in their
-        lives. Animals have the right to a pain-free and happy life. They have
-        equal claim to the resources of this planet, and deserve a life of
-        dignity and compassion.As a voice for wildlife, we are devastated by the
-        impact of the 2020 Australian bushfires on precious species and their
-        habitat.
-      </p>
-      <img src="../assets/images/deers.jpg" alt="deers" />
-      <button class="watch">watch online</button>
+      <div class="how-it-work__wrapper">
+        <h2 class="section__title">How it works?</h2>
+        <p class="section-descrition">
+          As a voice for wildlife, we are devastated by the impact of the 2020
+          Australian bushfires on precious species and their habitat, and we are
+          determined to assist in all aspects, including providing veterinary
+          support and raising much-needed emergency funds. Zoo Online saves
+          wildlife and inspires everyone to make conservation a priority in
+          their lives. Animals have the right to a pain-free and happy life.
+          They have equal claim to the resources of this planet, and deserve a
+          life of dignity and compassion.As a voice for wildlife, we are
+          devastated by the impact of the 2020 Australian bushfires on precious
+          species and their habitat.
+        </p>
+        <img src="../assets/images/deers.jpg" alt="deers" />
+        <div class="how-it-work_button">
+          <button class="button">watch online</button>
+        </div>
+      </div>
     </section>
-    <section class="mission">
+    <section class="mission bg-additional">
       <div class="wrapper">
-        <div class="layout-3-columb">
-          <div class="card">
-            <div class="card__icon"></div>
-            <h4>What inspiring us?</h4>
-            <p>
+        <div class="layout-3-column">
+          <div class="mission_ card">
+            <div class="card__icon">
+              <object
+                data="../assets/icons/inspire.svg"
+                type="image/svg+xml"
+              ></object>
+            </div>
+            <h4 class="card__title">What inspiring us?</h4>
+            <p card__text>
               As a voice for wildlife, we are devastated by the impact of the
               2020 Australian bushfires on precious species and their habitat,
               and we are determined to assist in all aspects.
             </p>
           </div>
+
+          <div class="card">
+            <div class="card__icon">
+              <object
+                data="../assets/icons/mission.svg"
+                type="image/svg+xml"
+              ></object>
+            </div>
+            <h4 class="card__title">Our mission</h4>
+            <p card__text>
+              Zoo Online saves wildlife and inspires everyone to make
+              conservation a priority in their lives.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card__icon">
+              <object
+                data="../assets/icons/belive.svg"
+                type="image/svg+xml"
+              ></object>
+            </div>
+            <h4 class="card__title">What we believe in?</h4>
+            <p card__text>
+              Animals have the right to a pain-free and happy life. They have
+              equal claim to the resources of this planet, and deserve a life of
+              dignity and compassion.
+            </p>
+          </div>
         </div>
-        <div class="card">
-          <div class="card__icon"></div>
-          <h4>Our mission</h4>
-          <p>
-            Zoo Online saves wildlife and inspires everyone to make conservation a priority in their lives.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card__icon"></div>
-          <h4>What we believe in?</h4>
-          <p>
-            Animals have the right to a pain-free and happy life. They have equal claim to the resources of this planet, and deserve a life of dignity and compassion.
-          </p>
-        </div>
-      </div>
       </div>
     </section>
-    <section class="pets-in-zoo"><div class="wrapper">
-      <h2>Pets in Zoo</h2>
-      <div class="layout-3-column">
-          <div class="pets-in-zoo__card panda"></div>
-          <div class="pets-in-zoo__card eagles"></div>
-        <div class="layout-4-column"></div>
+    <section class="pets-in-zoo">
+      <div class="wrapper">
+        <h2 class="section__title">Pets in Zoo</h2>
+        <div class="layout-3-column">
+          <div class="sliders__button_left"></div>
+          <div class="layout-4-column">
+            <div class="pets-in-zoo__card panda"></div>
+            <div class="pets-in-zoo__card eagles"></div>
+            <div class="pets-in-zoo__card gorilla"></div>
+            <div class="pets-in-zoo__card crocodile"></div>
+          </div>
+        </div>
         <div class="slider-control">
           <output name="result">01/08</output>
-          <input name=""type="range" min="01" max="08" value="0" />
+          <input name="" type="range" min="01" max="08" value="0" />
+        </div>
       </div>
-      </div>
-    </div></section>
-    <section class="pay-and-feed">
+    </section>
+    <section class="pay-and-feed bg-additional">
       <div class="wrapper">
-        <h2>Pay and feed</h2>
-        <p>The opportunity to easily and naturally (but as often as possible) donate to the needs of animals that you like.</p>
+        <h2 class="section__title">Pay and feed</h2>
+        <p>
+          The opportunity to easily and naturally (but as often as possible)
+          donate to the needs of animals that you like.
+        </p>
         <div class="layout-5-column"></div>
       </div>
-      </section>
-    <section class="testimonials"><div class="wrapper"><h2>Testimonials</h2>
-      <div class="layout-3-column">
-      <div class="layout-2-column"></div>
-    </div><div class="wrapper"></div></div></section>
-    <section class="map-section"><div class="wrapper">
-      <h2>Map</h2>
-      <div class="map"></div>
-      <div class="map__item_goriila"></div>
-    </div></section>
+    </section>
+    <section class="testimonials">
+      <div class="wrapper">
+        <h2 class="section__title">Testimonials</h2>
+        <div class="layout-3-column">
+          <div class="layout-2-column">
+            <div class="testimonials__card">
+              <img
+                src="../assets/images/testimonials/avatar-1.jpg"
+                alt="avatar"
+              />
+              <h4>Nastya Sidorova</h4>
+              <p>
+                As a voice for wildlife, we are devastated by the impact of the
+                2 020 Australian bushfires on precious species and their
+                habitat.
+              </p>
+            </div>
+            <div class="testimonials__card">
+              <img
+                src="../assets/images/testimonials/avatar-2.jpg"
+                alt="avatar"
+              />
+              <h4>Vlad Kim</h4>
+              <p>
+                As a voice for wildlife, we are devastated by the impact of the
+                2020 Australian bushfires on precious species and their habitat.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper"></div>
+      </div>
+    </section>
+    <section class="map-section bg-additional">
+      <div class="wrapper">
+        <h2 class="section__title">Map</h2>
+        <div class="map"></div>
+        <div class="map__item_goriila"></div>
+      </div>
+    </section>
   </body>
-  <footer class="footer"><div class="wrapper"></div></footer>
+  <footer class="footer">
+    <div class="wrapper">
+      <div class="layout-2-column">
+        <div class="footer__left">
+          <a class="logo">assas</a>
+        </div>
+        <div class="footer__form">
+          <form action="" method="POST">
+            <input type="text" name="name" placeholder="Name" />
+            <input type="email" name="email" placeholder="Email" />
+            <textarea name="message" id="" cols="30" rows="8"></textarea>
+            <div class="contact-us__button">
+              <input type="checkbox" /><label for="checkcbox"
+                >I agree to the processing of Personal Data</label
+              >
+              <input type="submit" name="send" />
+            </div>
+          </form>
+        </div>
+        <div class="footer__right">
+          <div class="footer_content">
+            <div class="footer__navigation">
+              <ul class="footer-navigation__links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Zoos</a></li>
+              </ul>
+            </div>
+            <div class="footer__button">
+              <button class="button">donate for volunteers</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </html>

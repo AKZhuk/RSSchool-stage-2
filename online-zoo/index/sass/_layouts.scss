@@ -1,0 +1,49 @@
+.header {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__navigation {
+    display: flex;
+    align-items: center;
+  }
+}
+.promo__title {
+  padding-top: 128px;
+}
+
+.section__title {
+  padding: 100px 0 30px 0;
+}
+.how-it-work {
+  &__wrapper {
+    max-width: 790px !important;
+    margin: 0 auto;
+  }
+  &_button {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.layout-3-column,
+.layout-2-column,
+.layout-4-column {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  width: 287px;
+  &__icon {
+    width: 80px;
+    height: 80px;
+  }
+  &__title {
+    padding: 15px;
+  }
+}
