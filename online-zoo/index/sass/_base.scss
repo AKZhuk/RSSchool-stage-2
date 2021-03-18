@@ -42,8 +42,28 @@ h4 {
 a {
   text-decoration: none;
   color: $color-gray-1;
+  &:hover {
+    font-weight: 900;
+    text-decoration: underline !important;
+  }
 }
 
 li {
   list-style: none;
+}
+
+.button {
+  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  border-radius: 3px;
+  border: none;
+  width: 245px;
+  height: 55px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.8rem;
+  line-height: 21px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-bg-primary;
+  margin: 32px 0 100px 0;
 }

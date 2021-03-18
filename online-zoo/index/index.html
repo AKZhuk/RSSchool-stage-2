@@ -148,19 +148,35 @@
     </section>
     <section class="pets-in-zoo">
       <div class="wrapper">
-        <h2 class="section__title">Pets in Zoo</h2>
-        <div class="layout-3-column">
-          <div class="sliders__button_left"></div>
-          <div class="layout-4-column">
-            <div class="pets-in-zoo__card panda"></div>
-            <div class="pets-in-zoo__card eagles"></div>
-            <div class="pets-in-zoo__card gorilla"></div>
-            <div class="pets-in-zoo__card crocodile"></div>
+        <div class="pets-in-zoo-content">
+          <h2 class="section__title">Pets in Zoo</h2>
+          <div class="layout-3-column">
+            <div class="sliders__button left">
+              <object
+                data="../assets/icons/sliders/left.svg"
+                type="image/svg+xml"
+              ></object>
+            </div>
+            <div class="layout-4-column">
+              <div class="pets-in-zoo__card panda"></div>
+              <div class="pets-in-zoo__card eagles"></div>
+              <div class="pets-in-zoo__card gorilla"></div>
+              <div class="pets-in-zoo__card crocodile"></div>
+            </div>
+            <div class="sliders__button right">
+              <object
+                data="../assets/icons/sliders/right.svg"
+                type="image/svg+xml"
+              ></object>
+            </div>
           </div>
-        </div>
-        <div class="slider-control">
-          <output name="result">01/08</output>
-          <input name="" type="range" min="01" max="08" value="0" />
+          <div class="slider-control">
+            <output name="result">01/08</output>
+            <input name="" type="range" min="01" max="08" value="0" />
+          </div>
+          <div class="pets-in-zoo__button">
+            <button class="button">Choose your favorite</button>
+          </div>
         </div>
       </div>
     </section>
@@ -176,42 +192,76 @@
     </section>
     <section class="testimonials">
       <div class="wrapper">
-        <h2 class="section__title">Testimonials</h2>
-        <div class="layout-3-column">
-          <div class="layout-2-column">
-            <div class="testimonials__card">
-              <img
-                src="../assets/images/testimonials/avatar-1.jpg"
-                alt="avatar"
-              />
-              <h4>Nastya Sidorova</h4>
-              <p>
-                As a voice for wildlife, we are devastated by the impact of the
-                2 020 Australian bushfires on precious species and their
-                habitat.
-              </p>
+        <div class="testimonials-content">
+          <h2 class="section__title">Testimonials</h2>
+          <div class="layout-3-column">
+            <div class="sliders__button left">
+              <object
+                data="../assets/icons/sliders/left.svg"
+                type="image/svg+xml"
+              ></object>
             </div>
-            <div class="testimonials__card">
-              <img
-                src="../assets/images/testimonials/avatar-2.jpg"
-                alt="avatar"
-              />
-              <h4>Vlad Kim</h4>
-              <p>
-                As a voice for wildlife, we are devastated by the impact of the
-                2020 Australian bushfires on precious species and their habitat.
-              </p>
+            <div class="layout-2-column">
+              <div class="testimonials__card">
+                <img
+                  class="testimonials__img"
+                  src="../assets/images/testimonials/avatar-1.jpg"
+                  alt="avatar"
+                />
+                <h4 class="testimonials__title">Nastya Sidorova</h4>
+                <p class="testimonials__text">
+                  As a voice for wildlife, we are devastated by the impact of
+                  the 2 020 Australian bushfires on precious species and their
+                  habitat.
+                </p>
+              </div>
+              <div class="testimonials__card">
+                <img
+                  class="testimonials__img"
+                  src="../assets/images/testimonials/avatar-2.jpg"
+                  alt="avatar"
+                />
+                <h4 p class="testimonials__title">Vlad Kim</h4>
+                <p class="testimonials__text">
+                  As a voice for wildlife, we are devastated by the impact of
+                  the 2020 Australian bushfires on precious species and their
+                  habitat.
+                </p>
+              </div>
+            </div>
+            <div class="sliders__button right">
+              <object
+                data="../assets/icons/sliders/right.svg"
+                type="image/svg+xml"
+              ></object>
             </div>
           </div>
+          <div class="pets-in-zoo__button">
+            <button class="button">Leave feedback</button>
+          </div>
         </div>
-        <div class="wrapper"></div>
       </div>
     </section>
     <section class="map-section bg-additional">
       <div class="wrapper">
-        <h2 class="section__title">Map</h2>
-        <div class="map"></div>
-        <div class="map__item_goriila"></div>
+        <div class="map-content">
+          <h2 class="section__title">Map</h2>
+          <div class="map">
+            <object
+              data="../assets/icons/map.svg"
+              type="image/svg+xml"
+            ></object>
+          </div>
+          <div class="map__item_gorilla">
+            <object
+              data="../assets/icons/map__item.svg"
+              type="image/svg+xml"
+            ></object>
+          </div>
+          <div class="map__button">
+            <button class="button">watch online</button>
+          </div>
+        </div>
       </div>
     </section>
   </body>

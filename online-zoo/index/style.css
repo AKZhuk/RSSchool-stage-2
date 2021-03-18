@@ -1,4 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
+.card, .pets-in-zoo-content, .testimonials-content, .testimonials__card, .map-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -41,6 +54,11 @@ a {
   color: #333333;
 }
 
+a:hover {
+  font-weight: 900;
+  text-decoration: underline !important;
+}
+
 li {
   list-style: none;
 }
@@ -67,6 +85,10 @@ li {
   padding-top: 128px;
 }
 
+.social__link {
+  margin-bottom: 15px;
+}
+
 .section__title {
   padding: 100px 0 30px 0;
 }
@@ -85,6 +107,10 @@ li {
           justify-content: center;
 }
 
+.section-descrition {
+  margin-bottom: 30px;
+}
+
 .layout-3-column,
 .layout-2-column,
 .layout-4-column {
@@ -97,6 +123,80 @@ li {
 }
 
 .card {
+  width: 387px;
+  margin: 100px 30px 130px 0;
+}
+
+.card .card:last-child {
+  margin-right: 0px;
+}
+
+.card__icon {
+  width: 80px;
+  height: 80px;
+}
+
+.card__title {
+  padding: 15px;
+}
+
+.pets-in-zoo__card {
+  width: 278px;
+  height: 399px;
+  margin-right: 30px;
+}
+
+.pets-in-zoo__card:last-child {
+  margin: 0;
+}
+
+.sliders__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sliders__button.right {
+  margin-left: 26px;
+}
+
+.sliders__button.left {
+  margin-right: 26px;
+}
+
+.testimonials__card {
+  width: 585px;
+  height: 310px;
+  -webkit-box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+          box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+  border-radius: 5px;
+}
+
+.testimonials__card:first-child {
+  margin-right: 30px;
+}
+
+.testimonials__img {
+  margin: 47px 0 0 0;
+}
+
+.testimonials__title {
+  margin: 17px 0;
+}
+
+.testimonials__text {
+  width: 440px;
+}
+
+.map__item_gorilla {
+  position: absolute;
+  margin: 365px 0 0 0;
+}
+
+.card, .pets-in-zoo-content, .testimonials-content, .testimonials__card, .map-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,17 +207,6 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 100px;
-  width: 287px;
-}
-
-.card__icon {
-  width: 80px;
-  height: 80px;
-}
-
-.card__title {
-  padding: 15px;
 }
 
 .wrapper {

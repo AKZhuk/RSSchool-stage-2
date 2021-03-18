@@ -1,4 +1,6 @@
 .header {
+  box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+  padding: 16px 0 24px 0;
   &__wrapper {
     display: flex;
     justify-content: space-between;
@@ -12,6 +14,9 @@
   padding-top: 128px;
 }
 
+.social__link {
+  margin-bottom: 15px;
+}
 .section__title {
   padding: 100px 0 30px 0;
 }
@@ -25,7 +30,9 @@
     justify-content: center;
   }
 }
-
+.section-descrition {
+  margin-bottom: 30px;
+}
 .layout-3-column,
 .layout-2-column,
 .layout-4-column {
@@ -34,16 +41,77 @@
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 100px;
-  width: 287px;
+  @extend %flex-column-center;
+  width: 387px;
+  margin: 100px 30px 130px 0;
+  .card:last-child {
+    margin-right: 0px;
+  }
   &__icon {
     width: 80px;
     height: 80px;
   }
   &__title {
     padding: 15px;
+  }
+}
+.pets-in-zoo {
+  &-content {
+    @extend %flex-column-center;
+  }
+  &__card {
+    width: 278px;
+    height: 399px;
+    margin-right: 30px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+.sliders__button {
+  display: flex;
+  align-items: center;
+  &.right {
+    margin-left: 26px;
+  }
+  &.left {
+    margin-right: 26px;
+  }
+}
+
+.testimonials {
+  &-content {
+    @extend %flex-column-center;
+  }
+  &__card {
+    @extend %flex-column-center;
+    width: 585px;
+    height: 310px;
+    box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+    border-radius: 5px;
+    &:first-child {
+      margin-right: 30px;
+    }
+  }
+  &__img {
+    margin: 47px 0 0 0;
+  }
+
+  &__title {
+    margin: 17px 0;
+  }
+  &__text {
+    width: 440px;
+  }
+}
+.map {
+  &-content {
+    @extend %flex-column-center;
+  }
+  &__item {
+    &_gorilla {
+      position: absolute;
+      margin: 365px 0 0 0;
+    }
   }
 }

@@ -31,23 +31,14 @@
   color: $color-bg-primary;
   margin: 32px 0 100px 0;
 }
-//header style
-header {
-  box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
-  padding: 16px 0 24px 0;
-}
 
-.navigation__link {
-  @include font(1.6rem, 19px, normal);
-  padding-right: 122px;
-}
-a:hover {
-  font-weight: 900;
-  text-decoration: underline !important;
-}
+
 .navigation {
   display: flex;
   justify-content: space-between;
+  &__link {
+  @include font(1.6rem, 19px, normal);
+  padding-right: 122px;
 }
 
 .promo {
@@ -61,10 +52,6 @@ a:hover {
   background: $color-gray-1;
 }
 
-.pets-in-zoo__card {
-  width: 278px;
-  height: 399px;
-}
 .panda {
   background: url(../assets/images/panda.jpg);
 }

@@ -3,6 +3,12 @@
   transition: all 0.3s ease-out;
 }
 
+%flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @mixin font($size, $height, $weight: 900, $style: normal) {
   font-size: $size;
   font-weight: $weight;
