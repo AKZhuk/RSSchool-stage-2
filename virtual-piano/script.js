@@ -28,7 +28,8 @@ switchButtonContainer.addEventListener("click", (e) => {
 
 window.addEventListener("keydown", (e) => {
   let pressKey = e.code[3];
-  if (pressKey in letterNote) {
+  console.log(e.repeat);
+  if (pressKey in letterNote && !e.repeat) {
     let pianoKeyLetter = document.querySelector(`[data-letter=${pressKey}]`);
     changeClassList(pianoKeyLetter);
     playAudio(letterNote[pressKey]);
