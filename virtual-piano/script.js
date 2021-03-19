@@ -1,4 +1,3 @@
-const docElement = document.documentElement;
 const piano = document.querySelector(".piano");
 const pianoKey = document.querySelectorAll(".piano-key");
 const buttonFullScreen = document.querySelector(".openfullscreen");
@@ -28,37 +27,43 @@ switchButtonContainer.addEventListener("click", (e) => {
 
 window.addEventListener("keydown", (e) => {
   let pressKey = e.code[3];
-  console.log(e.repeat);
   if (pressKey in letterNote && !e.repeat) {
     let pianoKeyLetter = document.querySelector(`[data-letter=${pressKey}]`);
-    changeClassList(pianoKeyLetter);
+    addClass(pianoKeyLetter);
     playAudio(letterNote[pressKey]);
-    setTimeout(() => {
-      changeClassList(pianoKeyLetter);
-    }, 100);
+  }
+});
+
+window.addEventListener("keyup", (e) => {
+  let pressKey = e.code[3];
+  if (pressKey in letterNote) {
+    let pianoKeyLetter = document.querySelector(`[data-letter=${pressKey}]`);
+    removeClass(pianoKeyLetter);
   }
 });
 
 piano.addEventListener("mouseover", function (e) {
-  if (e.buttons == 1) {
-    changeClassList(e.relatedTarget);
-    changeClassList(e.target);
+  if (e.buttons == 1 && e.target.classList.contains("piano-key")) {
+    removeClass(e.relatedTarget);
+    addClass(e.target);
     playAudio(e.target.dataset.note);
   }
 });
 
 piano.addEventListener("mousedown", function (e) {
-  changeClassList(e.target);
-  playAudio(e.target.dataset.note);
+  if (e.target.classList.contains("piano-key")) {
+    addClass(e.target);
+    playAudio(e.target.dataset.note);
+  }
 });
 
-piano.addEventListener("mouseup", function (e) {
-  changeClassList(e.target);
+window.addEventListener("mouseup", () => {
+  pianoKey.forEach((key) => removeClass(key));
 });
 
-buttonFullScreen.addEventListener("mousedown", function () {
-  if (docElement.requestFullscreen) {
-    docElement.requestFullscreen();
+buttonFullScreen.addEventListener("mousedown", () => {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
   }
   if (document.exitFullscreen) {
     document.exitFullscreen();
@@ -72,6 +77,10 @@ function playAudio(key) {
   audio.play();
 }
 
-function changeClassList(item, changeClass = "piano-key-active") {
-  item.classList.toggle(changeClass);
+function addClass(item, changeClass = "piano-key-active") {
+  item.classList.add(changeClass);
+}
+
+function removeClass(item, changeClass = "piano-key-active") {
+  item.classList.remove(changeClass);
 }

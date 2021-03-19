@@ -13,7 +13,7 @@ html {
 body {
   min-height: 100vh;
   background-color: #313940;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background: #313940;
   overflow-x: hidden;
 }
@@ -55,7 +55,7 @@ body {
   background-color: #454c53;
   border: 0;
   border-radius: 2px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 300;
   color: #fff;
@@ -98,9 +98,6 @@ body {
   background-color: #fff;
 }
 
-
-
-
 .keys-sharp {
   position: absolute;
   top: 0;
@@ -121,6 +118,10 @@ body {
   z-index: 3;
   pointer-events: auto;
 }
+
+.piano-key.sharp:hover {
+  background-color: #000000;
+}
 .piano-key.piano-key-active,
 .piano-key.sharp.piano-key-active {
   transform: scale(0.96);
@@ -129,7 +130,7 @@ body {
 .piano-key-active::before,
 .piano-key-active::after,
 .sharp.piano-key-active::before {
-  color: #00b4a4!important
+  color: #00b4a4 !important;
 }
 .piano-key.none {
   background-color: transparent;
@@ -146,10 +147,11 @@ body {
   font-size: 26px;
   line-height: 40px;
   text-align: center;
-  color: #A2ABB3;
+  color: #a2abb3;
   bottom: -45px;
   left: 20px;
   transition: 0.3s;
+  pointer-events: none;
 }
 
 .key-letter::before {
@@ -162,7 +164,7 @@ body {
 }
 .piano-key:hover::before,
 .piano-key:hover::after {
-  color: #CBD5DE;
+  color: #cbd5de;
 }
 .piano-key:active::before,
 .piano-key:active::after {
@@ -191,13 +193,13 @@ body {
   background-size: contain;
   transition: 0.3s;
   cursor: pointer;
-  background-image: url('assets/svg/fullscreen-open.svg');
+  background-image: url("assets/svg/fullscreen-open.svg");
 }
 .fullscreen:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 :-webkit-full-screen .fullscreen {
-  background-image: url('assets/svg/fullscreen-exit.svg');
+  background-image: url("assets/svg/fullscreen-exit.svg");
 }
 .footer {
   border-top: 1px solid;
@@ -214,18 +216,19 @@ body {
   margin: 0 auto;
 }
 .github {
+  text-decoration: none;
   display: block;
   width: 120px;
   height: 45px;
   padding-left: 45px;
-  background-image: url('assets/svg/github.svg');
+  background-image: url("assets/svg/github.svg");
   background-size: 35px;
   background-repeat: no-repeat;
   background-position: left center;
   line-height: 45px;
   color: #cbd5de;
   font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   transition: 0.3s;
 }
 .github:hover {
@@ -234,10 +237,10 @@ body {
 .rss {
   display: block;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   width: 120px;
   height: 35px;
-  background-image: url('assets/svg/rss.svg');
+  background-image: url("assets/svg/rss.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
