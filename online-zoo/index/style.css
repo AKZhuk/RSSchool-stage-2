@@ -63,6 +63,28 @@ li {
   list-style: none;
 }
 
+.button {
+  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  border-radius: 3px;
+  border: none;
+  width: 245px;
+  height: 55px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.8rem;
+  line-height: 21px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 32px 0 100px 0;
+}
+
+.header {
+  -webkit-box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+          box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+  padding: 16px 0 24px 0;
+}
+
 .header__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -243,10 +265,13 @@ li {
   margin: 32px 0 100px 0;
 }
 
-header {
-  -webkit-box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
-          box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
-  padding: 16px 0 24px 0;
+.navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .navigation__link {
@@ -255,20 +280,6 @@ header {
   font-size: 1.6rem;
   line-height: 19px;
   padding-right: 122px;
-}
-
-a:hover {
-  font-weight: 900;
-  text-decoration: underline !important;
-}
-
-.navigation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .promo {
@@ -280,11 +291,6 @@ a:hover {
 .footer {
   min-height: 751px;
   background: #333333;
-}
-
-.pets-in-zoo__card {
-  width: 278px;
-  height: 399px;
 }
 
 .panda {

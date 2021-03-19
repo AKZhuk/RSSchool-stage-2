@@ -32,13 +32,13 @@
   margin: 32px 0 100px 0;
 }
 
-
 .navigation {
   display: flex;
   justify-content: space-between;
   &__link {
-  @include font(1.6rem, 19px, normal);
-  padding-right: 122px;
+    @include font(1.6rem, 19px, normal);
+    padding-right: 122px;
+  }
 }
 
 .promo {
