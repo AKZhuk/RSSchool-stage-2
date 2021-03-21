@@ -13,7 +13,7 @@ html {
 body {
   min-height: 100vh;
   background-color: #313940;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background: #313940;
   overflow-x: hidden;
 }
@@ -55,7 +55,7 @@ body {
   background-color: #454c53;
   border: 0;
   border-radius: 2px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 300;
   color: #fff;
@@ -89,7 +89,7 @@ body {
   width: 80px;
   height: 270px;
   background-color: rgba(255, 255, 255, 0.85);
-  border: 4px solid #313940;
+  margin: 4px;
   border-radius: 0px 0px 12px 12px;
   transition: 0.3s;
   cursor: pointer;
@@ -97,9 +97,6 @@ body {
 .piano-key:hover {
   background-color: #fff;
 }
-
-
-
 
 .keys-sharp {
   position: absolute;
@@ -120,6 +117,12 @@ body {
   top: 0;
   z-index: 3;
   pointer-events: auto;
+  transform-origin: center top;
+  margin: 0px;
+}
+
+.piano-key.sharp:hover {
+  background-color: #000000;
 }
 .piano-key.piano-key-active,
 .piano-key.sharp.piano-key-active {
@@ -129,7 +132,7 @@ body {
 .piano-key-active::before,
 .piano-key-active::after,
 .sharp.piano-key-active::before {
-  color: #00b4a4!important
+  color: #00b4a4 !important;
 }
 .piano-key.none {
   background-color: transparent;
@@ -146,10 +149,11 @@ body {
   font-size: 26px;
   line-height: 40px;
   text-align: center;
-  color: #A2ABB3;
+  color: #a2abb3;
   bottom: -45px;
   left: 20px;
   transition: 0.3s;
+  pointer-events: none;
 }
 
 .key-letter::before {
@@ -162,12 +166,13 @@ body {
 }
 .piano-key:hover::before,
 .piano-key:hover::after {
-  color: #CBD5DE;
+  color: #cbd5de;
 }
 .piano-key:active::before,
 .piano-key:active::after {
   color: #fff;
 }
+
 .piano-key.sharp::before,
 .piano-key.sharp::after {
   bottom: 175px;
@@ -191,13 +196,13 @@ body {
   background-size: contain;
   transition: 0.3s;
   cursor: pointer;
-  background-image: url('assets/svg/fullscreen-open.svg');
+  background-image: url("assets/svg/fullscreen-open.svg");
 }
 .fullscreen:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 :-webkit-full-screen .fullscreen {
-  background-image: url('assets/svg/fullscreen-exit.svg');
+  background-image: url("assets/svg/fullscreen-exit.svg");
 }
 .footer {
   border-top: 1px solid;
@@ -214,18 +219,19 @@ body {
   margin: 0 auto;
 }
 .github {
+  text-decoration: none;
   display: block;
   width: 120px;
   height: 45px;
   padding-left: 45px;
-  background-image: url('assets/svg/github.svg');
+  background-image: url("assets/svg/github.svg");
   background-size: 35px;
   background-repeat: no-repeat;
   background-position: left center;
   line-height: 45px;
   color: #cbd5de;
   font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   transition: 0.3s;
 }
 .github:hover {
@@ -234,10 +240,10 @@ body {
 .rss {
   display: block;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   width: 120px;
   height: 35px;
-  background-image: url('assets/svg/rss.svg');
+  background-image: url("assets/svg/rss.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
@@ -312,4 +318,9 @@ body {
     width: 120px;
     height: 40px;
   }
+}
+
+.piano-key-active:hover::before,
+.piano-key-active:hover::after {
+  color: #00b4a4;
 }
