@@ -89,7 +89,7 @@ body {
   width: 80px;
   height: 270px;
   background-color: rgba(255, 255, 255, 0.85);
-  border: 4px solid #313940;
+  margin: 4px;
   border-radius: 0px 0px 12px 12px;
   transition: 0.3s;
   cursor: pointer;
@@ -117,6 +117,8 @@ body {
   top: 0;
   z-index: 3;
   pointer-events: auto;
+  transform-origin: center top;
+  margin: 0px;
 }
 
 .piano-key.sharp:hover {
@@ -170,6 +172,7 @@ body {
 .piano-key:active::after {
   color: #fff;
 }
+
 .piano-key.sharp::before,
 .piano-key.sharp::after {
   bottom: 175px;
@@ -315,4 +318,9 @@ body {
     width: 120px;
     height: 40px;
   }
+}
+
+.piano-key-active:hover::before,
+.piano-key-active:hover::after {
+  color: #00b4a4;
 }
