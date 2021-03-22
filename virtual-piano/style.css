@@ -168,10 +168,6 @@ body {
 .piano-key:hover::after {
   color: #cbd5de;
 }
-.piano-key:active::before,
-.piano-key:active::after {
-  color: #fff;
-}
 
 .piano-key.sharp::before,
 .piano-key.sharp::after {
