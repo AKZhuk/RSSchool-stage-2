@@ -4,18 +4,18 @@ const buttonFullScreen = document.querySelector(".openfullscreen");
 const switchButtonContainer = document.querySelector(".btn-container");
 const switchButtons = document.querySelectorAll(".btn");
 const letterNote = {
-  D: "c",
-  F: "d",
-  G: "e",
-  H: "f",
-  J: "g",
-  K: "a",
-  L: "b",
-  R: "c♯",
-  T: "d♯",
-  U: "f♯",
-  I: "g♯",
-  O: "a♯",
+  KeyD: "c",
+  KeyF: "d",
+  KeyG: "e",
+  KeyH: "f",
+  KeyJ: "g",
+  KeyK: "a",
+  KeyL: "b",
+  KeyR: "c♯",
+  KeyT: "d♯",
+  KeyU: "f♯",
+  KeyI: "g♯",
+  KeyO: "a♯",
 };
 
 buttonFullScreen.addEventListener("mousedown", () => {
@@ -35,18 +35,16 @@ switchButtonContainer.addEventListener("click", (e) => {
 });
 
 window.addEventListener("keydown", (e) => {
-  let pressKey = e.code[3];
-  if (pressKey in letterNote && !e.repeat) {
-    let pianoKeyLetter = document.querySelector(`[data-letter=${pressKey}]`);
+  if (e.code in letterNote && !e.repeat) {
+    let pianoKeyLetter = document.querySelector(`[data-letter=${e.code[3]}]`);
     addClass(pianoKeyLetter);
-    playAudio(letterNote[pressKey]);
+    playAudio(letterNote[e.code]);
   }
 });
 
 window.addEventListener("keyup", (e) => {
-  let pressKey = e.code[3];
-  if (pressKey in letterNote) {
-    let pianoKeyLetter = document.querySelector(`[data-letter=${pressKey}]`);
+  if (e.code in letterNote) {
+    let pianoKeyLetter = document.querySelector(`[data-letter=${e.code[3]}]`);
     removeClass(pianoKeyLetter);
   }
 });
