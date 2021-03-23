@@ -12,7 +12,7 @@
   <body>
     <header class="header">
       <div class="wrapper header__wrapper">
-        <a href="" class="logo"
+        <a href="/akzhuk-JSFE2021Q1/online-zoo/index/index.html" class="logo"
           ><object
             data="../assets/icons/logo/logo_light.svg"
             type="image/svg+xml"
@@ -23,13 +23,19 @@
             <li class="navigation__link"><a href="#">About</a></li>
             <li class="navigation__link"><a href="#">Map</a></li>
             <li class="navigation__link"><a href="#">Contact Us</a></li>
-            <li class="navigation__link"><a href="#">Design</a></li>
+            <li class="navigation__link">
+              <a
+                href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp?node-id=0%3A1"
+                >Design</a
+              >
+            </li>
           </ul>
         </nav>
-        <label class="header__switch">
-          <input type="checkbox" />
-          <span class="slider-round"></span>
-        </label>
+        <div class="header__switch">
+          <input type="checkbox" id="switch" /><label for="switch"
+            >Toggle</label
+          >
+        </div>
       </div>
     </header>
     <section class="promo">
@@ -42,7 +48,7 @@
         <div class="promo_social">
           <ul class="social">
             <li class="social__link">
-              <a href=""
+              <a href="https://www.instagram.com/?hl=ru"
                 ><object
                   data="../assets/icons/social/instagram.svg"
                   type="image/svg+xml"
@@ -50,7 +56,7 @@
               ></a>
             </li>
             <li class="social__link">
-              <a href=""
+              <a href="https://twitter.com/?lang=ru"
                 ><object
                   data="../assets/icons/social/twitter.svg"
                   type="image/svg+xml"
@@ -58,7 +64,7 @@
               ></a>
             </li>
             <li class="social__link">
-              <a href=""
+              <a href="https://www.youtube.com/"
                 ><object
                   data="../assets/icons/social/youtube.svg"
                   type="image/svg+xml"
@@ -66,7 +72,7 @@
               ></a>
             </li>
             <li class="social__link">
-              <a href=""
+              <a href="https://vk.com/feed"
                 ><object
                   data="../assets/icons/social/vk.svg"
                   type="image/svg+xml"
@@ -93,6 +99,19 @@
           species and their habitat.
         </p>
         <img src="../assets/images/deers.jpg" alt="deers" />
+        <div class="control">
+          <text class="control__text"
+            ><output class="control__output" name="result">01</output>/08</text
+          >
+          <input
+            class="control__range"
+            name=""
+            type="range"
+            min="01"
+            max="08"
+            value="01"
+          />
+        </div>
         <div class="how-it-work_button">
           <button class="button">watch online</button>
         </div>
@@ -170,15 +189,18 @@
               ></object>
             </div>
           </div>
-          <div class="slider-control">
-            <output name="result">01/08</output>
+          <div class="control">
+            <text class="control__text"
+              ><output class="control__output" name="result">01</output
+              >/08</text
+            >
             <input
-              class="range"
+              class="control__range"
               name=""
               type="range"
               min="01"
               max="08"
-              value="0"
+              value="01"
             />
           </div>
           <div class="pets-in-zoo__button">
@@ -242,6 +264,20 @@
                 type="image/svg+xml"
               ></object>
             </div>
+          </div>
+          <div class="control">
+            <text class="control__text"
+              ><output class="control__output" name="result">01</output
+              >/08</text
+            >
+            <input
+              class="control__range"
+              name=""
+              type="range"
+              min="01"
+              max="08"
+              value="01"
+            />
           </div>
           <div class="pets-in-zoo__button">
             <button class="button">Leave feedback</button>
