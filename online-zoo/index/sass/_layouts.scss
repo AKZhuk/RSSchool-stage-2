@@ -39,9 +39,11 @@
 }
 .layout-3-column,
 .layout-2-column,
-.layout-4-column {
+.layout-4-column,
+.layout-5-column {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .card {
@@ -82,7 +84,22 @@
     margin-right: 26px;
   }
 }
+.pay-and-feed {
+  &-content {
+    @extend %flex-column-center;
+  }
 
+  &__text {
+    margin-bottom: 92px;
+  }
+  &__card {
+    margin-right: 63px;
+    margin-bottom: 30px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
 .testimonials {
   &-content {
     @extend %flex-column-center;
@@ -116,6 +133,18 @@
     &_gorilla {
       position: absolute;
       margin: 365px 0 0 0;
+    }
+    &_panda {
+      position: absolute;
+      margin: 275px -641px 0 0;
+    }
+    &_crocodile {
+      position: absolute;
+      margin: 285px 639px 0 0;
+    }
+    &_eagle {
+      position: absolute;
+      margin: 153px 996px 0 0;
     }
   }
 }
