@@ -1,6 +1,9 @@
-//placeholders
 %transition {
   transition: all 0.3s ease-out;
+}
+%opacity {
+  opacity: 40%;
+  cursor: pointer;
 }
 
 %flex-column-center {
@@ -9,9 +12,24 @@
   align-items: center;
 }
 
+%flex-column {
+  display: flex;
+  flex-direction: column;
+
+}
+%flex-row-space-btw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @mixin font($size, $height, $weight: 900, $style: normal) {
   font-size: $size;
   font-weight: $weight;
   font-size: $size;
   line-height: $height;
+}
+
+.uppercase{
+  text-transform: uppercase;
 }
