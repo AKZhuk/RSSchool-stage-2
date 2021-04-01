@@ -1,0 +1,35 @@
+main{
+}
+
+.zoo{
+  margin: 60px 360px 141px 360px;
+  &__title{
+    margin: 0px 0 47px 0;
+  }
+
+  &__main{
+    margin-bottom: 30px;
+     display: flex;
+  }
+  &__player{
+    margin-right: 30px;
+    border-radius: 5px;
+  }
+  &__preview{
+    margin-right: 26px;
+  }
+}
+
+.description{
+  max-width: 360px;
+  &__item{
+    margin-bottom: 14px;
+  }
+  &__header{
+    margin-bottom: 6px;
+  }
+}
+
+.btn_feed{
+  width: 194px;
+}

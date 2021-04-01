@@ -1,0 +1,40 @@
+.zoo {
+  margin: 60px 360px 141px 360px;
+}
+
+.zoo__title {
+  margin: 0px 0 47px 0;
+}
+
+.zoo__main {
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.zoo__player {
+  margin-right: 30px;
+  border-radius: 5px;
+}
+
+.zoo__preview {
+  margin-right: 26px;
+}
+
+.description {
+  max-width: 360px;
+}
+
+.description__item {
+  margin-bottom: 14px;
+}
+
+.description__header {
+  margin-bottom: 6px;
+}
+
+.btn_feed {
+  width: 194px;
+}
+/*# sourceMappingURL=zoos.css.map */
