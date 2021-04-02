@@ -10,7 +10,6 @@ html {
   font-family: "Roboto", sans-serif;
   font-size: 10px;
 
-
 }
 html[data-theme='light'] {
     --color-gray-1: #333333;
@@ -50,7 +49,6 @@ body {
 }
 h1 {
   color:#FEFEFE;
-;
   @include font(8.9rem, 104px);
   max-width: 793px;
 }

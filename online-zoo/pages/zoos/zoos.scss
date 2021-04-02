@@ -1,35 +1,121 @@
-main{
-}
+.side-bar {
+  width: 209px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  &::before {
+    content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-top.svg);
+    margin-bottom: 15px;
+  }
+  &::after {
+    content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-bottom.svg);
+    margin-top: 15px;
+  }
 
-.zoo{
-  margin: 60px 360px 141px 360px;
-  &__title{
+  &__item {
+    margin-bottom: 10px;
+    &:last-child{
+      margin-bottom: 0px;
+    }
+    &_active {
+      width: 157px;
+      height: 157px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/border.svg);
+    }
+  }
+  &__img {
+    height: 108px;
+    width: 108px;
+
+    &_active {
+      height: 137px;
+      width: 137px;
+    }
+  }
+}
+.zoo {
+  margin: 60px 360px 100px 360px;
+  &__wrapper {
+    margin-right: 30px;
+  }
+  &__title {
     margin: 0px 0 47px 0;
   }
 
-  &__main{
-    margin-bottom: 30px;
-     display: flex;
+  &__main {
+    display: flex;
+    justify-content: space-between;
   }
-  &__player{
-    margin-right: 30px;
+
+  &__player {
+    margin-bottom: 30px;
     border-radius: 5px;
   }
-  &__preview{
+  &__preview {
     margin-right: 26px;
+    &:last-child {
+      margin-right: 0px;
+    }
   }
 }
 
-.description{
-  max-width: 360px;
-  &__item{
+.description {
+  max-width: 380px;
+  &__item {
     margin-bottom: 14px;
   }
-  &__header{
+  &__header {
     margin-bottom: 6px;
+  }
+  &__text{
+    margin-bottom: 14px;
   }
 }
 
-.btn_feed{
+.btn_feed {
   width: 194px;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__control {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+input.carousel__input {
+  display: none;
+}
+
+label.carousel__label {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+label.carousel__label:before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #c4c4c4;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+input:checked + label:before {
+  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  width: 11px;
+  height: 11px;
 }

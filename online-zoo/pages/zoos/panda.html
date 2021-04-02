@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="zoos.css" />
     <title>Document</title>
   </head>
-  <body>
+  <body class="bg-additional">
     <header class="header bg-primary">
       <h1 class="visuallyhidden">Online Zoo</h1>
       <div class="wrapper header__wrapper">
@@ -54,57 +54,101 @@
       </div>
     </header>
     <main>
+      <aside class="side-bar">
+        <a class="side-bar__item side-bar__item_active">
+          <img
+            src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/panda.png"
+            alt="eagle"
+            class="side-bar__img_active"
+          />
+        </a>
+          <a class="side-bar__item">
+           <img
+          src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/eagle.png"
+          alt="eagle"
+          class="side-bar__img"
+        />
+        </a>
+          <a class="side-bar__item">
+           <img
+          src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/crocodile.png"
+          alt="eagle"
+          class="side-bar__img"
+        />
+        </a>
+          <a class="side-bar__item">
+          <img
+          src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/gorilla.png"
+          alt="gorilla"
+          class="side-bar__img"
+        />
+        </a>
+
+
+
+      </aside>
       <div class="zoo">
         <h2 class="zoo__title">The Beijing Zoo</h2>
         <section class="zoo__main">
-          <iframe
-            class="zoo__player"
-            width="790p"
-            height="442px"
-            src="https://www.youtube.com/embed/65JHo3Cy2tY"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div class="zoo__wrapper">
+            <iframe
+              class="zoo__player"
+              width="100%"
+              height="442px"
+              src="https://www.youtube.com/embed/65JHo3Cy2tY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <div class="carousel">
+              <div class="carousel__content">
+                <img
+                  class="zoo__preview"
+                  src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/zoos/preview.png"
+                  alt="preview"
+                />
+                <img
+                  class="zoo__preview"
+                  src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/zoos/preview.png"
+                  alt="preview"
+                />
+                <img
+                  class="zoo__preview"
+                  src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/zoos/preview.png"
+                  alt="preview"
+                />
+              </div>
+              <div class="carousel__control">
+                <input class="carousel__input"type="radio" id="rad1" name="rads" checked/>
+                <label class="carousel__label" for="rad1"></label>
+                <input class="carousel__input"type="radio" id="rad2" name="rads" />
+                <label class="carousel__label" for="rad2"></label>
+                <input class="carousel__input"type="radio" id="rad3" name="rads" />
+                <label class="carousel__label" for="rad3"></label>
+              </div>
+            </div>
+          </div>
           <aside class="description">
             <div class="description__item">
               <h4 class="description__header">Population:</h4>
-              <p>About 1,590 individuals</p>
+              <p class="section-descrition description__text">About 1,590 individuals</p>
             </div>
             <div class="description__item">
               <h4 class="description__header">Habitat:</h4>
-              <p>Temperate forests high in the mountains of southwest China</p>
+              <p class="section-descrition description__text">Temperate forests high in the mountains of southwest China</p>
             </div>
             <div class="description__item">
               <h4 class="description__header">Diet:</h4>
-              <p>
+              <p class="section-descrition description__text">
                 A panda's daily diet consists almost entirely of the leaves, stems and shoots of various
                 bamboo species. Bamboo contains very little nutritional value so pandas must eat 12-38kg every
                 day to meet their energy needs.
               </p>
             </div>
-
-           <button class="btn btn_feed">feed</button>
+            <button class="btn btn_feed">feed</button>
           </aside>
         </section>
-        <div class="carousel">
-          <img
-            class="zoo__preview"
-            src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/zoos/preview.png"
-            alt="preview"
-          />
-          <img
-            class="zoo__preview"
-            src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/zoos/preview.png"
-            alt="preview"
-          />
-          <img
-            class="zoo__preview"
-            src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/zoos/preview.png"
-            alt="preview"
-          />
-        </div>
       </div>
     </main>
     <footer class="footer">
@@ -162,12 +206,12 @@
           <div class="footer__right">
             <div class="layout-2-column">
               <ul class="navigation">
-                <li><a class="footer__link" href="#">About</a></li>
+                <li><a class="footer__link" href="/akzhuk-JSFE2021Q1/online-zoo/index/index.html">About</a></li>
                 <li><a class="footer__link" href="#">Zoos</a></li>
-                <li><a class="footer__link" href="#">Map</a></li>
+                <li><a class="footer__link" href="/akzhuk-JSFE2021Q1/online-zoo/pages/map/map.html">Map</a></li>
                 <li>
                   <a
-                    class="footer__link"
+                    class="footer__link" description__text
                     href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp?node-id=0%3A1"
                     >Design</a
                   >
@@ -186,22 +230,22 @@
               <ul class="social social_horizontal">
                 <li class="social__link">
                   <a href="https://www.instagram.com/?hl=ru"
-                    ><object data="../assets/icons/social/instagram.svg" type="image/svg+xml"></object
+                    ><object data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/social/instagram.svg" type="image/svg+xml"></object
                   ></a>
                 </li>
                 <li class="social__link">
                   <a href="https://twitter.com/?lang=ru"
-                    ><object data="../assets/icons/social/twitter.svg" type="image/svg+xml"></object
+                    ><object data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/social/twitter.svg" type="image/svg+xml"></object
                   ></a>
                 </li>
                 <li class="social__link">
                   <a href="https://www.youtube.com/"
-                    ><object data="../assets/icons/social/youtube.svg" type="image/svg+xml"></object
+                    ><object data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/social/youtube.svg" type="image/svg+xml"></object
                   ></a>
                 </li>
                 <li class="social__link">
                   <a href="https://vk.com/feed"
-                    ><object data="../assets/icons/social/vk.svg" type="image/svg+xml"></object
+                    ><object data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/social/vk.svg" type="image/svg+xml"></object
                   ></a>
                 </li>
               </ul>
