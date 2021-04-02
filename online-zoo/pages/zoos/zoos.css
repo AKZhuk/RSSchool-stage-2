@@ -1,5 +1,6 @@
 .side-bar {
   width: 209px;
+  height: 830px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,12 +14,28 @@
   position: absolute;
 }
 
-.side-bar::before {
+.side-bar-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.side-bar-wrapper::before {
   content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-top.svg);
   margin-bottom: 15px;
 }
 
-.side-bar::after {
+.side-bar-wrapper::after {
   content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-bottom.svg);
   margin-top: 15px;
 }
