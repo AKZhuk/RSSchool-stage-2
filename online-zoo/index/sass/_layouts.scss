@@ -1,6 +1,6 @@
 .header {
   box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
-  padding: 26px 0 23px 1;
+  padding: 26px 0 23px 0;
   &__wrapper {
     display: flex;
     justify-content: space-between;
@@ -232,42 +232,54 @@
     margin-top: 46px;
   }
 }
-.map-content div img {
-  position: relative;
-  right: 59px;
-  bottom: 40px;
-}
+
 //map style
 .map {
+  position: relative;
   &-content {
     @extend %flex-column-center;
   }
+  &-content div img {
+    position: relative;
+    right: 59px;
+    bottom: 40px;
+  }
+
   &__title {
     margin-bottom: 63px;
+  }
+  &__gorilla {
+    position: absolute;
+    top: 27%;
+    left: 48%;
+  }
+  &__panda {
+    position: absolute;
+    top: 13%;
+    left: 74%;
+  }
+  &__eagle {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+  }
+  &__crocodile {
+    position: absolute;
+    top: 14%;
+    left: 20%;
   }
   &__item {
     &:hover path {
       fill: #eb5757;
       @extend %transition;
     }
-    &_gorilla {
-      position: absolute;
-      margin: 365px 0 0 0;
-    }
-    &_panda {
-      position: absolute;
-      margin: 275px -641px 0 0;
-    }
-    &_crocodile {
-      position: absolute;
-      margin: 285px 639px 0 0;
-    }
-    &_eagle {
-      position: absolute;
-      margin: 153px 996px 0 0;
-    }
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
   }
 }
+
 //footer style
 .footer {
   background: #333;
