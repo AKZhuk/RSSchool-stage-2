@@ -5,7 +5,7 @@
 }
 
 input[type="range"]:hover, .logo:hover, .social__link:hover, .sliders__btn:hover .arrow, .form__btn:hover {
-  opacity: 40%;
+  opacity: 50%;
   cursor: pointer;
 }
 
@@ -51,6 +51,19 @@ input[type="range"]:hover, .logo:hover, .social__link:hover, .sliders__btn:hover
   text-transform: uppercase;
 }
 
+.wrapper {
+  max-width: 1620px;
+  margin: 0 auto;
+}
+
+.bg-primary {
+  background-color: var(--color-bg-primary);
+}
+
+.bg-additional {
+  background-color: var(--color-bg-additional);
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -58,26 +71,26 @@ html {
   font-size: 10px;
 }
 
-html[data-theme='light'] {
+html[data-theme="light"] {
   --color-gray-1: #333333;
   --color-text: #4f4f4f;
   --color-bg-primary: #ffffff;
   --color-bg-additional: #f2f2f2;
   --color-form: #bdbdbd;
   --color-base: #333;
-  --color-testimionials-card: #FEFEFE;
-  --color-toggle-round: #FFFFFF;
+  --color-testimionials-card: #fefefe;
+  --color-toggle-round: #ffffff;
 }
 
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   --color-gray-1: #fff;
-  --color-text: #F2F2F2;
-  --color-bg-primary:  #333333;
-  --color-bg-additional: #4F4F4F;
+  --color-text: #f2f2f2;
+  --color-bg-primary: #333333;
+  --color-bg-additional: #4f4f4f;
   --color-form: #bdbdbd;
   --color-base: #fefefe;
-  --color-testimionials-card: #3C3C3C;
-  --color-toggle-round: #1B1B1B;
+  --color-testimionials-card: #3c3c3c;
+  --color-toggle-round: #1b1b1b;
 }
 
 body {
@@ -98,7 +111,7 @@ body {
 }
 
 h1 {
-  color: #FEFEFE;
+  color: #fefefe;
   font-size: 8.9rem;
   font-weight: 900;
   font-size: 8.9rem;
@@ -158,7 +171,7 @@ button:focus {
   width: 245px;
   height: 55px;
   background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
   font-size: 1.8rem;
   font-weight: 900;
@@ -323,7 +336,7 @@ input:checked + .slider:before {
 .header {
   -webkit-box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
           box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
-  padding: 26px 0 23px 0;
+  padding: 26px 0 23px 1;
 }
 
 .header__wrapper {
@@ -391,7 +404,7 @@ input:checked + .slider:before {
   height: 20px;
 }
 
-.promo__title {
+.promo__header {
   padding-top: 206px;
   padding-left: 209px;
 }
@@ -822,71 +835,6 @@ input:checked + .slider:before {
 
 .designer {
   margin: 28px 0 5px 0;
-}
-
-.btn:hover, input[type="range"]:hover, .logo:hover, .social__link:hover, .sliders__btn:hover .arrow, .map__item:hover path, .form__btn:hover {
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
-
-input[type="range"]:hover, .logo:hover, .social__link:hover, .sliders__btn:hover .arrow, .form__btn:hover {
-  opacity: 40%;
-  cursor: pointer;
-}
-
-.control, .card, .pets-in-zoo-content, .pay-and-feed-content, .testimonials-content, .testimonials__card, .map-content, .form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.footer_layout, .contact .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.gallery, .layout-3-column,
-.layout-2-column,
-.layout-4-column,
-.layout-5-column, .form__btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.wrapper {
-  max-width: 1618px;
-  margin: 0 auto;
-}
-
-.bg-primary {
-  background-color: var(--color-bg-primary);
-}
-
-.bg-additional {
-  background-color: var(--color-bg-additional);
 }
 
 .promo {

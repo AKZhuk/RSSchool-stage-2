@@ -2,62 +2,12 @@
 @import "base";
 @import "layouts";
 
-%transition {
-  transition: all 0.3s ease-out;
-}
-%opacity {
-  opacity: 40%;
-  cursor: pointer;
-}
-
-%flex-column-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-%flex-column {
-  display: flex;
-  flex-direction: column;
-
-}
-%flex-row-space-btw {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@mixin font($size, $height, $weight: 900, $style: normal) {
-  font-size: $size;
-  font-weight: $weight;
-  font-size: $size;
-  line-height: $height;
-}
-
-.uppercase{
-  text-transform: uppercase;
-}
-
-.wrapper {
-  max-width: $content-width;
-  margin: 0 auto;
-}
-
-.bg-primary{
-  background-color: var(--color-bg-primary) ;
-}
-.bg-additional {
-  background-color: var(--color-bg-additional);
-}
-
 .promo {
   width: 100%;
   height: 940px;
   background: url(../assets/images/mountains.jpg);
   background-size: cover;
 }
-
-
 
 .panda {
   background: url(../assets/images/panda.jpg);
