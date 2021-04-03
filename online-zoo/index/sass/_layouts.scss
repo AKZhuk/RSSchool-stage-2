@@ -85,7 +85,7 @@
 }
 .section__title {
   height: 56px;
-  margin: 100px 0 30px 0;
+
   display: flex;
   align-items: center;
   color: var(--color-base);
@@ -100,6 +100,10 @@
   &__wrapper {
     max-width: 790px !important;
     margin: 0 auto;
+  }
+
+  &__title {
+    margin: 100px 0 30px 0;
   }
   &_button {
     display: flex;
@@ -147,7 +151,7 @@
     @extend %flex-column-center;
   }
   &__title {
-    margin-bottom: 35px;
+    margin: 100px 0 35px 0;
   }
   &__card {
     width: 278px;
@@ -184,7 +188,9 @@
   &-content {
     @extend %flex-column-center;
   }
-
+  &__title {
+    margin: 100px 0 35px 0;
+  }
   &__text {
     margin-bottom: 92px;
     color: var(--color-text);
@@ -203,10 +209,10 @@
   &-content {
     @extend %flex-column-center;
   }
-
-  &__header {
-    margin-bottom: 63px;
+  &__title {
+    margin: 100px 0 63px 0;
   }
+
   &__card {
     @extend %flex-column-center;
     background-color: var(--color-testimionials-card);
@@ -218,13 +224,14 @@
     &:first-child {
       margin-right: 30px;
     }
+    &__title {
+      margin: 17px 0;
+    }
   }
   &__img {
     margin: 47px 0 0 0;
   }
-  &__title {
-    margin: 17px 0;
-  }
+
   &__text {
     width: 440px;
   }
@@ -246,7 +253,7 @@
   }
 
   &__title {
-    margin-bottom: 63px;
+    margin: 100px 0 63px 0;
   }
   &__gorilla {
     position: absolute;

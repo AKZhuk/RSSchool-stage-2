@@ -443,7 +443,6 @@ input:checked + .slider:before {
 
 .section__title {
   height: 56px;
-  margin: 100px 0 30px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -465,6 +464,10 @@ input:checked + .slider:before {
 .how-it-work__wrapper {
   max-width: 790px !important;
   margin: 0 auto;
+}
+
+.how-it-work__title {
+  margin: 100px 0 30px 0;
 }
 
 .how-it-work_button {
@@ -508,7 +511,7 @@ input:checked + .slider:before {
 }
 
 .pets-in-zoo__title {
-  margin-bottom: 35px;
+  margin: 100px 0 35px 0;
 }
 
 .pets-in-zoo__card {
@@ -546,6 +549,10 @@ input:checked + .slider:before {
   fill: var(--color-base);
 }
 
+.pay-and-feed__title {
+  margin: 100px 0 35px 0;
+}
+
 .pay-and-feed__text {
   margin-bottom: 92px;
   color: var(--color-text);
@@ -560,8 +567,8 @@ input:checked + .slider:before {
   margin-right: 0px;
 }
 
-.testimonials__header {
-  margin-bottom: 63px;
+.testimonials__title {
+  margin: 100px 0 63px 0;
 }
 
 .testimonials__card {
@@ -578,12 +585,12 @@ input:checked + .slider:before {
   margin-right: 30px;
 }
 
-.testimonials__img {
-  margin: 47px 0 0 0;
+.testimonials__card__title {
+  margin: 17px 0;
 }
 
-.testimonials__title {
-  margin: 17px 0;
+.testimonials__img {
+  margin: 47px 0 0 0;
 }
 
 .testimonials__text {
@@ -605,7 +612,7 @@ input:checked + .slider:before {
 }
 
 .map__title {
-  margin-bottom: 63px;
+  margin: 100px 0 63px 0;
 }
 
 .map__gorilla {

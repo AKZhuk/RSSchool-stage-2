@@ -4,25 +4,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-    position: absolute;
+  position: absolute;
   &-wrapper {
     position: sticky;
     top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  &::before {
-    content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-top.svg);
-    margin-bottom: 15px;
-
+    &::before {
+      content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-top.svg);
+      margin-bottom: 15px;
+    }
+    &::after {
+      content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-bottom.svg);
+      margin-top: 15px;
+    }
   }
-  &::after {
-    content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-bottom.svg);
-    margin-top: 15px;
-  }
-  }
-
-
 
   &__item {
     margin-bottom: 10px;
