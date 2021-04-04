@@ -58,11 +58,10 @@
     <main class="bg-primary">
       <div class="wrapper">
         <section class="map-section">
-          <div class="wrapper">
             <div class="map-content">
               <section class="choose-favorite-wrapper">
-                <h2 class="section__title">Choose your favorite</h2>
-                <p class="section-descrition">
+                <h2 class="section__title choose-favorite__title">Choose your favorite</h2>
+                <p class="section-descrition choose-favorite__description">
                   As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on
                   precious species and their habitat, and we are determined to assist in all aspects,
                   including providing veterinary support and raising much-needed emergency funds. Zoo Online
@@ -74,63 +73,112 @@
                 </p>
               </section>
               <section class="carousel">
-                <a class="carousel__item">
-                  <img
-                    src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/gorilla.png"
-                    alt="gorilla"
-                    class="carousel__img"
+                <div class="carousel-content">
+                  <div class="sliders__button sliders__button_left">
+                  <svg
+                    class="arrow"
+                    width="18"
+                    height="30"
+                    viewBox="0 0 18 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.666298 16.1706L14.0167 29.5207C14.3255 29.8298 14.7376 30 15.1772 30C15.6167 30 16.0289 29.8298 16.3376 29.5207L17.3208 28.5378C17.9605 27.8973 17.9605 26.8564 17.3208 26.2169L6.11016 15.0062L17.3332 3.78314C17.642 3.47412 17.8125 3.06217 17.8125 2.6229C17.8125 2.18315 17.642 1.7712 17.3332 1.46194L16.3501 0.479263C16.0411 0.17024 15.6291 0 15.1896 0C14.7501 0 14.3379 0.17024 14.0291 0.479263L0.666298 13.8416C0.356789 14.1516 0.18679 14.5655 0.187767 15.0055C0.18679 15.4472 0.356789 15.8608 0.666298 16.1706Z"
+                      fill="#333333"
+                    />
+                  </svg>
+                </div>
+                <section class="carousel__items">
+                  <a class="carousel__item">
+                    <img
+                      src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/gorilla.png"
+                      alt="gorilla"
+                      class="carousel__img"
+                    />
+                  </a>
+                  <a class="carousel__item_active">
+                    <img
+                      src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/panda.png"
+                      alt="panda"
+                      class="carousel__img_active"
+                    />
+                  </a>
+                  <a class="carousel__item">
+                    <img
+                      src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/crocodile.png"
+                      alt="crocodile"
+                      class="carousel__img"
+                    />
+                  </a>
+                  <a class="carousel__item">
+                    <img
+                      src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/eagle.png"
+                      alt="eagle"
+                      class="carousel__img"
+                    />
+                  </a>
+                  <a class="carousel__item">
+                    <img
+                      src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/tiger.png"
+                      alt="tiger"
+                      class="carousel__img"
+                    />
+                  </a>
+                  <a class="carousel__item">
+                    <img
+                      src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/elephant.png"
+                      alt="elephant"
+                      class="carousel__img"
+                    />
+                  </a>
+                  <a class="carousel__item">
+                    <img
+                      src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/lion.png"
+                      alt="lion"
+                      class="carousel__img"
+                    />
+                  </a>
+                  <a class="carousel__item">
+                    <img
+                      src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/zebra.png"
+                      alt="zebra"
+                      class="carousel__img"
+                    />
+                  </a>
+                </section>
+                <div class="sliders__button sliders__button_right">
+                <svg
+                class="arrow"
+                width="18"
+                height="30"
+                viewBox="0 0 18 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M17.3337 13.8294L3.98332 0.479264C3.67454 0.170243 3.26235 0 2.82284 0C2.38334 0 1.97114 0.170243 1.66237 0.479264L0.679203 1.46218C0.0394526 2.10267 0.0394526 3.14363 0.679203 3.78314L11.8898 14.9938L0.666764 26.2169C0.357986 26.5259 0.1875 26.9378 0.1875 27.3771C0.1875 27.8168 0.357986 28.2288 0.666764 28.5381L1.64993 29.5207C1.95895 29.8298 2.3709 30 2.81041 30C3.24991 30 3.66211 29.8298 3.97088 29.5207L17.3337 16.1584C17.6432 15.8484 17.8132 15.4345 17.8122 14.9945C17.8132 14.5528 17.6432 14.1392 17.3337 13.8294Z"
+                  fill="#333333"
+                />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="control carousel__control">
+                  <text class="control__text"
+                    ><output id="mapRange" class="control__output" name="result">02/</output>08</text
+                  >
+                  <input
+                    class="control__range"
+                    name=""
+                    type="range"
+                    min="01"
+                    max="08"
+                    value="02"
+                    onmousemove="mapRange.value=`0${value}/`"
                   />
-                </a>
-                <a class="carousel__item_active">
-                  <img
-                    src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/panda.png"
-                    alt="panda"
-                    class="carousel__img_active"
-                  />
-                </a>
-                <a class="carousel__item">
-                  <img
-                    src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/crocodile.png"
-                    alt="crocodile"
-                    class="carousel__img"
-                  />
-                </a>
-                <a class="carousel__item">
-                  <img
-                    src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/eagle.png"
-                    alt="eagle"
-                    class="carousel__img"
-                  />
-                </a>
-                <a class="carousel__item">
-                  <img
-                    src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/tiger.png"
-                    alt="tiger"
-                    class="carousel__img"
-                  />
-                </a>
-                <a class="carousel__item">
-                  <img
-                    src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/elephant.png"
-                    alt="elephant"
-                    class="carousel__img"
-                  />
-                </a>
-                <a class="carousel__item">
-                  <img
-                    src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/lion.png"
-                    alt="lion"
-                    class="carousel__img"
-                  />
-                </a>
-                <a class="carousel__item">
-                  <img
-                    src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/zebra.png"
-                    alt="zebra"
-                    class="carousel__img"
-                  />
-                </a>
+                </div>
               </section>
+
               <div class="map">
                 <object
                   data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/map.svg"
@@ -164,7 +212,7 @@
                       </linearGradient>
                     </defs>
                   </svg>
-                  <img src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/map/eagle.png" alt="eagle" />
+                  <img class="map-item_img" src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/map/eagle.png" alt="eagle" />
                 </div>
 
                 <div class="map__crocodile">
@@ -194,7 +242,7 @@
                       </linearGradient>
                     </defs>
                   </svg>
-                  <img src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/map/crocodile.png" alt="crocodile" />
+                  <img class="map-item_img" src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/map/crocodile.png" alt="crocodile" />
                 </div>
                 <div class="map__gorilla">
                   <svg
@@ -224,7 +272,7 @@
                     </defs>
                   </svg>
                   <img
-                    class="test"
+                    class="map-item_img"
                     src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/map/gorilla.png"
                     alt="gorilla"
                   />
@@ -256,10 +304,13 @@
                       </linearGradient>
                     </defs>
                   </svg>
-                  <img src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/map/panda.png" alt="panda" />
+                  <img class="map-item_img" src="/akzhuk-JSFE2021Q1/online-zoo/assets/images/map/panda.png" alt="panda" />
                 </div>
                 <div class="map__button">
-                  <button class="btn btn_img">
+                  <button
+                    class="btn btn_img"
+                    onclick="window.location.href='/akzhuk-JSFE2021Q1/online-zoo/pages/zoos/panda.html'"
+                  >
                     <object
                       class="button__img_play"
                       data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/main_btn/light.svg"
@@ -358,32 +409,32 @@
                 <a class="address" href="mailto:zoo.online@gmail.com">zoo.online@gmail.com</a>
               </address>
               <ul class="social social_horizontal">
-                <li class="social__link">
-                  <a href="https://www.instagram.com/?hl=ru"
+                <li class="social__item">
+                  <a class="social__link" href="https://www.instagram.com/?hl=ru"
                     ><object
                       data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/social/instagram.svg"
                       type="image/svg+xml"
                     ></object
                   ></a>
                 </li>
-                <li class="social__link">
-                  <a href="https://twitter.com/?lang=ru"
+                <li class="social__item">
+                  <a class="social__link" href="https://twitter.com/?lang=ru"
                     ><object
                       data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/social/twitter.svg"
                       type="image/svg+xml"
                     ></object
                   ></a>
                 </li>
-                <li class="social__link">
-                  <a href="https://www.youtube.com/"
+                <li class="social__item">
+                  <a class="social__link" href="https://www.youtube.com/"
                     ><object
                       data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/social/youtube.svg"
                       type="image/svg+xml"
                     ></object
                   ></a>
                 </li>
-                <li class="social__link">
-                  <a href="https://vk.com/feed"
+                <li class="social__item">
+                  <a class="social__link" href="https://vk.com/feed"
                     ><object
                       data="/akzhuk-JSFE2021Q1/online-zoo/assets/icons/social/vk.svg"
                       type="image/svg+xml"

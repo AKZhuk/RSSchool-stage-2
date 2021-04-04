@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
-.btn:hover, input[type="range"]:hover, .logo:hover, .social__link:hover, .sliders__btn:hover .arrow, .map__item:hover path, .form__btn:hover {
+.btn:hover, input[type="range"]:hover, .logo:hover, .social__item:hover, .pets-in-zoo__card .card-description, .sliders__button:hover .arrow, .map__item:hover path, .form__btn:hover {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
-input[type="range"]:hover, .logo:hover, .social__link:hover, .sliders__btn:hover .arrow, .form__btn:hover {
+.btn:hover, input[type="range"]:hover, .logo:hover, .social__item:hover, .sliders__button:hover .arrow, .form__btn:hover {
   opacity: 50%;
   cursor: pointer;
 }
@@ -185,7 +185,6 @@ button:focus {
 
 .btn:hover {
   cursor: pointer;
-  background: linear-gradient(106.89deg, #3eb395 -14.32%, #39a4ac 100.68%);
 }
 
 .btn_img {
@@ -206,6 +205,11 @@ button:focus {
   margin: 32px 0 100px 0;
   border-radius: 3px;
   text-align: center;
+}
+
+.button__img_play {
+  width: 32px;
+  height: 32px;
 }
 
 input {
@@ -337,6 +341,52 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.tooltip {
+  width: 436px;
+  height: 149px;
+  background: var(--color-testimionials-card);
+  -webkit-box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+          box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+  border-radius: 8px;
+  opacity: 0;
+}
+
+.tooltip-content {
+  padding: 40px 44px 44px 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tooltip__img {
+  width: 65px;
+  height: 65px;
+  margin-right: 20px;
+}
+
+.tooltip__header {
+  margin-bottom: 7px;
+  height: 21px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-size: 1.8rem;
+  line-height: 21px;
+  color: #333333;
+}
+
+.tooltip__text {
+  font-size: 1.4rem;
+  font-weight: normal;
+  font-size: 1.4rem;
+  line-height: 16px;
+  color: var(--color-text);
+  margin-bottom: 5px;
+}
+
+.tooltip__text_bold {
+  font-weight: 500;
+}
+
 .header {
   -webkit-box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
           box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
@@ -398,14 +448,26 @@ input:checked + .slider:before {
 .link-active {
   font-weight: 900;
   text-decoration: underline !important;
+}
+
+.link-active a {
+  cursor: default;
+  pointer-events: none;
+}
+
+.social {
+  width: 35px;
+}
+
+.social__item {
+  margin-bottom: 15px;
+  margin-right: 15px;
+  height: 20px;
   cursor: pointer;
 }
 
 .social__link {
-  margin-bottom: 15px;
-  margin-right: 15px;
-  width: 20px;
-  height: 20px;
+  display: block;
 }
 
 .promo__header {
@@ -515,6 +577,7 @@ input:checked + .slider:before {
 }
 
 .pets-in-zoo__card {
+  position: relative;
   width: 278px;
   height: 399px;
   margin-right: 30px;
@@ -524,7 +587,57 @@ input:checked + .slider:before {
   margin: 0;
 }
 
-.sliders__btn {
+.pets-in-zoo__card:hover .card-description {
+  top: 0%;
+  opacity: 1;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  height: 100%;
+  -webkit-transition-property: top, opacity, height;
+  transition-property: top, opacity, height;
+}
+
+.pets-in-zoo__card .card-description {
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  top: 100%;
+  background: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: normal;
+  font-size: 1.4rem;
+  line-height: 16px;
+}
+
+.pets-in-zoo__card .card-content {
+  margin: 0 59px 44px 22px;
+}
+
+.pets-in-zoo__card .card__text {
+  margin-bottom: 14px;
+}
+
+.pets-in-zoo__card .card__button:hover path {
+  fill: #4bd8b5;
+}
+
+.pets-in-zoo__card .card__button:hover circle {
+  stroke: #4bd8b5;
+}
+
+.sliders__button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -533,15 +646,15 @@ input:checked + .slider:before {
           align-items: center;
 }
 
-.sliders__btn.right {
+.sliders__button_right {
   margin-left: 26px;
 }
 
-.sliders__btn.left {
+.sliders__button_left {
   margin-right: 26px;
 }
 
-.sliders__btn:hover {
+.sliders__button:hover {
   cursor: pointer;
 }
 
@@ -605,42 +718,48 @@ input:checked + .slider:before {
   position: relative;
 }
 
-.map-content div img {
-  position: relative;
-  right: 59px;
-  bottom: 40px;
-}
-
 .map__title {
   margin: 100px 0 63px 0;
 }
 
 .map__gorilla {
   position: absolute;
-  top: 27%;
-  left: 48%;
+  top: 27.4%;
+  left: 47.6%;
 }
 
 .map__panda {
   position: absolute;
-  top: 13%;
-  left: 74%;
+  top: 13.1%;
+  left: 74.4%;
 }
 
 .map__eagle {
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 10.6%;
+  left: 10.1%;
 }
 
 .map__crocodile {
   position: absolute;
-  top: 14%;
-  left: 20%;
+  top: 14.8%;
+  left: 20.4%;
+}
+
+.map-item_img {
+  position: relative;
+  right: 59px;
+  bottom: 40px;
 }
 
 .map__item:hover path {
   fill: #eb5757;
+}
+
+.map__item:hover ~ .tooltip {
+  opacity: 1;
+  -webkit-transition: ease-in-out 1s;
+  transition: ease-in-out 1s;
 }
 
 .map__button {
@@ -738,6 +857,12 @@ input:checked + .slider:before {
 }
 
 .form__agree {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 25px;
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -785,6 +910,9 @@ input:checked + .slider:before {
 }
 
 .form__checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: 13px;
   height: 13px;
   border: 1px solid #bdbdbd;
@@ -876,15 +1004,15 @@ input:checked + .slider:before {
   background: url(../assets/images/panda.jpg);
 }
 
-.eagles {
-  background: url(../assets/images/eagles.jpg);
-}
-
 .gorilla {
   background: url(../assets/images/gorilla.jpg);
 }
 
 .crocodile {
   background: url(../assets/images/crocodile.jpg);
+}
+
+.eagles {
+  background: url(../assets/images/eagles.jpg);
 }
 /*# sourceMappingURL=style.css.map */
