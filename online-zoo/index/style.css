@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
-.btn:hover, input[type="range"]:hover, .logo:hover, .social__item:hover, .pets-in-zoo__card .card-description, .sliders__button:hover .arrow, .map__item:hover path, .form__btn:hover {
+.btn:hover, input[type="range"]:hover, .logo:hover, .social__item:hover, .card-description, .sliders__button:hover .arrow, .map__item:hover path, .form__btn:hover {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
@@ -32,7 +32,7 @@
           flex-direction: column;
 }
 
-.gallery, .layout-3-column,
+.layout-3-column,
 .layout-2-column,
 .layout-4-column,
 .layout-5-column, .form__btn {
@@ -171,14 +171,14 @@ button:focus {
 }
 
 .btn {
-  letter-spacing: -1.9px;
+  letter-spacing: -0.9px;
   width: 245px;
   height: 55px;
   background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
   color: #ffffff;
   text-transform: uppercase;
   font-size: 1.8rem;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1.8rem;
   line-height: 21px;
 }
@@ -247,6 +247,10 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -2px;
 }
 
+input[type="range"].control__range_light::-webkit-slider-thumb {
+  background: #fefefe;
+}
+
 input[type="range"].range_long::-webkit-slider-thumb {
   width: 60px;
 }
@@ -273,6 +277,10 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   font-weight: 900;
   font-size: 2.4rem;
   line-height: 28px;
+}
+
+.control__output_light {
+  color: #fefefe;
 }
 
 .control__text {
@@ -462,30 +470,49 @@ input:checked + .slider:before {
 .social__item {
   margin-bottom: 15px;
   margin-right: 15px;
-  height: 20px;
   cursor: pointer;
+}
+
+.social__item:last-child {
+  margin-bottom: 0px;
 }
 
 .social__link {
   display: block;
 }
 
+.promo {
+  overflow: hidden;
+}
+
 .promo__header {
-  padding-top: 206px;
-  padding-left: 209px;
+  margin: 206px 0 0 209px;
+}
+
+.promo__social {
+  position: relative;
+  top: 123px;
 }
 
 .gallery {
-  background: url();
-  position: absolute;
-  width: 1124px;
-  height: 421px;
-  left: 840px;
-  top: 406px;
+  position: relative;
+  left: 43.6%;
+  bottom: 300px;
+  height: 352px;
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/line.svg) left center no-repeat;
+}
+
+.gallery__carousel {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .gallery__card {
-  margin-right: 46px;
+  margin-right: 45px;
   width: 140px;
   height: 203px;
   -webkit-filter: drop-shadow(5px 4px 50px rgba(152, 157, 198, 0.25));
@@ -493,14 +520,36 @@ input:checked + .slider:before {
   border-radius: 5px;
 }
 
-.gallery__card:first-child {
-  margin-left: 122px;
+.gallery__card:hover .card-description {
+  top: 0%;
+  opacity: 1;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  height: 100%;
+  -webkit-transition-property: top, opacity, height;
+  transition-property: top, opacity, height;
 }
 
-.gallery__card_active {
-  margin-right: 46px;
+.gallery__card:first-child {
+  margin-left: 136px;
+}
+
+.gallery__card_active, .gallery__card:hover {
+  position: relative;
+  bottom: 14px;
   width: 245px;
   height: 352px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.gallery__control {
+  width: 245px;
+  position: relative;
+  left: 16.8%;
+  bottom: 17px;
 }
 
 .section__title {
@@ -577,6 +626,7 @@ input:checked + .slider:before {
 }
 
 .pets-in-zoo__card {
+  border-radius: 5%;
   position: relative;
   width: 278px;
   height: 399px;
@@ -597,13 +647,14 @@ input:checked + .slider:before {
   transition-property: top, opacity, height;
 }
 
-.pets-in-zoo__card .card-description {
+.card-description {
   position: absolute;
   width: 100%;
   height: 0%;
   opacity: 0;
   top: 100%;
   background: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
+  border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -621,19 +672,19 @@ input:checked + .slider:before {
   line-height: 16px;
 }
 
-.pets-in-zoo__card .card-content {
-  margin: 0 59px 44px 22px;
+.card-content {
+  margin: 0px 0px 15% 8%;
 }
 
-.pets-in-zoo__card .card__text {
+.card__text {
   margin-bottom: 14px;
 }
 
-.pets-in-zoo__card .card__button:hover path {
+.card__button:hover path {
   fill: #4bd8b5;
 }
 
-.pets-in-zoo__card .card__button:hover circle {
+.card__button:hover circle {
   stroke: #4bd8b5;
 }
 
@@ -1002,17 +1053,21 @@ input:checked + .slider:before {
 
 .panda {
   background: url(../assets/images/panda.jpg);
+  background-size: cover;
 }
 
 .gorilla {
   background: url(../assets/images/gorilla.jpg);
+  background-size: cover;
 }
 
 .crocodile {
   background: url(../assets/images/crocodile.jpg);
+  background-size: cover;
 }
 
 .eagles {
   background: url(../assets/images/eagles.jpg);
+  background-size: cover;
 }
 /*# sourceMappingURL=style.css.map */
