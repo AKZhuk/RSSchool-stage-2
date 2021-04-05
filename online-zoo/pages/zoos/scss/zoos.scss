@@ -23,7 +23,10 @@
 
   &__item {
     margin-bottom: 10px;
-
+    &:hover {
+      opacity: 70%;
+      transition: all 0.5s;
+    }
     &_active {
       width: 157px;
       height: 157px;

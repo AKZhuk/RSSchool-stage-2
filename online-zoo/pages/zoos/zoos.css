@@ -42,6 +42,12 @@
   margin-bottom: 10px;
 }
 
+.side-bar__item:hover {
+  opacity: 70%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
 .side-bar__item_active {
   width: 157px;
   height: 157px;
