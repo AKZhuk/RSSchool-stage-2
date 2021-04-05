@@ -1,4 +1,3 @@
-@import "abstract";
 $base-gradient: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
 $content-width: 1620px;
 $desktop-min-width: 1200px;
@@ -98,11 +97,6 @@ body {
   width: 1px;
   padding: 0;
   border: 0;
-}
-h1 {
-  color: #fefefe;
-  @include font(8.9rem, 104px);
-  max-width: 793px;
 }
 
 h2 {
