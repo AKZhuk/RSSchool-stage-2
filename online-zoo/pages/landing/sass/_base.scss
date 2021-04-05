@@ -295,6 +295,8 @@ input:checked + .slider:before {
 //end switch style
 
 .tooltip {
+  z-index: -1;
+  position: absolute;
   width: 436px;
   height: 149px;
   background: var(--color-testimionials-card);
