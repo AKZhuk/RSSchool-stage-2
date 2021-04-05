@@ -1079,4 +1079,9 @@ input:checked + .slider:before {
   background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/eagles.jpg);
   background-size: cover;
 }
+
+.fox {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/fox.jpg);
+  background-size: cover;
+}
 /*# sourceMappingURL=style.css.map */
