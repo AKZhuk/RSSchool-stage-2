@@ -1,0 +1,64 @@
+.choose-favorite {
+  &-wrapper {
+    width: 790px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__title {
+    margin: 60px 0 20px 0;
+  }
+  &__description {
+    margin-bottom: 54px;
+  }
+}
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-content {
+    display: flex;
+  }
+  &__items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__item {
+    margin: 0 15px 0 15px;
+    &:last-child {
+      margin-right: 0px;
+    }
+    &_active {
+      width: 157px;
+      height: 157px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/border.svg);
+    }
+  }
+  &__img {
+    height: 108px;
+    width: 108px;
+    &:hover {
+      height: 137px;
+      width: 137px;
+      transition: all 0.3s ease-in-out;
+    }
+    &_active {
+      height: 137px;
+      width: 137px;
+    }
+  }
+
+  &__control {
+    margin: 32px 0 80px 0;
+  }
+}
+
+.btn_map {
+  margin-top: 43px;
+}

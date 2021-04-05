@@ -1,0 +1,327 @@
+$base-gradient: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+$content-width: 1620px;
+$desktop-min-width: 1200px;
+$tablet-width: 640px;
+$mobile-width: 320px;
+
+%transition {
+  transition: all 0.3s ease-out;
+}
+%opacity {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+%flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+%flex-row-space-btw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin font($size, $height, $weight: 900, $style: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
+.bg-primary {
+  background-color: var(--color-bg-primary);
+}
+.bg-additional {
+  background-color: var(--color-bg-additional);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
+html[data-theme="light"] {
+  --color-gray-1: #333333;
+  --color-text: #4f4f4f;
+  --color-bg-primary: #ffffff;
+  --color-bg-additional: #f2f2f2;
+  --color-form: #bdbdbd;
+  --color-base: #333;
+  --color-testimionials-card: #fefefe;
+  --color-toggle-round: #ffffff;
+  $color-map-primary: #333333;
+}
+
+html[data-theme="dark"] {
+  --color-gray-1: #fff;
+  --color-text: #f2f2f2;
+  --color-bg-primary: #333333;
+  --color-bg-additional: #4f4f4f;
+  --color-form: #bdbdbd;
+  --color-base: #fefefe;
+  --color-testimionials-card: #3c3c3c;
+  --color-toggle-round: #1b1b1b;
+  $color-map-primary: #e1e1e1;
+  .map-color_primary {
+    fill: #e1e1e1;
+  }
+}
+body {
+  font-size: 1.4rem;
+  font-family: "Roboto", Verdana, sans-serif;
+}
+
+.visuallyhidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+  clip-path: inset(0px 0px 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
+h2 {
+  @include font(4.8rem, 46px);
+  color: var(--color-gray-1);
+}
+
+h4 {
+  @include font(2rem, 23px);
+  color: var(--color-gray-1);
+}
+
+h6 {
+  color: var(--color-form);
+  @include font(1.2rem, 14px, 400);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-gray-1);
+  &:hover {
+    font-weight: 900;
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+  border: none;
+}
+
+.btn {
+  letter-spacing: -0.9px;
+  width: 245px;
+  height: 55px;
+  background: $base-gradient;
+  color: #ffffff;
+  text-transform: uppercase;
+  @include font(1.8rem, 21px, 700);
+
+  &:hover {
+    @extend %transition;
+    cursor: pointer;
+    @extend %opacity;
+  }
+  &_img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 32px 0 100px 0;
+    padding: 0 39px;
+  }
+  &_main {
+    margin: 32px 0 100px 0;
+    border-radius: 3px;
+    text-align: center;
+  }
+}
+.button__img_play {
+  width: 32px;
+  height: 32px;
+}
+input {
+  color: white;
+  &:focus {
+    outline: none;
+  }
+}
+//range style
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 245px;
+  height: 5px;
+  &:hover {
+    @extend %opacity;
+    @extend %transition;
+  }
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: rgba(189, 189, 189, 0.57);
+  border: 0px solid #000101;
+}
+input[type="range"]::-webkit-slider-thumb {
+  width: 30px;
+  height: 10px;
+  background: var(--color-gray-1);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -2px;
+}
+
+input[type="range"].control__range_light::-webkit-slider-thumb {
+  background: #fefefe;
+}
+input[type="range"].range_long::-webkit-slider-thumb {
+  width: 60px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: rgba(189, 189, 189, 0.57);
+}
+.range_long::-webkit-slider-thumb {
+  width: 60px;
+}
+.control {
+  margin-top: 25px;
+  @extend %flex-column-center;
+  &__text {
+    margin-bottom: 11px;
+  }
+  &__output {
+    color: var(--color-gray-1);
+    @include font(2.4rem, 28px);
+    &_light {
+      color: #fefefe;
+    }
+  }
+  &__text {
+    color: rgba(189, 189, 189, 0.57);
+    @include font(1.4rem, 16.41px);
+  }
+}
+//end range style
+//switch style
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 30px;
+  background: var(--color-bg-additional);
+  border-radius: 190px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-bg-additional);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  left: 6px;
+  top: 5px;
+
+  background: var(--color-toggle-round);
+
+  box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--color-bg-additional);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+//end switch style
+
+.tooltip {
+  width: 436px;
+  height: 149px;
+  background: var(--color-testimionials-card);
+  box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+  border-radius: 8px;
+  opacity: 0;
+  &-content {
+    padding: 40px 44px 44px 44px;
+    display: flex;
+  }
+  &__img {
+    width: 65px;
+    height: 65px;
+    margin-right: 20px;
+  }
+  &__header {
+    margin-bottom: 7px;
+    height: 21px;
+    @include font(1.8rem, 21px, 900);
+    color: #333333;
+  }
+  &__text {
+    @include font(1.4rem, 16px, normal, normal);
+    color: var(--color-text);
+    margin-bottom: 5px;
+    &_bold {
+      font-weight: 500;
+    }
+  }
+}

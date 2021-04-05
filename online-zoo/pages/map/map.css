@@ -1,0 +1,105 @@
+.choose-favorite-wrapper {
+  width: 790px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.choose-favorite__title {
+  margin: 60px 0 20px 0;
+}
+
+.choose-favorite__description {
+  margin-bottom: 54px;
+}
+
+.carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.carousel-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.carousel__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.carousel__item {
+  margin: 0 15px 0 15px;
+}
+
+.carousel__item:last-child {
+  margin-right: 0px;
+}
+
+.carousel__item_active {
+  width: 157px;
+  height: 157px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/border.svg);
+}
+
+.carousel__img {
+  height: 108px;
+  width: 108px;
+}
+
+.carousel__img:hover {
+  height: 137px;
+  width: 137px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.carousel__img_active {
+  height: 137px;
+  width: 137px;
+}
+
+.carousel__control {
+  margin: 32px 0 80px 0;
+}
+
+.btn_map {
+  margin-top: 43px;
+}
+/*# sourceMappingURL=map.css.map */
