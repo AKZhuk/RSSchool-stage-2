@@ -15,7 +15,7 @@
 
   &-wrapper {
     position: sticky;
-    top: 50px;
+    top: 159px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,10 @@
 
   &__item {
     margin-bottom: 10px;
-
+    &:hover {
+      opacity: 70%;
+      transition: all 0.5s;
+    }
     &_active {
       width: 157px;
       height: 157px;
@@ -45,13 +48,15 @@
 }
 
 .zoo {
-  width: 1200px;
-  margin: 64px auto 96px auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   &__wrapper {
     margin-right: 30px;
   }
   &__title {
-    margin: 0px 0 47px 0;
+    margin: 64px 0 47px 0;
   }
 
   &__main {
@@ -96,6 +101,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-bottom: 96px;
   &__content {
     display: flex;
     justify-content: space-between;

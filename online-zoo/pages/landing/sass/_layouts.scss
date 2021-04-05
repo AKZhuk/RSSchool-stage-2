@@ -1,5 +1,15 @@
+.shadow {
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --webkit-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  &_light {
+    box-shadow: inset 0px 4px 8px rgba(44, 101, 77, 0.08);
+    --webkit-box-shadow: inset 0px 4px 8px rgba(44, 101, 77, 0.08);
+  }
+}
+
 .header {
-  box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+  background: var(--color-bg-primary);
+
   padding: 26px 0 23px 0;
   &__wrapper {
     display: flex;
@@ -363,17 +373,21 @@
     left: 20.4%;
   }
   &-item_img {
-    position: relative;
-    right: 59px;
-    bottom: 40px;
+    position: absolute;
+    right: 12px;
+    bottom: 42px;
   }
 
   &__item {
+    &__active path {
+      fill: #eb5757;
+    }
     &:hover path {
       fill: #eb5757;
       @extend %transition;
     }
     &:hover ~ .tooltip {
+      z-index: 1;
       opacity: 1;
       transition: ease-in-out 1s;
     }

@@ -25,7 +25,7 @@
 .side-bar-wrapper {
   position: -webkit-sticky;
   position: sticky;
-  top: 50px;
+  top: 159px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,6 +40,12 @@
 
 .side-bar__item {
   margin-bottom: 10px;
+}
+
+.side-bar__item:hover {
+  opacity: 70%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .side-bar__item_active {
@@ -68,8 +74,15 @@
 }
 
 .zoo {
-  width: 1200px;
-  margin: 64px auto 96px auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .zoo__wrapper {
@@ -77,7 +90,7 @@
 }
 
 .zoo__title {
-  margin: 0px 0 47px 0;
+  margin: 64px 0 47px 0;
 }
 
 .zoo__main {
@@ -135,6 +148,7 @@
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  margin-bottom: 96px;
 }
 
 .carousel__content {
