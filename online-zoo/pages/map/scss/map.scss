@@ -27,13 +27,14 @@
   }
 
   &__item {
-    margin: 0 15px 0 15px;
+    margin-right: 30px;
     &:last-child {
       margin-right: 0px;
     }
     &_active {
       width: 157px;
       height: 157px;
+      margin: 0 5px 0 -25px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -54,7 +55,18 @@
     }
   }
 
+  &__button {
+    &_left {
+      margin-right: 40px;
+    }
+    &_right {
+      margin-left: 40px;
+    }
+  }
+
   &__control {
+    position: relative;
+    right: 18px;
     margin: 32px 0 80px 0;
   }
 }
