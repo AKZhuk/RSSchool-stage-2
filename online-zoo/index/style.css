@@ -574,11 +574,11 @@ input:checked + .slider:before {
 
 .how-it-work__wrapper {
   max-width: 790px !important;
-  margin: 0 auto;
+  margin: 100px auto;
 }
 
 .how-it-work__title {
-  margin: 100px 0 30px 0;
+  margin: 0 0 30px 0;
 }
 
 .how-it-work_button {
