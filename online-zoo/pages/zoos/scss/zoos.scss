@@ -1,31 +1,29 @@
 .side-bar {
-  width: 209px;
+  width: 196px;
   height: 830px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
+
+  &__arrow_top {
+    margin-bottom: 25px;
+  }
+  &__arrow_bottom {
+    margin-top: 15px;
+  }
+
   &-wrapper {
     position: sticky;
     top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    &::before {
-      content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-top.svg);
-      margin-bottom: 15px;
-    }
-    &::after {
-      content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-bottom.svg);
-      margin-top: 15px;
-    }
   }
 
   &__item {
     margin-bottom: 10px;
-    &:last-child {
-      margin-bottom: 0px;
-    }
+
     &_active {
       width: 157px;
       height: 157px;
@@ -48,7 +46,7 @@
 
 .zoo {
   width: 1200px;
-  margin: 60px auto 100px auto;
+  margin: 64px auto 96px auto;
   &__wrapper {
     margin-right: 30px;
   }

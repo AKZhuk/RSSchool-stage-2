@@ -1,5 +1,5 @@
 .side-bar {
-  width: 209px;
+  width: 196px;
   height: 830px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,6 +12,14 @@
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
+}
+
+.side-bar__arrow_top {
+  margin-bottom: 25px;
+}
+
+.side-bar__arrow_bottom {
+  margin-top: 15px;
 }
 
 .side-bar-wrapper {
@@ -30,22 +38,8 @@
           align-items: center;
 }
 
-.side-bar-wrapper::before {
-  content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-top.svg);
-  margin-bottom: 15px;
-}
-
-.side-bar-wrapper::after {
-  content: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/arrow-bottom.svg);
-  margin-top: 15px;
-}
-
 .side-bar__item {
   margin-bottom: 10px;
-}
-
-.side-bar__item:last-child {
-  margin-bottom: 0px;
 }
 
 .side-bar__item_active {
@@ -75,7 +69,7 @@
 
 .zoo {
   width: 1200px;
-  margin: 60px auto 100px auto;
+  margin: 64px auto 96px auto;
 }
 
 .zoo__wrapper {
