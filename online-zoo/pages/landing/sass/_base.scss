@@ -157,12 +157,12 @@ button {
 }
 
 .btn {
-  letter-spacing: -0.9px;
   width: 245px;
   height: 55px;
   background: $base-gradient;
   color: #ffffff;
   text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
   @include font(1.8rem, 21px, 700);
 
   &:hover {
