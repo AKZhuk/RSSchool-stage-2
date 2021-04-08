@@ -63,6 +63,10 @@
   background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/border.svg);
 }
 
+.side-bar__item_active:hover {
+  opacity: 1;
+}
+
 .side-bar__img {
   height: 108px;
   width: 108px;

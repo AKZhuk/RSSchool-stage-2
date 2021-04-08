@@ -28,6 +28,9 @@
       transition: all 0.5s;
     }
     &_active {
+      &:hover{
+        opacity: 1;
+      }
       width: 157px;
       height: 157px;
       display: flex;
