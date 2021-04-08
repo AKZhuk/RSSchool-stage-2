@@ -1,7 +1,7 @@
 $base-gradient: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
 $content-width: 1620px;
-$desktop-min-width: 1200px;
-$tablet-width: 640px;
+$desktop-min-width: 900px;
+$tablet-width: 600px;
 $mobile-width: 320px;
 
 %transition {
@@ -43,7 +43,28 @@ $mobile-width: 320px;
   max-width: $content-width;
   margin: 0 auto;
 }
+@media screen and (max-width: 1200px) and (min-width: 900px ) {
+   .wrapper{
+     max-width: $desktop-min-width;
+   }
+  }
+@media screen and (min-width: 630px ) and (max-width: 900px ) {
+.wrapper{
+     max-width: $tablet-width;
 
+}
+}
+@media screen and (max-width: 630px ) {
+.wrapper{
+     max-width: $mobile-width
+}
+.h2{
+  @include font(2.4rem, 28.13px);
+}
+.section__title {
+  height: 28px;
+}
+}
 .bg-primary {
   background-color: var(--color-bg-primary);
 }

@@ -56,6 +56,33 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+  .wrapper {
+    max-width: 900px;
+  }
+}
+
+@media screen and (min-width: 630px) and (max-width: 900px) {
+  .wrapper {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .wrapper {
+    max-width: 320px;
+  }
+  .h2 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    font-size: 2.4rem;
+    line-height: 28.13px;
+  }
+  .section__title {
+    height: 28px;
+  }
+}
+
 .bg-primary {
   background-color: var(--color-bg-primary);
 }
@@ -793,6 +820,10 @@ input:checked + .slider:before {
 
 .map__title {
   margin: 100px 0 63px 0;
+}
+
+.map__object {
+  width: 100%;
 }
 
 .map__gorilla {

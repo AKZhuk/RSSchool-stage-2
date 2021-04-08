@@ -1,11 +1,12 @@
 .choose-favorite {
   &-wrapper {
-    width: 790px;
+    max-width: 790px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
+
   &__title {
     margin: 60px 0 20px 0;
   }
@@ -17,13 +18,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   &-content {
     display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
   &__items {
     display: flex;
     flex-direction: row;
     align-items: center;
+    overflow: hidden;
   }
 
   &__item {
@@ -73,4 +79,23 @@
 
 .btn_map {
   margin-top: 43px;
+}
+
+@media screen and (max-width: 640px) {
+  .carousel {
+    &__item {
+      margin-right: 15px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+     &__button {
+    &_left {
+      margin-right: 20px;
+    }
+    &_right {
+      margin-left: 20px;
+    }
+  }
+  }
 }
