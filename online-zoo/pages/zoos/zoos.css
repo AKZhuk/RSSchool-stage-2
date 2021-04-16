@@ -204,4 +204,23 @@ input:checked + label:before {
   width: 11px;
   height: 11px;
 }
+
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+  .side-bar {
+    width: 196px;
+    height: 830px;
+  }
+  .side-bar__item_active {
+    width: 120px;
+    height: 120px;
+  }
+  .side-bar__img {
+    height: 96px;
+    width: 96px;
+  }
+  .side-bar__img_active {
+    height: 104px;
+    width: 104px;
+  }
+}
 /*# sourceMappingURL=zoos.css.map */

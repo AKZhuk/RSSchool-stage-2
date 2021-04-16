@@ -62,20 +62,11 @@
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
-}
-
-.carousel__item {
-  margin-right: 30px;
-}
-
-.carousel__item:last-child {
-  margin-right: 0px;
+  gap: 30px;
 }
 
 .carousel__item_active {
-  width: 157px;
-  height: 157px;
-  margin: 0 5px 0 -25px;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,7 +76,30 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/border.svg);
+}
+
+.carousel__item_active::before {
+  content: "";
+  position: absolute;
+  background: -webkit-gradient(linear, left top, right top, from(#07eee0), to(#df496d));
+  background: linear-gradient(90deg, #07eee0, #df496d);
+  width: 157px;
+  height: 157px;
+  top: -25px;
+  left: -24.1px;
+  border-radius: 50%;
+}
+
+.carousel__item_active::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  width: 151px;
+  height: 151px;
+  left: -21px;
+  top: -22px;
+  z-index: 2;
 }
 
 .carousel__img {
@@ -101,8 +115,10 @@
 }
 
 .carousel__img_active {
-  height: 137px;
-  width: 137px;
+  -webkit-transform: scale(1.2685);
+          transform: scale(1.2685);
+  z-index: 3;
+  position: relative;
 }
 
 .carousel__button_left {
@@ -123,6 +139,16 @@
   margin-top: 43px;
 }
 
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+  .choose-favorite__description {
+    margin-bottom: 35px;
+  }
+  .map-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .carousel__item {
     margin-right: 15px;
@@ -135,6 +161,9 @@
   }
   .carousel__button_right {
     margin-left: 20px;
+  }
+  .choose-favorite__title {
+    margin: 30px 0 10px 0;
   }
 }
 /*# sourceMappingURL=map.css.map */

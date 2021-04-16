@@ -145,3 +145,29 @@ input:checked + label:before {
   width: 11px;
   height: 11px;
 }
+
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+
+.side-bar {
+  width: 196px;
+  height: 830px;
+
+  &__item {
+
+    &_active {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  &__img {
+    height: 96px;
+    width: 96px;
+
+    &_active {
+      height: 104px;
+      width: 104px;
+    }
+  }
+}
+
+}
