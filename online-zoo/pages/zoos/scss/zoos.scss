@@ -27,16 +27,33 @@
       opacity: 70%;
       transition: all 0.5s;
     }
+
     &_active {
-      &:hover{
-        opacity: 1;
-      }
-      width: 157px;
       height: 157px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/border.svg);
+      &:hover {
+        opacity: 1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: #fff;
+        width: 150px;
+        height: 150px;
+        z-index: 2;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        background: linear-gradient(90deg, #07eee0, #df496d);
+        width: 157px;
+        height: 157px;
+        border-radius: 50%;
+      }
     }
   }
   &__img {
@@ -46,16 +63,22 @@
     &_active {
       height: 137px;
       width: 137px;
+      z-index: 3;
     }
   }
 }
-
+.video-main {
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
 .zoo {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   &__wrapper {
+    width: 65.8%;
     margin-right: 30px;
   }
   &__title {
@@ -69,6 +92,7 @@
   &__player {
     margin-bottom: 27px;
     border-radius: 5px;
+    position: absolute;
   }
   &__preview {
     height: 141px;
@@ -82,7 +106,7 @@
 }
 
 .description {
-  max-width: 380px;
+  max-width: 31.6%;
   &__item {
     margin-bottom: 14px;
   }
@@ -100,6 +124,7 @@
 }
 
 .carousel {
+  margin-top: 27px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,7 +136,7 @@
   }
   &__plug {
     width: 100%;
-    height: 150px;
+    height: auto;
     position: absolute;
   }
   &__control {
@@ -145,29 +170,218 @@ input:checked + label:before {
   width: 11px;
   height: 11px;
 }
+@media screen and (max-width: 1920px) {
+  .zoo {
+    width: 62.5vw;
+    &__preview {
+      height: 7.3vw;
+    }
+  }
 
-@media screen and (max-width: 1200px) and (min-width: 900px) {
+  .carousel {
+    &__plug {
+      height: 7.3vw;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .zoo {
+    width: 66.6vw;
+    &__preview {
+      height: 7.8vw;
+      margin-right: 18px;
+    }
+    &__wrapper {
+      margin-right: 20px;
+    }
+  }
 
-.side-bar {
-  width: 196px;
-  height: 830px;
+  .carousel {
+    &__plug {
+      height: 7.8vw;
+    }
+  }
 
+  .btn_feed {
+    margin-top: 6px;
+  }
+
+  .side-bar {
+    width: 153px;
+    height: 676px;
+
+    &__item {
+      &_active {
+        width: 120px;
+        height: 120px;
+      }
+
+      &_active::before {
+        width: 120px;
+        height: 120px;
+      }
+      &_active::after {
+        width: 115px;
+        height: 115px;
+      }
+    }
+    &__img {
+      height: 96px;
+      width: 96px;
+
+      &_active {
+        height: 104px;
+        width: 104px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 978px) {
+  .zoo {
+    width: 77.6vw;
+    margin: 0 20px 0 auto;
+    &__main {
+      flex-direction: column;
+    }
+    &__preview {
+      height: 13.9vw;
+      margin-right: 18px;
+    }
+    &__wrapper {
+      width: 100%;
+      margin-right: 20px;
+    }
+  }
+
+  .description {
+    max-width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .carousel {
+    margin: 15px 0 50px 0;
+    &__plug {
+      height: 13.9vw;
+    }
+  }
+
+  .side-bar {
+    width: 103px;
+    height: 784px;
+
+    &__item {
+      &_active::before {
+        width: 90px;
+        height: 90px;
+      }
+      &_active::after {
+        width: 85px;
+        height: 85px;
+      }
+    }
+    &__img {
+      height: 70px;
+      width: 70px;
+
+      &_active {
+        height: 78px;
+        width: 78px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .zoo__title {
+    margin: 159px 0 42px 0;
+  }
   &__item {
-
     &_active {
       width: 120px;
       height: 120px;
     }
   }
-  &__img {
-    height: 96px;
-    width: 96px;
-
-    &_active {
-      height: 104px;
-      width: 104px;
-    }
+  .side-bar-wrapper .sliders__button {
+    display: block;
   }
 }
 
+@media screen and (max-width: 620px) {
+  .zoo {
+    width: 64vw;
+
+    &__preview {
+      height: 13.9vw;
+      margin-right: 18px;
+    }
+
+    &__title {
+      margin: 129px 0 20px 0;
+      font-weight: 900;
+      font-size: 24px;
+      line-height: 28px;
+    }
+    &__preview {
+      width: 47.8%;
+      margin-right: 9px;
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  .description {
+    max-width: 100%;
+    margin-bottom: 80px;
+
+    &__header {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    &__text {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  .carousel {
+    margin: 10px 0 30px 0;
+    &__plug {
+      height: 13.9vw;
+    }
+  }
+
+  .side-bar {
+    width: auto;
+    height: 712px;
+    &-wrapper {
+      top: 134px;
+    }
+
+    &__item {
+      &_active {
+        width: 65px;
+        height: 65px;
+      }
+      margin-bottom: 5px;
+      &_active::before {
+        width: 65px;
+        height: 65px;
+      }
+      &_active::after {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    &__img {
+      height: 40px;
+      width: 40px;
+
+      &_active {
+        height: 55px;
+        width: 55px;
+      }
+    }
+  }
 }
