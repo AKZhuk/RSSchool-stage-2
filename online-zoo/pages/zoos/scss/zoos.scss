@@ -204,6 +204,7 @@ input:checked + label:before {
 
   .btn_feed {
     margin-top: 6px;
+    width: 185px;
   }
 
   .side-bar {
@@ -212,7 +213,6 @@ input:checked + label:before {
 
     &__item {
       &_active {
-        width: 120px;
         height: 120px;
       }
 
@@ -271,6 +271,9 @@ input:checked + label:before {
     height: 784px;
 
     &__item {
+      &_active {
+        height: 80px;
+      }
       &_active::before {
         width: 90px;
         height: 90px;
@@ -361,7 +364,6 @@ input:checked + label:before {
 
     &__item {
       &_active {
-        width: 65px;
         height: 65px;
       }
       margin-bottom: 5px;
@@ -383,5 +385,25 @@ input:checked + label:before {
         width: 55px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .zoo__preview {
+    height: 56px;
+  }
+  .carousel__control {
+    margin-top: 20px;
+  }
+  .side-bar__arrow {
+    &_top {
+      margin-bottom: 15px;
+    }
+    &_bottom {
+      margin-top: 0;
+    }
+  }
+  .description {
+    margin-bottom: 60px;
   }
 }

@@ -261,13 +261,13 @@ input:checked + label:before {
   }
   .btn_feed {
     margin-top: 6px;
+    width: 185px;
   }
   .side-bar {
     width: 153px;
     height: 676px;
   }
   .side-bar__item_active {
-    width: 120px;
     height: 120px;
   }
   .side-bar__item_active::before {
@@ -320,6 +320,9 @@ input:checked + label:before {
   .side-bar {
     width: 103px;
     height: 784px;
+  }
+  .side-bar__item_active {
+    height: 80px;
   }
   .side-bar__item_active::before {
     width: 90px;
@@ -402,7 +405,6 @@ input:checked + label:before {
     margin-bottom: 5px;
   }
   .side-bar__item_active {
-    width: 65px;
     height: 65px;
   }
   .side-bar__item_active::before {
@@ -420,6 +422,24 @@ input:checked + label:before {
   .side-bar__img_active {
     height: 55px;
     width: 55px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .zoo__preview {
+    height: 56px;
+  }
+  .carousel__control {
+    margin-top: 20px;
+  }
+  .side-bar__arrow_top {
+    margin-bottom: 15px;
+  }
+  .side-bar__arrow_bottom {
+    margin-top: 0;
+  }
+  .description {
+    margin-bottom: 60px;
   }
 }
 /*# sourceMappingURL=zoos.css.map */
