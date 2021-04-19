@@ -189,7 +189,9 @@
 .layout-5-column {
   @extend %flex-row-space-btw;
 }
-
+.layout-5-column {
+  width: 100%;
+}
 .card {
   @extend %flex-column-center;
   width: 387px;
@@ -309,6 +311,8 @@
 //pay-and-feed style
 .pay-and-feed {
   &-content {
+    max-width: 1200px;
+    margin: 0 auto;
     @extend %flex-column-center;
   }
   &__title {
@@ -320,7 +324,7 @@
     text-align: center;
   }
   &__card {
-    margin-right: 63px;
+    //margin-right: 63px;
     margin-bottom: 30px;
     &:last-child {
       margin-right: 0px;
@@ -328,7 +332,7 @@
   }
   &__arrow {
     background-image: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/card/arrow/light.svg);
-    margin-right: 63px;
+    //margin-right: 63px;
     margin-bottom: 30px;
     height: 16px;
     width: 107px;
@@ -845,6 +849,27 @@
   }
 }
 
+@media screen and (max-width: 1020px) {
+  .pets-in-zoo {
+    overflow: hidden;
+    &__title {
+      margin: 100px 0 38px 0;
+    }
+
+    &__layout {
+      align-self: flex-start;
+    }
+    &__control {
+      margin-top: 35px;
+    }
+    &__button {
+      margin-top: 37px;
+    }
+    &_arrow {
+      display: none;
+    }
+  }
+}
 @media screen and (max-width: 978px) {
   .footer {
     &-content {
@@ -916,23 +941,7 @@
       }
     }
   }
-  .pets-in-zoo {
-    &__title {
-      margin: 100px 0 38px 0;
-    }
-    &-content {
-      overflow: hidden;
-    }
-    &__layout {
-      align-self: flex-start;
-    }
-    &__control {
-      margin-top: 35px;
-    }
-    &__button {
-      margin-top: 37px;
-    }
-  }
+
   .map__map {
     height: 290px;
   }
