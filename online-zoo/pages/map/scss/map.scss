@@ -1,3 +1,8 @@
+.map-page__wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .choose-favorite {
   &-wrapper {
     max-width: 790px;
@@ -24,26 +29,24 @@
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   &__items {
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
     gap: 30px;
+    height: 157px;
   }
 
   &__item {
     &_active {
       position: relative;
-      //width: 157px;
-      //height: 157px;
 
       display: flex;
       align-items: center;
       justify-content: center;
-      // background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/side-bar/border.svg);
     }
     &_active::before {
       content: "";
@@ -72,8 +75,7 @@
     height: 108px;
     width: 108px;
     &:hover {
-      height: 137px;
-      width: 137px;
+      opacity: 30%;
       transition: all 0.3s ease-in-out;
     }
     &_active {
@@ -85,16 +87,15 @@
 
   &__button {
     &_left {
-      margin-right: 40px;
+      margin-left: 6px;
     }
     &_right {
-      margin-left: 40px;
+      margin-right: 6px;
     }
   }
 
   &__control {
     position: relative;
-    right: 18px;
     margin: 32px 0 80px 0;
   }
 }
@@ -103,7 +104,14 @@
   margin-top: 43px;
 }
 
-@media screen and (max-width: 1200px) and (min-width: 900px) {
+@media screen and (max-width: 1200px) {
+  .map-page__wrapper {
+    max-width: 800px;
+  }
+
+  .btn_map {
+    margin-top: 33px;
+  }
   .choose-favorite {
     &__description {
       margin-bottom: 35px;
@@ -113,27 +121,94 @@
     max-width: 800px;
     margin: 0 auto;
   }
+  .carousel {
+    &-content {
+      height: 157px;
+    }
+
+    &__items {
+      width: 83%;
+    }
+    &__control {
+      margin: 25px 0 50px 0;
+    }
+  }
 }
 
 @media screen and (max-width: 640px) {
+  .map-page__wrapper {
+    max-width: 600px;
+  }
+  .choose-favorite__title {
+    margin: 155px 0 20px 0;
+  }
+
   .carousel {
-    &__item {
-      margin-right: 15px;
-      &:last-child {
-        margin-right: 0;
+    &__items {
+      gap: 15px;
+      width: 86%;
+    }
+
+    &__item_active {
+      margin: 0 15px;
+    }
+
+    &__control {
+      margin: 25px 0 37px 0;
+    }
+  }
+}
+@media screen and (max-width: 320px) {
+  .map-content {
+    max-width: 280px;
+  }
+  .carousel {
+    &-content {
+      height: 98px;
+    }
+    &__img {
+      height: 60px;
+      width: 60px;
+      &:hover {
+        transition: all 0.3s ease-in-out;
+      }
+      &_active {
+        transform: scale(0.6685);
+        z-index: 3;
+        position: relative;
       }
     }
-    &__button {
-      &_left {
-        margin-right: 20px;
+
+    &__item {
+      &_active {
+        margin: 0 8px;
+        width: 60px;
+        height: 60px;
       }
-      &_right {
-        margin-left: 20px;
+
+      &_active::before {
+        height: 85px;
+        width: 85px;
+        top: -13px;
+        left: -13.1px;
+      }
+      &_active::after {
+        width: 80px;
+        height: 80px;
+        left: -11px;
+        top: -10px;
       }
     }
   }
 
-  .choose-favorite__title {
-    margin: 30px 0 10px 0;
+  .choose-favorite {
+    &__title {
+      margin: 128px 0 10px 0;
+    }
+
+    &__description {
+      font-size: 12px;
+      line-height: 14px;
+    }
   }
 }
