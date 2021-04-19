@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
-.btn:hover, input[type="range"]:hover, .logo:hover, .social__item:hover, .social__item_row:hover, .card-description, .sliders__button:hover .arrow, .map__pin:hover path, .form__btn:hover {
+.btn:hover, input[type="range"]:hover, .logo:hover, .social__item:hover, .social__item_row:hover, .card-description, .sliders__button:hover .arrow, .arrow:hover, .map__pin:hover path, .form__btn:hover {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
-.btn:hover, input[type="range"]:hover, .logo:hover, .social__item:hover, .social__item_row:hover, .sliders__button:hover .arrow, .form__btn:hover {
+.btn:hover, input[type="range"]:hover, .logo:hover, .social__item:hover, .social__item_row:hover, .sliders__button:hover .arrow, .arrow:hover, .form__btn:hover {
   opacity: 50%;
   cursor: pointer;
 }
@@ -1339,18 +1339,22 @@ input:checked + .slider:before {
     position: relative;
     left: 10px;
   }
+  .designer {
+    margin: 31.5px 0 5px 0;
+  }
 }
 
 @media screen and (max-width: 978px) {
   .footer-content {
-    padding-top: 90px;
+    margin-bottom: 52px;
+    padding-top: 96px;
     position: relative;
   }
   .footer-btn {
     position: absolute;
     right: 0px;
     left: auto;
-    top: 11%;
+    top: 96px;
     bottom: 0px;
   }
   .footer-row {
@@ -1363,6 +1367,9 @@ input:checked + .slider:before {
   .footer__footer {
     height: 108px;
   }
+  .navigation {
+    left: 0;
+  }
   .layout-5-column {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1371,6 +1378,9 @@ input:checked + .slider:before {
   }
   .pay-and-feed__title {
     margin-bottom: 15px;
+  }
+  .pay-and-feed__text {
+    max-width: 538px;
   }
   .pay-and-feed__card {
     margin-right: 0px;
@@ -1383,11 +1393,17 @@ input:checked + .slider:before {
     width: 16px;
     height: 40px;
   }
+  .pay-and-feed__button {
+    margin-top: 14px;
+  }
   .contact-us {
     margin-top: 21px;
   }
   .sliders__button {
     display: none;
+  }
+  .testimonials__title {
+    margin: 100px 0 49px 0;
   }
   .testimonials__card {
     width: 100%;
@@ -1396,12 +1412,21 @@ input:checked + .slider:before {
   .testimonials__card:first-child {
     display: none;
   }
+  .pets-in-zoo__title {
+    margin: 100px 0 38px 0;
+  }
   .pets-in-zoo-content {
     overflow: hidden;
   }
   .pets-in-zoo__layout {
     -ms-flex-item-align: start;
         align-self: flex-start;
+  }
+  .pets-in-zoo__control {
+    margin-top: 35px;
+  }
+  .pets-in-zoo__button {
+    margin-top: 37px;
   }
   .map__map {
     height: 290px;
@@ -1418,20 +1443,14 @@ input:checked + .slider:before {
   }
   .contact {
     left: 0;
-    margin-top: 63px;
-  }
-}
-
-@media screen and (max-width: 639px) {
-  .map__object {
-    min-height: 146px;
-    min-width: 280px;
+    margin-top: 57px;
   }
 }
 
 @media screen and (max-width: 640px) {
   .promo {
     padding-top: 85px;
+    height: 943px !important;
   }
   .promo__title {
     font-weight: 900;
@@ -1489,6 +1508,41 @@ input:checked + .slider:before {
     width: auto;
     max-width: 385px;
   }
+  .designer {
+    margin: 28px 0 5px 0;
+  }
+  .card {
+    height: auto;
+    margin: 0 0 53px 0;
+  }
+  .card:last-child {
+    margin: 0px;
+  }
+  .card__text {
+    line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .map__title {
+    margin: 100px 0 51px 0;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .map__object {
+    min-height: 146px;
+    min-width: 280px;
+  }
+  .promo {
+    padding-top: 57px;
+  }
+  .promo__title {
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: -15px;
+  }
+  .promo__social {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 420px) {
@@ -1535,18 +1589,100 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 320px) {
+  .section__title {
+    margin-top: 44px;
+  }
+  .promo {
+    height: 707px !important;
+  }
   .wrapper {
     max-width: 300px;
   }
-  h2 {
+  .section__title {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+  }
+  .how-it-work__title {
+    margin: 43px 0 13px 0;
+  }
+  #how-it-work_btn {
+    margin: 20px 0 50px 0;
+  }
+  .zoo__title,
+  .choose-favorite__title {
+    height: 28px;
     font-size: 24px;
     line-height: 28px;
   }
-  .section__title {
-    height: 28px;
+  .mission-content {
+    margin: 50px 0;
+  }
+  .mission .card {
+    width: 300px;
+    margin-bottom: 33px;
+  }
+  .mission .card:last-child {
+    margin-bottom: 0px;
+  }
+  .pets-in-zoo__title {
+    margin: 100px 0 20px 0;
+  }
+  .pets-in-zoo__control {
+    margin-top: 28px !important;
+  }
+  .pets-in-zoo__button {
+    margin-top: 26px;
+  }
+  .pay-and-feed__text {
+    display: none;
+  }
+  .pay-and-feed__title {
+    margin-bottom: 21px;
+  }
+  .pay-and-feed__button {
+    margin-top: 1px;
+  }
+  .testimonials__title {
+    margin-bottom: 29px;
+  }
+  .testimonials__card {
+    height: 363px;
+  }
+  .testimonials__card__title {
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 47px;
+  }
+  .testimonials__card:first-child {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+  }
+  .testimonials__card:last-child {
+    display: none;
+  }
+  .testimonials__control {
+    margin-top: 40px !important;
+  }
+  .testimonials__btn {
+    margin-top: 20px;
+  }
+  .btn_main {
+    margin-bottom: 50px;
+  }
+  .control {
+    margin-top: 18px;
   }
   .header__switch {
     margin-right: 24px;
+  }
+  .map__title {
+    margin-bottom: 22px;
+  }
+  .btn_map {
+    margin-bottom: 56px;
   }
   .footer-content {
     padding-top: 52px;
@@ -1558,6 +1694,9 @@ input:checked + .slider:before {
   }
   .footer .contact {
     margin-top: 33px;
+  }
+  .footer .info {
+    margin-bottom: 12px;
   }
   .footer__footer {
     height: 88px;

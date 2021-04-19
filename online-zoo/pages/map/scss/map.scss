@@ -110,7 +110,7 @@
   }
 
   .btn_map {
-    margin-top: 33px;
+    margin-top: 34px;
   }
   .choose-favorite {
     &__description {
@@ -120,6 +120,9 @@
   .map-content {
     max-width: 800px;
     margin: 0 auto;
+  }
+  .map__title {
+    margin: 100px 0 51px 0;
   }
   .carousel {
     &-content {
@@ -136,8 +139,13 @@
 }
 
 @media screen and (max-width: 640px) {
-  .map-page__wrapper {
-    max-width: 600px;
+  .map {
+    &-page__wrapper {
+      max-width: 600px;
+    }
+  }
+  .btn_map {
+    margin-top: 31px;
   }
   .choose-favorite__title {
     margin: 155px 0 20px 0;
