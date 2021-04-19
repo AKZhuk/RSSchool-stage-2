@@ -626,6 +626,10 @@ input:checked + .slider:before {
           justify-content: center;
 }
 
+.layout-5-column {
+  width: 100%;
+}
+
 .card {
   width: 387px;
   height: 213px;
@@ -762,6 +766,11 @@ input:checked + .slider:before {
   fill: var(--color-base);
 }
 
+.pay-and-feed-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .pay-and-feed__title {
   margin: 100px 0 35px 0;
 }
@@ -773,7 +782,6 @@ input:checked + .slider:before {
 }
 
 .pay-and-feed__card {
-  margin-right: 63px;
   margin-bottom: 30px;
 }
 
@@ -783,7 +791,6 @@ input:checked + .slider:before {
 
 .pay-and-feed__arrow {
   background-image: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/card/arrow/light.svg);
-  margin-right: 63px;
   margin-bottom: 30px;
   height: 16px;
   width: 107px;
@@ -1344,6 +1351,28 @@ input:checked + .slider:before {
   }
 }
 
+@media screen and (max-width: 1020px) {
+  .pets-in-zoo {
+    overflow: hidden;
+  }
+  .pets-in-zoo__title {
+    margin: 100px 0 38px 0;
+  }
+  .pets-in-zoo__layout {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .pets-in-zoo__control {
+    margin-top: 35px;
+  }
+  .pets-in-zoo__button {
+    margin-top: 37px;
+  }
+  .pets-in-zoo_arrow {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 978px) {
   .footer-content {
     margin-bottom: 52px;
@@ -1411,22 +1440,6 @@ input:checked + .slider:before {
   }
   .testimonials__card:first-child {
     display: none;
-  }
-  .pets-in-zoo__title {
-    margin: 100px 0 38px 0;
-  }
-  .pets-in-zoo-content {
-    overflow: hidden;
-  }
-  .pets-in-zoo__layout {
-    -ms-flex-item-align: start;
-        align-self: flex-start;
-  }
-  .pets-in-zoo__control {
-    margin-top: 35px;
-  }
-  .pets-in-zoo__button {
-    margin-top: 37px;
   }
   .map__map {
     height: 290px;
