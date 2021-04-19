@@ -769,6 +769,7 @@ input:checked + .slider:before {
 .pay-and-feed__text {
   margin-bottom: 92px;
   color: var(--color-text);
+  text-align: center;
 }
 
 .pay-and-feed__card {
@@ -800,6 +801,7 @@ input:checked + .slider:before {
   background-color: var(--color-bg-primary);
   width: 30.4vw;
   max-width: 585px;
+  min-width: 440px;
   height: 310px;
   color: var(--color-text);
   -webkit-box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
@@ -841,10 +843,20 @@ input:checked + .slider:before {
   position: relative;
 }
 
+.map__wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .map__object {
   width: 100%;
   min-height: 388px;
   min-width: 800px;
+}
+
+.map__object_landing {
+  min-width: 900px;
+  min-height: 435px;
 }
 
 .map__title {
@@ -859,6 +871,8 @@ input:checked + .slider:before {
 
 .map__panda {
   position: absolute;
+  bottom: 61.9%;
+  left: calc(78.2% - 34px);
 }
 
 .map__panda-fix {
@@ -868,6 +882,8 @@ input:checked + .slider:before {
 
 .map__eagle {
   position: absolute;
+  bottom: 65.4%;
+  left: calc(13.9% - 34px);
 }
 
 .map__eagle-fix {
@@ -1180,7 +1196,7 @@ input:checked + .slider:before {
   margin: 28px 0 5px 0;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1900px) {
   .wrapper {
     max-width: 84.3vw;
   }
@@ -1260,7 +1276,8 @@ input:checked + .slider:before {
     width: 17;
   }
   .testimonials__card {
-    width: 440px;
+    width: 36.6vw;
+    min-width: auto;
   }
   .testimonials__card:first-child {
     margin-right: 20px;
@@ -1346,11 +1363,45 @@ input:checked + .slider:before {
   .footer__footer {
     height: 108px;
   }
+  .layout-5-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .pay-and-feed__title {
+    margin-bottom: 15px;
+  }
+  .pay-and-feed__card {
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+  .pay-and-feed__arrow {
+    background-image: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/card/arrow/arrov-vertical.svg);
+    margin-bottom: 30px;
+    margin-right: 0;
+    width: 16px;
+    height: 40px;
+  }
   .contact-us {
     margin-top: 21px;
   }
   .sliders__button {
     display: none;
+  }
+  .testimonials__card {
+    width: 100%;
+    min-width: auto;
+  }
+  .testimonials__card:first-child {
+    display: none;
+  }
+  .pets-in-zoo-content {
+    overflow: hidden;
+  }
+  .pets-in-zoo__layout {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
   }
   .map__map {
     height: 290px;
@@ -1390,6 +1441,12 @@ input:checked + .slider:before {
   .wrapper {
     max-width: 600px;
   }
+  #how-it-work_btn {
+    margin-bottom: 68px;
+  }
+  .how-it-work__description {
+    margin-bottom: 30px;
+  }
   .wrap {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -1418,9 +1475,6 @@ input:checked + .slider:before {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
-  }
-  .layout-3-column {
-    width: 100%;
   }
   .layout-4-column {
     width: 100%;
@@ -1511,6 +1565,10 @@ input:checked + .slider:before {
   .btn_img {
     margin-bottom: 60px;
   }
+}
+
+.tooltip {
+  display: none;
 }
 
 .promo {

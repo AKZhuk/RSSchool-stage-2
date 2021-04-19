@@ -386,35 +386,36 @@
       </div>
     </section>
     <section class="how-it-works bg-primary">
-      <div class="how-it-work__wrapper">
-        <h2 class="section__title how-it-work__title">How it works?</h2>
-        <p class="section-descrition">
-          As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on
-          precious species and their habitat, and we are determined to assist in all aspects, including
-          providing veterinary support and raising much-needed emergency funds. Zoo Online saves wildlife and
-          inspires everyone to make conservation a priority in their lives. Animals have the right to a
-          pain-free and happy life. They have equal claim to the resources of this planet, and deserve a life
-          of dignity and compassion.As a voice for wildlife, we are devastated by the impact of the 2020
-          Australian bushfires on precious species and their habitat.
-        </p>
-        <img class="how-it-work__img" src="../../assets/images/deers.jpg" alt="deers" />
-        <div class="control">
-          <text class="control__text"
-            ><output id="HowItWorkRange" class="control__output" name="result">01/</output>04</text
-          >
-          <input
-            class="control__range range_long"
-            name=""
-            type="range"
-            min="01"
-            max="04"
-            value="01"
-            onmousemove="HowItWorkRange.value=`0${value}/`"
-          />
-        </div>
-        <div class="how-it-work_button">
-          <form action="/akzhuk-JSFE2021Q1/online-zoo/pages/zoos/panda.html">
-            <button class="btn btn_img">
+      <div class="wrapper">
+        <div class="how-it-work__wrapper">
+          <h2 class="section__title how-it-work__title">How it works?</h2>
+          <p class="section-descrition how-it-work__description">
+            As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on
+            precious species and their habitat, and we are determined to assist in all aspects, including
+            providing veterinary support and raising much-needed emergency funds. Zoo Online saves wildlife
+            and inspires everyone to make conservation a priority in their lives. Animals have the right to a
+            pain-free and happy life. They have equal claim to the resources of this planet, and deserve a
+            life of dignity and compassion.As a voice for wildlife, we are devastated by the impact of the
+            2020 Australian bushfires on precious species and their habitat.
+          </p>
+          <img class="how-it-work__img" src="../../assets/images/deers.jpg" alt="deers" />
+          <div class="control">
+            <text class="control__text"
+              ><output id="HowItWorkRange" class="control__output" name="result">01/</output>04</text
+            >
+            <input
+              class="control__range range_long"
+              name=""
+              type="range"
+              min="01"
+              max="04"
+              value="01"
+              onmousemove="HowItWorkRange.value=`0${value}/`"
+            />
+          </div>
+
+          <form class="how-it-work_button" action="/akzhuk-JSFE2021Q1/online-zoo/pages/zoos/panda.html">
+            <button id="how-it-work_btn" class="btn btn_img">
               <object
                 class="button__img_play"
                 data="../../assets/icons/main_btn/light.svg"
@@ -466,7 +467,7 @@
       <div class="wrapper">
         <div class="pets-in-zoo-content">
           <h2 class="section__title pets-in-zoo__title">Pets in Zoo</h2>
-          <div class="layout-3-column">
+          <div class="layout-3-column pets-in-zoo__layout">
             <div class="sliders__button sliders__button_left">
               <svg
                 class="arrow"
@@ -814,11 +815,16 @@
       </div>
     </section>
     <section class="map-section bg-additional">
-      <div class="wrapper">
+      <div class="wrapper map__wrapper">
         <div class="map-content">
           <h2 class="section__title map__title">Map</h2>
-          <div class="map">
-            <object class="map__object" data="../../assets/icons/map.svg" type="image/svg+xml" media></object>
+          <div class="map-cont">
+            <object
+              class="map__object map__object_landing"
+              data="../../assets/icons/map.svg"
+              type="image/svg+xml"
+              media
+            ></object>
             <div class="map__eagle map__pin">
               <svg
                 class="map__item"
@@ -994,17 +1000,17 @@
                 </div>
               </div>
             </div>
-            <form action="/akzhuk-JSFE2021Q1/online-zoo/pages/zoos/panda.html" class="map__button">
-              <button class="btn btn_img">
-                <object
-                  class="button__img_play"
-                  data="../../assets/icons/main_btn/light.svg"
-                  type="image/svg+xml"
-                ></object
-                >watch online
-              </button>
-            </form>
           </div>
+          <form action="/akzhuk-JSFE2021Q1/online-zoo/pages/zoos/panda.html" class="map__button">
+            <button class="btn btn_img">
+              <object
+                class="button__img_play"
+                data="../../assets/icons/main_btn/light.svg"
+                type="image/svg+xml"
+              ></object
+              >watch online
+            </button>
+          </form>
         </div>
       </div>
     </section>
