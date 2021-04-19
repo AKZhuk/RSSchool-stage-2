@@ -1,8 +1,8 @@
 $base-gradient: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
 $content-width: 1620px;
-$desktop-min-width: 1200px;
-$tablet-width: 640px;
-$mobile-width: 320px;
+$desktop-min-width: 900px;
+$tablet-width: 600px;
+$mobile-width: 300px;
 
 %transition {
   transition: all 0.3s ease-out;
@@ -56,26 +56,26 @@ html {
   font-family: "Roboto", sans-serif;
   font-size: 10px;
 }
-html[data-theme="light"] {
+.light-theme {
   --color-gray-1: #333333;
   --color-text: #4f4f4f;
-  --color-bg-primary: #ffffff;
+  --color-bg-primary: #fefefe;
   --color-bg-additional: #f2f2f2;
   --color-form: #bdbdbd;
   --color-base: #333;
-  --color-testimionials-card: #fefefe;
+  --color-bg-header: #fefefe;
   --color-toggle-round: #ffffff;
   $color-map-primary: #333333;
 }
 
-html[data-theme="dark"] {
+.dark-theme {
   --color-gray-1: #fff;
   --color-text: #f2f2f2;
-  --color-bg-primary: #333333;
+  --color-bg-primary: #3c3c3c;
   --color-bg-additional: #4f4f4f;
   --color-form: #bdbdbd;
   --color-base: #fefefe;
-  --color-testimionials-card: #3c3c3c;
+  --color-bg-header: #333333;
   --color-toggle-round: #1b1b1b;
   $color-map-primary: #e1e1e1;
   .map-color_primary {
@@ -110,7 +110,7 @@ h4 {
 }
 
 h6 {
-  color: var(--color-form);
+  color: #fefefe;
   @include font(1.2rem, 14px, 400);
 }
 
@@ -299,7 +299,7 @@ input:checked + .slider:before {
   position: absolute;
   width: 436px;
   height: 149px;
-  background: var(--color-testimionials-card);
+  background: var(--color-bg-primary);
   box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
   border-radius: 8px;
   opacity: 0;
