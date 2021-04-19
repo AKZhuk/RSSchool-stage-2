@@ -188,8 +188,6 @@
 .layout-4-column,
 .layout-5-column {
   @extend %flex-row-space-btw;
-
-  flex-wrap: wrap;
 }
 
 .card {
@@ -325,8 +323,11 @@
     }
   }
   &__arrow {
+    background-image: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/card/arrow/light.svg);
     margin-right: 63px;
     margin-bottom: 30px;
+    height: 16px;
+    width: 107px;
   }
   &__button {
     margin-top: 25px;
@@ -372,7 +373,22 @@
 
 //map style
 .map {
-  position: relative;
+  width: 100%;
+
+  &__map {
+    height: 496px;
+  }
+  &-cont {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  &__object {
+    width: 100%;
+    min-height: 388px;
+    min-width: 800px;
+  }
+
   &-content {
     @extend %flex-column-center;
   }
@@ -380,36 +396,35 @@
   &__title {
     margin: 100px 0 63px 0;
   }
-  &__object {
-    width: 100%;
-  }
+
   &__gorilla {
     position: absolute;
-    top: 27.4%;
-    left: 47.6%;
+    bottom: 43.6%;
+    left: calc(50.5% - 34px);
   }
   &__panda {
     position: absolute;
-    top: 13.1%;
-    left: 74.4%;
+    //top: 13.1%;
+    //left: 78.4%;
     &-fix {
-      top: 14.1%;
-      left: 75.4%;
+      bottom: 61.9%;
+      left: calc(78.2% - 34px);
     }
   }
   &__eagle {
     position: absolute;
-    top: 10.6%;
-    left: 10.1%;
+    //top: 10.6%;
+    //left: 10.1%;
     &-fix {
-      top: 11.6%;
-      left: 11.1%;
+      bottom: 65.4%;
+      left: calc(13.9% - 34px);
     }
   }
   &__crocodile {
     position: absolute;
-    top: 14.8%;
-    left: 20.4%;
+
+    bottom: 61.2%;
+    left: calc(23.1% - 34px);
   }
   &-item_img {
     position: absolute;
@@ -519,7 +534,7 @@
     height: 26px;
     background: #333333;
     border: none;
-    border-bottom: 1px solid var(--color-form);
+    border-bottom: 1px solid #fefefe;
     margin-bottom: 20px;
   }
   &__legend {
@@ -539,7 +554,7 @@
   }
   &__fieldset {
     width: 100%;
-    height: 115px;
+    height: 120px;
     border: 1px solid #bdbdbd;
     border-radius: 3px;
   }
@@ -608,10 +623,7 @@
 .footer__link {
   color: #fefefe;
   @include font(1.6rem, 19px, 500);
-  margin-right: 73px !important;
-  &:last-child {
-    margin-right: 0px;
-  }
+  margin-right: 73px;
 }
 
 .address {
@@ -650,12 +662,43 @@
   margin: 28px 0 5px 0;
 }
 
-@media screen and (max-width: 1200px) and (min-width: 900px) {
+@media screen and (max-width: 1920px) {
   .wrapper {
+    max-width: 84.3vw;
+  }
+  .pets-in-zoo__card {
+    border-radius: 5px;
+    position: relative;
+    width: 14.4vw;
+    height: 21vw;
+    margin-right: 1.5vw;
+  }
+
+  .map-cont {
+    width: 100%;
+    //width: 62.5vw;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .map__object {
+    min-height: 290px;
+    min-width: 600px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    width: 93.5vw;
     max-width: $desktop-min-width;
   }
+
+  .navigation {
+    &__link {
+      margin-right: 7vw;
+    }
+  }
   .promo {
-    height: 926px;
+    height: 926px !important;
     &__header {
       margin: 128px 0 0 0;
     }
@@ -665,6 +708,10 @@
     }
   }
 
+  .gallery {
+    left: 39.6%;
+    bottom: 191px;
+  }
   .card {
     width: 287px;
     height: 213px;
@@ -672,8 +719,6 @@
   }
 
   .pets-in-zoo {
-    &-content {
-    }
     &__title {
       margin: 100px 0 31px 0;
     }
@@ -701,9 +746,10 @@
       margin-bottom: 20px;
     }
     &__arrow {
-      width: 48px;
+      width: 49px;
       margin-right: 17px;
       margin-bottom: 20px;
+      background-image: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/card/arrow/arrow-46px.svg);
     }
     &__card > object > svg {
       width: 17;
@@ -719,7 +765,12 @@
       }
     }
   }
-
+  .map {
+    &__map {
+      background-size: 100%;
+      height: 388px;
+    }
+  }
   .tooltip {
     padding: 0;
     width: 330px;
@@ -728,6 +779,9 @@
   .form {
     &__fieldset {
       height: 124px;
+    }
+    &__agree {
+      margin-top: 20px;
     }
   }
 
@@ -751,7 +805,6 @@
         margin-bottom: 54px;
       }
     }
-
     &__footer {
       height: 133px;
       border-top: 0.5px solid #fefefe;
@@ -762,39 +815,30 @@
       left: 459px;
     }
   }
-}
-
-@media screen and (max-width: 900px) {
-  .wrapper {
-    max-width: $tablet-width;
+  .contact {
+    margin-top: 42px;
+    position: relative;
+    left: 10px;
   }
 
   .navigation {
-    flex-direction: column;
-    gap: 5px;
+    position: relative;
+    left: 10px;
   }
+}
 
-  .header__navigation .navigation {
-    display: none;
-    &__show {
-      display: block;
-    }
-  }
-  .header__switch {
-    margin-left: auto;
-    margin-right: 34px;
-  }
-  .header__navigation {
-    order: 1;
-  }
-
+@media screen and (max-width: 978px) {
   .footer {
     &-content {
+      padding-top: 90px;
       position: relative;
     }
     &-btn {
       position: absolute;
-      right: 0;
+      right: 0px;
+      left: auto;
+      top: 11%;
+      bottom: 0px;
     }
     &-row {
       flex-direction: column;
@@ -808,9 +852,139 @@
   .contact-us {
     margin-top: 21px;
   }
+
+  .sliders__button {
+    display: none;
+  }
+
+  .map__map {
+    height: 290px;
+  }
+
+  .btn_map {
+    margin-bottom: 80px;
+  }
+  .footer-navigation {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .contact {
+    left: 0;
+    margin-top: 63px;
+  }
 }
 
 @media screen and (max-width: 639px) {
+  .map__object {
+    min-height: 146px;
+    min-width: 280px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .promo {
+    padding-top: 85px;
+    &__title {
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 75px;
+    }
+  }
+  .wrapper {
+    max-width: $tablet-width;
+  }
+  .wrap {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .header {
+    position: fixed;
+    z-index: 4;
+    width: 100vw;
+    &__navigation .navigation {
+      display: none;
+      &__show {
+        display: block;
+      }
+    }
+    &__switch {
+      margin-left: auto;
+      margin-right: 34px;
+    }
+    &__navigation {
+      order: 1;
+    }
+  }
+
+  .layout-3-column {
+    width: 100%;
+  }
+  .layout-4-column {
+    width: 100%;
+    overflow: hidden;
+  }
+  .contact {
+    width: max-content;
+  }
+
+  .form {
+    width: auto;
+    max-width: 385px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .footer-btn {
+    margin: 0 auto;
+    position: static;
+  }
+  .carousel__control {
+    margin: 12px 0 35px 0 !important;
+  }
+
+  .map {
+    &__item {
+      width: 32.85px;
+      height: 46.37px;
+    }
+
+    &-item_img {
+      width: 21px;
+      right: 6px;
+      bottom: 23px;
+    }
+    &__gorilla {
+      position: absolute;
+      bottom: 43.6%;
+      left: calc(50.5% - 16.4px);
+    }
+    &__panda {
+      position: absolute;
+
+      &-fix {
+        bottom: 61.9%;
+        left: calc(78.2% - 16.4px);
+      }
+    }
+    &__eagle {
+      position: absolute;
+
+      &-fix {
+        bottom: 65.4%;
+        left: calc(13.9% - 16.4px);
+      }
+    }
+    &__crocodile {
+      position: absolute;
+
+      bottom: 61.2%;
+      left: calc(23.1% - 16.4px);
+    }
+  }
+}
+@media screen and (max-width: 320px) {
   .wrapper {
     max-width: $mobile-width;
   }
@@ -828,21 +1002,12 @@
 
   .footer {
     &-content {
-      padding-top: 48px;
+      padding-top: 52px;
       gap: 27px;
       margin-bottom: 80px;
     }
     &-row {
-      width: 300px;
       gap: 26px;
-    }
-    .form {
-      width: 300px;
-    }
-
-    .footer-btn {
-      margin: 0 auto;
-      position: static;
     }
 
     .contact {
@@ -852,6 +1017,7 @@
       height: 88px;
     }
   }
+
   .btn_img {
     margin-bottom: 60px;
   }
