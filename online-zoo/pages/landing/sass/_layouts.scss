@@ -1015,8 +1015,14 @@
   #how-it-work_btn {
     margin-bottom: 68px;
   }
-  .how-it-work__description {
-    margin-bottom: 30px;
+  .how-it-work {
+    &__description {
+      margin-bottom: 30px;
+    }
+    &__img {
+      object-fit: cover;
+      object-position: left bottom;
+    }
   }
   .wrap {
     align-items: center;
