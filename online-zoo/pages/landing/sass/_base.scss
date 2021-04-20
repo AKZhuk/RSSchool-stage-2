@@ -207,12 +207,13 @@ input[type="range"].control__range_light::-webkit-slider-thumb {
 input[type="range"].range_long::-webkit-slider-thumb {
   width: 60px;
 }
-input[type="range"]:focus::-webkit-slider-runnable-track {
-  background: rgba(189, 189, 189, 0.57);
-}
 .range_long::-webkit-slider-thumb {
   width: 60px;
 }
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: rgba(189, 189, 189, 0.57);
+}
+
 .control {
   margin-top: 25px;
   @extend %flex-column-center;

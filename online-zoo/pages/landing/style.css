@@ -246,12 +246,12 @@ input[type="range"].range_long::-webkit-slider-thumb {
   width: 60px;
 }
 
-input[type="range"]:focus::-webkit-slider-runnable-track {
-  background: rgba(189, 189, 189, 0.57);
-}
-
 .range_long::-webkit-slider-thumb {
   width: 60px;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: rgba(189, 189, 189, 0.57);
 }
 
 .control {
@@ -1100,7 +1100,7 @@ input:checked + .slider:before {
   resize: none;
   border: none;
   padding: none;
-  width: 99%;
+  width: 98%;
   height: 96%;
 }
 
