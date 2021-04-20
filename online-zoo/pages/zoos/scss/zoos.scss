@@ -212,6 +212,7 @@ input:checked + label:before {
     height: 676px;
 
     &__item {
+      margin-bottom: 7px;
       &_active {
         height: 120px;
       }
@@ -272,7 +273,7 @@ input:checked + label:before {
 
     &__item {
       &_active {
-        height: 80px;
+        height: 88px;
       }
       &_active::before {
         width: 90px;
@@ -297,7 +298,7 @@ input:checked + label:before {
 
 @media screen and (max-width: 640px) {
   .zoo__title {
-    margin: 159px 0 42px 0;
+    margin: 159px 0 42px 9px;
   }
   &__item {
     &_active {
@@ -305,6 +306,7 @@ input:checked + label:before {
       height: 120px;
     }
   }
+
   .side-bar-wrapper .sliders__button {
     display: block;
   }
@@ -356,7 +358,7 @@ input:checked + label:before {
   }
 
   .side-bar {
-    width: auto;
+    width: 74px;
     height: 712px;
     &-wrapper {
       top: 134px;

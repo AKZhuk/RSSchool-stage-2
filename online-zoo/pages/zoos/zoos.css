@@ -267,6 +267,9 @@ input:checked + label:before {
     width: 153px;
     height: 676px;
   }
+  .side-bar__item {
+    margin-bottom: 7px;
+  }
   .side-bar__item_active {
     height: 120px;
   }
@@ -322,7 +325,7 @@ input:checked + label:before {
     height: 784px;
   }
   .side-bar__item_active {
-    height: 80px;
+    height: 88px;
   }
   .side-bar__item_active::before {
     width: 90px;
@@ -344,7 +347,7 @@ input:checked + label:before {
 
 @media screen and (max-width: 640px) {
   .zoo__title {
-    margin: 159px 0 42px 0;
+    margin: 159px 0 42px 9px;
   }
   __item_active {
     width: 120px;
@@ -395,7 +398,7 @@ input:checked + label:before {
     height: 13.9vw;
   }
   .side-bar {
-    width: auto;
+    width: 74px;
     height: 712px;
   }
   .side-bar-wrapper {

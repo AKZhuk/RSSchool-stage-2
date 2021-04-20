@@ -121,9 +121,7 @@
     max-width: 800px;
     margin: 0 auto;
   }
-  .map__title {
-    margin: 100px 0 51px 0;
-  }
+
   .carousel {
     &-content {
       height: 157px;
@@ -169,6 +167,13 @@
 @media screen and (max-width: 320px) {
   .map-content {
     max-width: 280px;
+  }
+  #carousel_fix {
+    margin-top: 0px !important;
+  }
+
+  #carousel__control_fix {
+    margin: 12px 0 36px 0 !important;
   }
   .carousel {
     &-content {
