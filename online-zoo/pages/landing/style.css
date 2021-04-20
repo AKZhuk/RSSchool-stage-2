@@ -504,6 +504,7 @@ input:checked + .slider:before {
 
 .promo {
   overflow: hidden;
+  position: relative;
 }
 
 .promo__header {
@@ -526,9 +527,10 @@ input:checked + .slider:before {
 }
 
 .gallery {
-  position: relative;
+  width: 2000px;
+  position: absolute;
   left: 43.6%;
-  bottom: 298px;
+  bottom: 167px;
   height: 352px;
   background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/line.svg) left center no-repeat;
 }
@@ -570,8 +572,8 @@ input:checked + .slider:before {
 .gallery__card_active, .gallery__card:hover {
   position: relative;
   bottom: 14px;
-  width: 245px;
-  height: 352px;
+  width: 245px !important;
+  height: 352px !important;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -579,7 +581,7 @@ input:checked + .slider:before {
 .gallery__control {
   width: 245px;
   position: relative;
-  left: 16.8%;
+  left: 16.2%;
   bottom: 17px;
 }
 
@@ -1245,7 +1247,14 @@ input:checked + .slider:before {
   }
   .gallery {
     left: 39.6%;
-    bottom: 191px;
+    bottom: 126px;
+  }
+  .gallery__card {
+    width: 180px;
+    height: 261px;
+    margin-right: 30px;
+    position: relative;
+    bottom: 16px;
   }
   .card {
     width: 287px;
@@ -1374,6 +1383,24 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 978px) {
+  .gallery {
+    left: 8.12%;
+    bottom: 158px;
+  }
+  .gallery__card:first-child {
+    margin-left: 73px;
+  }
+  .gallery__control {
+    left: 14.5%;
+  }
+  .promo__title {
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 75px;
+  }
+  .promo__social {
+    top: 265px;
+  }
   .footer-content {
     margin-bottom: 52px;
     padding-top: 96px;
@@ -1465,11 +1492,6 @@ input:checked + .slider:before {
     padding-top: 85px;
     height: 943px !important;
   }
-  .promo__title {
-    font-weight: 900;
-    font-size: 64px;
-    line-height: 75px;
-  }
   .wrapper {
     max-width: 600px;
   }
@@ -1541,6 +1563,39 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 639px) {
+  .promo {
+    height: 707px !important;
+  }
+  .promo-range {
+    width: 140px !important;
+    height: 5px !important;
+  }
+  .promo-control__text {
+    margin-bottom: 2px;
+  }
+  .gallery {
+    bottom: 34px;
+    left: 1.12%;
+  }
+  .gallery__card {
+    bottom: -78px;
+    margin-right: 10px;
+    width: 113px;
+    height: 164px;
+  }
+  .gallery__card:first-child {
+    margin-left: 19px;
+  }
+  .gallery__card_active, .gallery__card:hover {
+    bottom: -78px;
+    width: 140px !important;
+    height: 202px !important;
+  }
+  .gallery__control {
+    width: 140px;
+    left: 143px;
+    bottom: -76px;
+  }
   .map__object {
     min-height: 146px;
     min-width: 280px;
@@ -1604,9 +1659,6 @@ input:checked + .slider:before {
 @media screen and (max-width: 320px) {
   .section__title {
     margin-top: 44px;
-  }
-  .promo {
-    height: 707px !important;
   }
   .wrapper {
     max-width: 300px;
@@ -1717,10 +1769,6 @@ input:checked + .slider:before {
   .btn_img {
     margin-bottom: 60px;
   }
-}
-
-.tooltip {
-  display: none;
 }
 
 .promo {
