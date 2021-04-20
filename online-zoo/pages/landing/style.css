@@ -1514,6 +1514,12 @@ input:checked + .slider:before {
   .how-it-work__description {
     margin-bottom: 30px;
   }
+  .how-it-work__img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: left bottom;
+       object-position: left bottom;
+  }
   .wrap {
     -webkit-box-align: center;
         -ms-flex-align: center;
