@@ -715,6 +715,12 @@
   }
 }
 @media screen and (max-width: 1200px) {
+  input[type="range"].range_long::-webkit-slider-thumb {
+    width: 80px;
+  }
+  .range_long::-webkit-slider-thumb {
+    width: 80px;
+  }
   .wrapper {
     width: 93.5vw;
     max-width: $desktop-min-width;
@@ -745,6 +751,9 @@
       margin-right: 30px;
       position: relative;
       bottom: 16px;
+    }
+    &__control {
+      left: 17.5%;
     }
   }
   .card {
@@ -852,7 +861,7 @@
     left: 10px;
   }
 
-  .navigation {
+  .footer-navigation {
     position: relative;
     left: 10px;
   }
@@ -863,7 +872,9 @@
 
 @media screen and (max-width: 1020px) {
   .pets-in-zoo {
-    overflow: hidden;
+    &-content {
+      overflow: hidden;
+    }
     &__title {
       margin: 100px 0 38px 0;
     }
@@ -1153,7 +1164,7 @@
     position: static;
   }
   .carousel__control {
-    margin: 12px 0 35px 0 !important;
+    margin: 21px 0 30px 0 !important;
   }
 
   .map {
@@ -1201,6 +1212,9 @@
   }
 }
 @media screen and (max-width: 320px) {
+  .carousel {
+    margin: 13px 0 0px 0 !important;
+  }
   .section__title {
     margin-top: 44px;
   }
@@ -1265,6 +1279,12 @@
   }
 
   .testimonials {
+    &__img {
+      margin-top: 55px;
+    }
+    &__text {
+      width: 90%;
+    }
     &__title {
       margin-bottom: 29px;
     }
@@ -1332,5 +1352,8 @@
 
   .btn_img {
     margin-bottom: 60px;
+  }
+  .form__btn {
+    margin-right: 0px;
   }
 }
