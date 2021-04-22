@@ -7,6 +7,14 @@
   }
 }
 
+.map {
+  & .map-color_primary {
+    fill: var(--color-map-primary);
+  }
+  & .map-color_additional {
+    fill: var(--color-map-additional);
+  }
+}
 .header {
   background: var(--color-bg-header);
 
@@ -47,6 +55,9 @@
   }
   &__show {
     display: none;
+  }
+  &__show line {
+    stroke: var(--color-base);
   }
 }
 
@@ -169,6 +180,7 @@
   &__wrapper {
     max-width: 790px;
     margin: 0 auto;
+    overflow: auto;
   }
 
   &__title {
@@ -330,6 +342,9 @@
     margin-bottom: 30px;
     &:last-child {
       margin-right: 0px;
+    }
+    &-text {
+      fill: var(--color-text);
     }
   }
   &__arrow {

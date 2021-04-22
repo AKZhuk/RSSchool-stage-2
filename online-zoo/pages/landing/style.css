@@ -80,6 +80,8 @@ html {
   --color-base: #333;
   --color-bg-header: #fefefe;
   --color-toggle-round: #ffffff;
+  --color-map-primary: #333333;
+  --color-map-additional: #dadada;
 }
 
 .dark-theme {
@@ -91,10 +93,8 @@ html {
   --color-base: #fefefe;
   --color-bg-header: #333333;
   --color-toggle-round: #1b1b1b;
-}
-
-.dark-theme .map-color_primary {
-  fill: #e1e1e1;
+  --color-map-primary: #e1e1e1;
+  --color-map-additional: #333;
 }
 
 body {
@@ -400,6 +400,14 @@ input:checked + .slider:before {
   --webkit-box-shadow: inset 0px 4px 8px rgba(44, 101, 77, 0.08);
 }
 
+.map .map-color_primary {
+  fill: var(--color-map-primary);
+}
+
+.map .map-color_additional {
+  fill: var(--color-map-additional);
+}
+
 .header {
   background: var(--color-bg-header);
   padding: 26px 0 23px 0;
@@ -459,6 +467,10 @@ input:checked + .slider:before {
 
 .navigation__show {
   display: none;
+}
+
+.navigation__show line {
+  stroke: var(--color-base);
 }
 
 .link-active {
@@ -608,6 +620,7 @@ input:checked + .slider:before {
 .how-it-work__wrapper {
   max-width: 790px;
   margin: 0 auto;
+  overflow: auto;
 }
 
 .how-it-work__title {
@@ -789,6 +802,10 @@ input:checked + .slider:before {
 
 .pay-and-feed__card:last-child {
   margin-right: 0px;
+}
+
+.pay-and-feed__card-text {
+  fill: var(--color-text);
 }
 
 .pay-and-feed__arrow {

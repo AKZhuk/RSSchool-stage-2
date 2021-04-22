@@ -69,7 +69,7 @@
   content: "";
   position: absolute;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-bg-primary);
   width: 150px;
   height: 150px;
   z-index: 2;

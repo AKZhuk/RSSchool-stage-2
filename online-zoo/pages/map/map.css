@@ -100,7 +100,7 @@
   content: "";
   position: absolute;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-bg-primary);
   width: 151px;
   height: 151px;
   left: -21px;
