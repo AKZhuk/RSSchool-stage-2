@@ -76,16 +76,13 @@ const setStyle = (filter) => {
 const resetStyles = () => {
   filters.querySelectorAll("input").forEach((filter) => {
     filter.value = filter.getAttribute("value");
+    const output = filters.querySelector(`.${filter.name}-result`);
+    output.innerHTML = filter.getAttribute("value");
     setStyle(filter);
-    filtersValue.blur = 0;
-    filtersValue.sepia = 0;
-    filtersValue.saturate = 100;
-    filtersValue.hue = 0;
-    filtersValue.invert = 0;
-    filtersValue.opacity = 100;
-
-    drawImage(img.src);
+    filtersValue[filter.name] = filter.getAttribute("value");
   });
+
+  drawImage(img.src);
 };
 
 const getImage = (button) => {
