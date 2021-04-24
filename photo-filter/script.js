@@ -1,10 +1,18 @@
-const baseImgUrl =
-  "https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/";
+const baseImgUrl = "https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/";
 const fullScreen = document.querySelector(".fullscreen");
 const filters = document.querySelector(".filters");
 const buttonsContainer = document.querySelector(".btn-container");
 const fileImport = document.querySelector(".btn-load--input");
 const buttons = document.querySelectorAll(".btn");
+const canvas = document.querySelector("canvas");
+let filtersValue = {
+  blur: 0,
+  invert: 0,
+  sepia: 0,
+  saturate: 100,
+  hue: 0,
+  opacity: 100,
+};
 const images = [
   "01",
   "02",
@@ -26,19 +34,17 @@ const images = [
   "19",
   "20",
 ];
+window.onload = () => {
+  drawImage("assets/img/img.jpg");
+};
+const img = new Image();
 let i = 0;
 
-fullScreen.addEventListener("mousedown", function () {
-  if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
-  }
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  }
-});
-
 filters.addEventListener("input", (e) => {
+  e.target.nextElementSibling.value = e.target.value;
   setStyle(e.target);
+  filtersValue[e.target.name] = e.target.value;
+  drawImage(img.src);
 });
 
 fileImport.addEventListener("change", (e) => {
@@ -62,31 +68,24 @@ buttonsContainer.addEventListener("click", (e) => {
 });
 
 const setStyle = (filter) => {
-  filter.nextElementSibling.value = filter.value;
   const unit = filter.dataset.sizing;
-  document.documentElement.style.setProperty(
-    `--${filter.name}`,
-    filter.value + unit
-  );
+
+  document.documentElement.querySelector("img").style.setProperty(`--${filter.name}`, filter.value + unit);
 };
 
 const resetStyles = () => {
   filters.querySelectorAll("input").forEach((filter) => {
     filter.value = filter.getAttribute("value");
     setStyle(filter);
-  });
-};
+    filtersValue.blur = 0;
+    filtersValue.sepia = 0;
+    filtersValue.saturate = 100;
+    filtersValue.hue = 0;
+    filtersValue.invert = 0;
+    filtersValue.opacity = 100;
 
-const resetStatusActive = () => {
-  buttons.forEach((button) => {
-    button.classList.remove("btn-active");
+    drawImage(img.src);
   });
-};
-
-const setStatusActive = (button) => {
-  if (button.classList.contains("btn")) {
-    button.classList.add("btn-active");
-  }
 };
 
 const getImage = (button) => {
@@ -105,6 +104,28 @@ const getImage = (button) => {
   }, 1000);
 };
 
+const saveImage = () => {
+  const link = document.createElement("a");
+  link.download = "download.png";
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+};
+
+function drawImage(src) {
+  img.setAttribute("crossOrigin", "anonymous");
+  img.src = src;
+  img.onload = function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.filter = `blur(${filtersValue.blur}px) invert(${filtersValue.invert}%) sepia(${filtersValue.sepia}%) saturate(${filtersValue.saturate}%) hue-rotate(${filtersValue.hue}deg)  opacity(${filtersValue.opacity}%)`;
+    ctx.drawImage(img, 0, 0);
+  };
+}
+
+drawImage();
+
 const getCurrentTime = () => {
   let currentHour = new Date().getHours();
   if ((timeOfDay = 6 < currentHour && currentHour < 12)) {
@@ -118,26 +139,23 @@ const getCurrentTime = () => {
   }
 };
 
-const saveImage = (button) => {
-  button.setAttribute("download", "image.jpg");
-  button.setAttribute(
-    "href",
-    canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
-  );
+const resetStatusActive = () => {
+  buttons.forEach((button) => {
+    button.classList.remove("btn-active");
+  });
 };
 
-const canvas = document.querySelector("canvas");
+const setStatusActive = (button) => {
+  if (button.classList.contains("btn")) {
+    button.classList.add("btn-active");
+  }
+};
 
-function drawImage(src) {
-  const img = new Image();
-  img.setAttribute("crossOrigin", "anonymous");
-  img.src = src;
-  img.onload = function () {
-    canvas.width = img.width;
-    canvas.height = img.height;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-  };
-}
-
-drawImage();
+fullScreen.addEventListener("mousedown", function () {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  }
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+});
