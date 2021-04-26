@@ -128,13 +128,13 @@ function drawImage(src) {
 
 const getCurrentTime = () => {
   let currentHour = new Date().getHours();
-  if ((timeOfDay = 6 < currentHour && currentHour < 12)) {
+  if (currentHour >= 6 && currentHour < 12) {
     return 'morning';
-  } else if (currentHour < 18) {
+  } else if (currentHour >= 12 && currentHour < 18) {
     return 'day';
-  } else if (currentHour < 24) {
+  } else if (currentHour >= 18 && currentHour < 24) {
     return 'evening';
-  } else {
+  } else if (currentHour >= 0 && currentHour < 6) {
     return 'night';
   }
 };
