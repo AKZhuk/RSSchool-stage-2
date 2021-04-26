@@ -554,6 +554,7 @@ input:checked + .slider:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: 136px;
 }
 
 .gallery__card {
@@ -565,36 +566,51 @@ input:checked + .slider:before {
   border-radius: 5px;
 }
 
-.gallery__card:hover .card-description {
-  top: 0%;
-  opacity: 1;
-  -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-  -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-  height: 100%;
-  -webkit-transition-property: top, opacity, height;
-  transition-property: top, opacity, height;
+.gallery__control {
+  width: 245px;
+  position: relative;
+  left: 16.2%;
+  bottom: 17px;
 }
 
-.gallery__card:first-child {
-  margin-left: 136px;
+.dot {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/dot.svg) no-repeat;
+  background-position: center;
 }
 
-.gallery__card_active, .gallery__card:hover {
+.act {
   position: relative;
   bottom: 14px;
   width: 245px !important;
   height: 352px !important;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  opacity: 1;
 }
 
-.gallery__control {
-  width: 245px;
-  position: relative;
-  left: 16.2%;
-  bottom: 17px;
+.act:hover .card-description {
+  top: 0%;
+  visibility: visible;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  height: 100%;
+  -webkit-transition-property: top, visibility, height;
+  transition-property: top, visibility, height;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.hide,
+.prev,
+.act,
+.next,
+.dot {
+  -webkit-transform: translateX(-185px);
+          transform: translateX(-185px);
 }
 
 .section__title {
@@ -717,9 +733,9 @@ input:checked + .slider:before {
 
 .card-description {
   position: absolute;
+  visibility: hidden;
   width: 100%;
   height: 0%;
-  opacity: 0;
   top: 100%;
   background: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
   border-radius: 5px;
@@ -1883,6 +1899,21 @@ input:checked + .slider:before {
 
 .fox {
   background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/fox.jpg);
+  background-size: cover;
+}
+
+.elephant {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/elephant.jpg);
+  background-size: cover;
+}
+
+.tiger {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/tiger.jpg);
+  background-size: cover;
+}
+
+.sloth {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/sloth.jpg);
   background-size: cover;
 }
 /*# sourceMappingURL=style.css.map */

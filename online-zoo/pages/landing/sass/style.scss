@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
-@import "base";
-@import "layouts";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+@import 'base';
+@import 'layouts';
 .promo {
   $tets: red;
   width: 100%;
@@ -30,5 +30,20 @@
 }
 .fox {
   background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/fox.jpg);
+  background-size: cover;
+}
+
+.elephant {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/elephant.jpg);
+  background-size: cover;
+}
+
+.tiger {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/tiger.jpg);
+  background-size: cover;
+}
+
+.sloth {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/sloth.jpg);
   background-size: cover;
 }
