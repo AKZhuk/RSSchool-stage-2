@@ -13,7 +13,6 @@ const filtersState = {
   sepia: 0,
   saturate: 100,
   hue: 0,
-  opacity: 100,
 };
 const images = [
   '01',
@@ -38,7 +37,7 @@ const images = [
 ];
 
 window.onload = () => {
-  drawImage('assets/img/img.jpg');
+  drawImage(displayImg.src);
 };
 const img = new Image();
 let i = 0;
@@ -118,14 +117,11 @@ function drawImage(src) {
     canvas.width = img.width;
     canvas.height = img.height;
     const ctx = canvas.getContext('2d');
-
     const coef =
       img.window > img.height ? img.width / displayImg.clientWidth : img.height / displayImg.clientHeight;
     ctx.filter = `blur(${filtersState.blur * coef}px) invert(${filtersState.invert}%) sepia(${
       filtersState.sepia
-    }%) saturate(${filtersState.saturate}%) hue-rotate(${filtersState.hue}deg)  opacity(${
-      filtersState.opacity
-    }%)`;
+    }%) saturate(${filtersState.saturate}%) hue-rotate(${filtersState.hue}deg)`;
     ctx.drawImage(img, 0, 0);
   };
 }
