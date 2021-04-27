@@ -89,7 +89,7 @@ const resetStyles = () => {
 
 const getImage = (button) => {
   let timeOfDay = getCurrentTime();
-  if (i === 19) i = 0;
+  if (i === 20) i = 0;
   const img = new Image();
   img.src = baseImgUrl + timeOfDay + `/${images[i]}.jpg`;
   img.onload = () => {
