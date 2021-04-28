@@ -85,7 +85,7 @@
 }
 
 .carousel__item_active::before {
-  content: "";
+  content: '';
   position: absolute;
   background: -webkit-gradient(linear, left top, right top, from(#07eee0), to(#df496d));
   background: linear-gradient(90deg, #07eee0, #df496d);
@@ -97,7 +97,7 @@
 }
 
 .carousel__item_active::after {
-  content: "";
+  content: '';
   position: absolute;
   border-radius: 50%;
   background: var(--color-bg-primary);
@@ -141,6 +141,7 @@
 
 .btn_map {
   margin-top: 43px;
+  width: auto;
 }
 
 @media screen and (max-width: 1200px) {
