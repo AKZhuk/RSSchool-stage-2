@@ -2,72 +2,99 @@ const $ = (selector) => {
   return document.querySelector(selector);
 };
 
-function next() {
-  if ($('.hide')) {
-    $('.hide').remove();
-  }
+const slider = $('.gallery__carousel'),
+  sliderCard = $('.gallery__card'),
+  promoRange = $('.promo-range'),
+  promoOutput = $('#PromoRange');
+let sliderCardWidth =
+  sliderCard.offsetWidth + Number(getComputedStyle(sliderCard).marginRight.substring(2, 0));
+promoRange.addEventListener('input', (e) => {
+  (slider.style.transform = `translateX(${-sliderCardWidth * (e.target.value - 1)}px)`), e.target.value;
+  const newActive = document.getElementById(`${e.target.value}`);
+  changeActiveSlide(newActive);
+});
 
-  /* Step */
+const nextItem = (nextActive) => {
+  (slider.style.transform = `translateX(${-sliderCardWidth * (nextActive.id - 1)}px)`), slider.id;
 
-  if ($('.prev')) {
-    $('.prev').classList.add('hide');
-    $('.prev').classList.remove('prev');
-  }
+  changeActiveSlide(nextActive);
+  updateControl(promoRange, promoOutput, $('.act').id);
+};
 
-  $('.act').classList.add('prev');
-  $('.act').classList.remove('act');
-
-  $('.next').classList.add('act');
-  $('.next').classList.remove('next');
-
-  /* New Next */
-
-  $('.new-next').classList.remove('new-next');
-
-  const addedEl = document.createElement('div');
-
-  slider.appendChild(addedEl);
-  addedEl.classList.add('dot', 'new-next', 'gallery__card');
-}
-
-function prev() {
-  $('.new-next').remove();
-
-  /* Step */
-
-  $('.next').classList.add('new-next');
-
-  $('.act').classList.add('next');
-  $('.act').classList.remove('act');
-
-  $('.prev').classList.add('act');
-  $('.prev').classList.remove('prev');
-
-  /* New Prev */
-
-  $('.hide').classList.add('prev');
-  $('.hide').classList.remove('hide');
-
-  const addedEl = document.createElement('div');
-
-  slider.insertBefore(addedEl, slider.firstChild);
-  addedEl.classList.add('dot', 'prev', 'gallery__card');
-}
+const prevItem = (nextActive) => {
+  (slider.style.transform = `translateX(${-sliderCardWidth * ($('.act').id - 2)}px)`), slider.id;
+  changeActiveSlide(nextActive);
+  updateControl(promoRange, promoOutput, $('.act').id);
+};
 
 slide = (element) => {
   /* Next slide */
 
-  if (element.classList.contains('next')) {
-    next();
+  if (element.id > $('.act').id) {
+    nextItem(element);
 
     /* Previous slide */
-  } else if (element.classList.contains('prev')) {
-    prev();
+  } else if (element.id < $('.act').id) {
+    prevItem(element);
   }
 };
 
-const slider = $('.gallery__carousel');
-
-slider.onclick = (event) => {
-  slide(event.target);
+slider.onclick = (e) => {
+  if (e.target.classList.contains('gallery__card')) slide(e.target);
 };
+
+const changeActiveSlide = (nextActive) => {
+  $('.act').classList.remove('act');
+  nextActive.classList.add('act');
+};
+
+//Pets in Zoo slider
+
+const carousel = document.querySelector('.layout-4-column-wrapper'),
+  content = document.querySelector('.layout-4-column'),
+  next = document.getElementById('next'),
+  prev = document.getElementById('prev'),
+  petsRange = document.querySelector('#petsRange'),
+  petsOutput = document.querySelector('#PetsOutput');
+
+let slideIndex = 0;
+let carouselWidth = carousel.offsetWidth;
+
+next.addEventListener('click', (e) => {
+  slideIndex++;
+  updateControl(petsRange, petsOutput, slideIndex + 1);
+
+  if (slideIndex >= 8) {
+    slideIndex = 0;
+    updateControl(petsRange, petsOutput, 1);
+  }
+
+  carousel.scrollTo(carouselWidth * slideIndex, 0);
+});
+prev.addEventListener('click', (e) => {
+  updateControl(petsRange, petsOutput, slideIndex);
+  slideIndex--;
+
+  if (slideIndex < 0) {
+    slideIndex = 7;
+    updateControl(petsRange, petsOutput, 8);
+  }
+
+  carousel.scrollTo(carouselWidth * slideIndex, 0);
+});
+
+petsRange.addEventListener('input', (e) => {
+  carousel.scrollTo(carouselWidth * (e.target.value - 1), 0);
+});
+
+//common
+
+const updateControl = (range, output, value) => {
+  range.value = value;
+  output.innerText = `0${value}/`;
+};
+
+window.addEventListener('resize', (e) => {
+  carouselWidth = carousel.offsetWidth;
+  sliderCardWidth = sliderCard.offsetWidth + Number(getComputedStyle(sliderCard).marginRight.substring(2, 0));
+});
