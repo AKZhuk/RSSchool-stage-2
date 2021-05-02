@@ -66,7 +66,7 @@
 }
 
 .side-bar__item_active::after {
-  content: "";
+  content: '';
   position: absolute;
   border-radius: 50%;
   background: var(--color-bg-primary);
@@ -76,7 +76,7 @@
 }
 
 .side-bar__item_active::before {
-  content: "";
+  content: '';
   position: absolute;
   background: -webkit-gradient(linear, left top, right top, from(#07eee0), to(#df496d));
   background: linear-gradient(90deg, #07eee0, #df496d);
@@ -136,13 +136,17 @@
 }
 
 .zoo__preview {
+  pointer-events: none;
+}
+
+.zoo__preview-wrapper {
   height: 141px;
   left: 904px;
   border-radius: 5px;
   margin-right: 26px;
 }
 
-.zoo__preview:last-child {
+.zoo__preview-wrapper:last-child {
   margin-right: 0px;
 }
 
@@ -190,6 +194,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
 }
 
 .carousel__plug {
@@ -218,7 +223,7 @@ label.carousel__label {
 }
 
 label.carousel__label:before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -237,7 +242,7 @@ input:checked + label:before {
   .zoo {
     width: 62.5vw;
   }
-  .zoo__preview {
+  .zoo__preview-wrapper {
     height: 7.3vw;
   }
   .carousel__plug {
@@ -249,7 +254,7 @@ input:checked + label:before {
   .zoo {
     width: 66.6vw;
   }
-  .zoo__preview {
+  .zoo__preview-wrapper {
     height: 7.8vw;
     margin-right: 18px;
   }
@@ -302,7 +307,7 @@ input:checked + label:before {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .zoo__preview {
+  .zoo__preview-wrapper {
     height: 13.9vw;
     margin-right: 18px;
   }
@@ -362,7 +367,7 @@ input:checked + label:before {
   .zoo {
     width: 64vw;
   }
-  .zoo__preview {
+  .zoo__preview-wrapper {
     height: 13.9vw;
     margin-right: 18px;
   }
@@ -372,11 +377,11 @@ input:checked + label:before {
     font-size: 24px;
     line-height: 28px;
   }
-  .zoo__preview {
+  .zoo__preview-wrapper {
     width: 47.8%;
     margin-right: 9px;
   }
-  .zoo__preview:last-child {
+  .zoo__preview-wrapper:last-child {
     display: none;
   }
   .description {
@@ -429,7 +434,7 @@ input:checked + label:before {
 }
 
 @media screen and (max-width: 320px) {
-  .zoo__preview {
+  .zoo__preview-wrapper {
     height: 56px;
   }
   .carousel__control {

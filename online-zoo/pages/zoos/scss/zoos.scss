@@ -38,7 +38,7 @@
       }
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         border-radius: 50%;
         background: var(--color-bg-primary);
@@ -47,7 +47,7 @@
         z-index: 2;
       }
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         background: linear-gradient(90deg, #07eee0, #df496d);
         width: 157px;
@@ -95,12 +95,15 @@
     position: absolute;
   }
   &__preview {
-    height: 141px;
-    left: 904px;
-    border-radius: 5px;
-    margin-right: 26px;
-    &:last-child {
-      margin-right: 0px;
+    pointer-events: none;
+    &-wrapper {
+      height: 141px;
+      left: 904px;
+      border-radius: 5px;
+      margin-right: 26px;
+      &:last-child {
+        margin-right: 0px;
+      }
     }
   }
 }
@@ -133,6 +136,7 @@
   &__content {
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
   &__plug {
     width: 100%;
@@ -156,7 +160,7 @@ label.carousel__label {
 }
 
 label.carousel__label:before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -173,7 +177,7 @@ input:checked + label:before {
 @media screen and (max-width: 1920px) {
   .zoo {
     width: 62.5vw;
-    &__preview {
+    &__preview-wrapper {
       height: 7.3vw;
     }
   }
@@ -187,7 +191,7 @@ input:checked + label:before {
 @media screen and (max-width: 1200px) {
   .zoo {
     width: 66.6vw;
-    &__preview {
+    &__preview-wrapper {
       height: 7.8vw;
       margin-right: 18px;
     }
@@ -245,7 +249,7 @@ input:checked + label:before {
     &__main {
       flex-direction: column;
     }
-    &__preview {
+    &__preview-wrapper {
       height: 13.9vw;
       margin-right: 18px;
     }
@@ -316,7 +320,7 @@ input:checked + label:before {
   .zoo {
     width: 64vw;
 
-    &__preview {
+    &__preview-wrapper {
       height: 13.9vw;
       margin-right: 18px;
     }
@@ -327,7 +331,7 @@ input:checked + label:before {
       font-size: 24px;
       line-height: 28px;
     }
-    &__preview {
+    &__preview-wrapper {
       width: 47.8%;
       margin-right: 9px;
       &:last-child {
@@ -391,7 +395,7 @@ input:checked + label:before {
 }
 
 @media screen and (max-width: 320px) {
-  .zoo__preview {
+  .zoo__preview-wrapper {
     height: 56px;
   }
   .carousel__control {
