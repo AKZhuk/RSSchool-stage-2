@@ -25,6 +25,7 @@ range.addEventListener('input', (e) => {
 mapItems.forEach((item) => {
   item.addEventListener('click', (e) => {
     removeActiveStatus();
+    console.log(e.target);
     const carouselItem = document.querySelector(`#carousel-${e.currentTarget.id}`);
     const outputValue = getKeyByValue(carouselIndex, e.currentTarget.id);
     addActiveStatus(e.currentTarget, carouselItem, outputValue);
@@ -33,8 +34,14 @@ mapItems.forEach((item) => {
 
 carouselItems.forEach((item) => {
   item.addEventListener('click', (e) => {
+    console.log(e.target);
+    let outputValue;
     removeActiveStatus();
-    const outputValue = getKeyByValue(carouselIndex, e.target.alt);
+    if (e.target.classList.contains('carousel__item')) {
+      outputValue = getKeyByValue(carouselIndex, e.target.children[0].alt);
+    } else {
+      outputValue = getKeyByValue(carouselIndex, e.target.alt);
+    }
     addActiveStatus(document.querySelector(`#${e.target.alt}`), e.currentTarget, outputValue);
   });
 });

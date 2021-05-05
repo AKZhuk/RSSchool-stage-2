@@ -66,7 +66,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow-x: hidden;
   gap: 30px;
   height: 157px;
 }
@@ -144,7 +143,7 @@
   width: auto;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1199px) {
   .map-page__wrapper {
     max-width: 800px;
   }
@@ -160,6 +159,7 @@
   }
   .carousel-content {
     height: 157px;
+    overflow-x: hidden;
   }
   .carousel__items {
     width: 83%;
