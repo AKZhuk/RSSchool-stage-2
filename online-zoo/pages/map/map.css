@@ -143,6 +143,12 @@
   width: auto;
 }
 
+@media screen and (max-width: 1203px) {
+  .carousel-content {
+    width: 106%;
+  }
+}
+
 @media screen and (max-width: 1199px) {
   .map-page__wrapper {
     max-width: 800px;
@@ -158,6 +164,7 @@
     margin: 0 auto;
   }
   .carousel-content {
+    width: 100%;
     height: 157px;
     overflow-x: hidden;
   }
