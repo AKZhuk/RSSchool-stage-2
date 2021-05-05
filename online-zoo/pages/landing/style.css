@@ -570,6 +570,12 @@ input:checked + .slider:before {
   overflow-x: clip;
 }
 
+.gallery__card:hover {
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+}
+
 .gallery__card,
 .gallery .dot {
   margin-right: 45px;

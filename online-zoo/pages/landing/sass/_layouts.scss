@@ -140,6 +140,10 @@
     margin-left: 136px;
     overflow-x: clip;
   }
+  &__card:hover {
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }
   &__card,
   .dot {
     margin-right: 45px;
@@ -346,6 +350,7 @@
 .arrow path {
   fill: var(--color-base);
 }
+
 //pay-and-feed style
 .pay-and-feed {
   &-content {
@@ -759,7 +764,6 @@
     width: 93.5vw;
     max-width: $desktop-min-width;
   }
-
   .navigation {
     &__link {
       margin-right: 7vw;
