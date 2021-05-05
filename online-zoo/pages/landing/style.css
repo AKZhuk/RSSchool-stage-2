@@ -80,6 +80,8 @@ html {
   --color-base: #333;
   --color-bg-header: #fefefe;
   --color-toggle-round: #ffffff;
+  --color-map-primary: #333333;
+  --color-map-additional: #dadada;
 }
 
 .dark-theme {
@@ -91,10 +93,8 @@ html {
   --color-base: #fefefe;
   --color-bg-header: #333333;
   --color-toggle-round: #1b1b1b;
-}
-
-.dark-theme .map-color_primary {
-  fill: #e1e1e1;
+  --color-map-primary: #e1e1e1;
+  --color-map-additional: #333;
 }
 
 body {
@@ -400,6 +400,14 @@ input:checked + .slider:before {
   --webkit-box-shadow: inset 0px 4px 8px rgba(44, 101, 77, 0.08);
 }
 
+.map .map-color_primary {
+  fill: var(--color-map-primary);
+}
+
+.map .map-color_additional {
+  fill: var(--color-map-additional);
+}
+
 .header {
   background: var(--color-bg-header);
   padding: 26px 0 23px 0;
@@ -459,6 +467,10 @@ input:checked + .slider:before {
 
 .navigation__show {
   display: none;
+}
+
+.navigation__show line {
+  stroke: var(--color-base);
 }
 
 .link-active {
@@ -527,7 +539,7 @@ input:checked + .slider:before {
 }
 
 .gallery {
-  width: 2000px;
+  width: 2558px;
   position: absolute;
   left: 43.6%;
   bottom: 167px;
@@ -536,6 +548,15 @@ input:checked + .slider:before {
 }
 
 .gallery__carousel {
+  -webkit-transform: translateX(-186px);
+          transform: translateX(-186px);
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  height: 352px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -544,7 +565,13 @@ input:checked + .slider:before {
   display: flex;
 }
 
-.gallery__card {
+.gallery-wrapper {
+  margin-left: 136px;
+  overflow-x: clip;
+}
+
+.gallery__card,
+.gallery .dot {
   margin-right: 45px;
   width: 140px;
   height: 203px;
@@ -553,36 +580,37 @@ input:checked + .slider:before {
   border-radius: 5px;
 }
 
-.gallery__card:hover .card-description {
-  top: 0%;
-  opacity: 1;
-  -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-  -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-  height: 100%;
-  -webkit-transition-property: top, opacity, height;
-  transition-property: top, opacity, height;
+.gallery__control {
+  width: 245px;
+  position: relative;
+  left: 12.6%;
+  bottom: 17px;
 }
 
-.gallery__card:first-child {
-  margin-left: 136px;
+.dot {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/sliders/dot.svg) no-repeat;
+  background-position: center;
 }
 
-.gallery__card_active, .gallery__card:hover {
+.act {
   position: relative;
   bottom: 14px;
   width: 245px !important;
   height: 352px !important;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  opacity: 1;
 }
 
-.gallery__control {
-  width: 245px;
-  position: relative;
-  left: 16.2%;
-  bottom: 17px;
+.act .card-description {
+  top: 0%;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  height: 100%;
+  -webkit-transition-property: top, visibility, height, opacity;
+  transition-property: top, visibility, height, opacity;
 }
 
 .section__title {
@@ -608,6 +636,7 @@ input:checked + .slider:before {
 .how-it-work__wrapper {
   max-width: 790px;
   margin: 0 auto;
+  overflow: auto;
 }
 
 .how-it-work__title {
@@ -630,6 +659,16 @@ input:checked + .slider:before {
 
 .layout-5-column {
   width: 100%;
+}
+
+.layout-4-column {
+  width: 800%;
+}
+
+.layout-4-column-wrapper {
+  max-width: 62.5vw;
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 .card {
@@ -690,12 +729,13 @@ input:checked + .slider:before {
 
 .pets-in-zoo__card:hover .card-description {
   top: 0%;
+  visibility: visible;
   opacity: 1;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   height: 100%;
-  -webkit-transition-property: top, opacity, height;
-  transition-property: top, opacity, height;
+  -webkit-transition-property: top, opacity, height, visibility;
+  transition-property: top, opacity, height, visibility;
 }
 
 .pets-in-zoo__control {
@@ -704,9 +744,10 @@ input:checked + .slider:before {
 
 .card-description {
   position: absolute;
+  opacity: 0;
+  visibility: hidden;
   width: 100%;
   height: 0%;
-  opacity: 0;
   top: 100%;
   background: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
   border-radius: 5px;
@@ -789,6 +830,10 @@ input:checked + .slider:before {
 
 .pay-and-feed__card:last-child {
   margin-right: 0px;
+}
+
+.pay-and-feed__card-text {
+  fill: var(--color-text);
 }
 
 .pay-and-feed__arrow {
@@ -910,6 +955,7 @@ input:checked + .slider:before {
   position: absolute;
   right: 12px;
   bottom: 42px;
+  pointer-events: none;
 }
 
 .map__pin:hover path {
@@ -944,15 +990,12 @@ input:checked + .slider:before {
   right: 0px;
 }
 
+.tooltip__header {
+  color: var(--color-base);
+}
+
 .footer {
   background: #333;
-  /*&__left {
-    margin-right: 76px;*/
-  /*&__right {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 794px;
-    align-items: baseline;*/
 }
 
 .footer_layout {
@@ -1259,6 +1302,9 @@ input:checked + .slider:before {
   .promo__social {
     top: 220px;
   }
+  .layout-4-column-wrapper {
+    max-width: 900px;
+  }
   .gallery {
     left: 39.6%;
     bottom: 126px;
@@ -1270,8 +1316,13 @@ input:checked + .slider:before {
     position: relative;
     bottom: 16px;
   }
+  .gallery .dot {
+    width: 180px;
+    height: 261px;
+    margin-right: 30px;
+  }
   .gallery__control {
-    left: 17.5%;
+    left: 13.2%;
   }
   .card {
     width: 287px;
@@ -1404,7 +1455,7 @@ input:checked + .slider:before {
     margin-left: 73px;
   }
   .gallery__control {
-    left: 14.5%;
+    left: 12.5%;
   }
   .promo__title {
     font-weight: 900;
@@ -1553,6 +1604,9 @@ input:checked + .slider:before {
     width: 100%;
     overflow: hidden;
   }
+  .layout-4-column-wrapper {
+    max-width: 100%;
+  }
   .contact {
     width: -webkit-max-content;
     width: -moz-max-content;
@@ -1596,16 +1650,20 @@ input:checked + .slider:before {
     bottom: 34px;
     left: 1.12%;
   }
-  .gallery__card {
+  .gallery__card,
+  .gallery .dot {
     bottom: -78px;
     margin-right: 10px;
     width: 113px;
     height: 164px;
   }
-  .gallery__card:first-child {
+  .gallery__card:first-child,
+  .gallery .dot:first-child {
     margin-left: 19px;
   }
-  .gallery__card_active, .gallery__card:hover {
+  .gallery__card_active, .gallery__card:hover,
+  .gallery .dot_active,
+  .gallery .dot:hover {
     bottom: -78px;
     width: 140px !important;
     height: 202px !important;
@@ -1649,7 +1707,7 @@ input:checked + .slider:before {
     font-weight: 900;
     font-size: 1.4rem;
     line-height: 16px;
-    color: #333333;
+    color: var(--color-base);
   }
   .tooltip__text {
     font-size: 1.1rem;
@@ -1797,9 +1855,6 @@ input:checked + .slider:before {
   .testimonials__btn {
     margin-top: 20px;
   }
-  .btn_main {
-    margin-bottom: 50px;
-  }
   .control {
     margin-top: 18px;
   }
@@ -1809,8 +1864,14 @@ input:checked + .slider:before {
   .map__title {
     margin-bottom: 22px;
   }
+  .btn_main {
+    margin-bottom: 50px;
+  }
   .btn_map {
     margin-bottom: 56px;
+  }
+  .btn_img {
+    margin-bottom: 60px;
   }
   .footer-content {
     padding-top: 52px;
@@ -1828,9 +1889,6 @@ input:checked + .slider:before {
   }
   .footer__footer {
     height: 88px;
-  }
-  .btn_img {
-    margin-bottom: 60px;
   }
   .form__btn {
     margin-right: 0px;
@@ -1866,6 +1924,21 @@ input:checked + .slider:before {
 
 .fox {
   background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/fox.jpg);
+  background-size: cover;
+}
+
+.elephant {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/elephant.jpg);
+  background-size: cover;
+}
+
+.tiger {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/tiger.jpg);
+  background-size: cover;
+}
+
+.sloth {
+  background: url(/akzhuk-JSFE2021Q1/online-zoo/assets/images/sloth.jpg);
   background-size: cover;
 }
 /*# sourceMappingURL=style.css.map */

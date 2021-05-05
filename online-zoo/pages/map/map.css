@@ -66,7 +66,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow-x: hidden;
   gap: 30px;
   height: 157px;
 }
@@ -85,7 +84,7 @@
 }
 
 .carousel__item_active::before {
-  content: "";
+  content: '';
   position: absolute;
   background: -webkit-gradient(linear, left top, right top, from(#07eee0), to(#df496d));
   background: linear-gradient(90deg, #07eee0, #df496d);
@@ -97,10 +96,10 @@
 }
 
 .carousel__item_active::after {
-  content: "";
+  content: '';
   position: absolute;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-bg-primary);
   width: 151px;
   height: 151px;
   left: -21px;
@@ -141,9 +140,10 @@
 
 .btn_map {
   margin-top: 43px;
+  width: auto;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1199px) {
   .map-page__wrapper {
     max-width: 800px;
   }
@@ -159,6 +159,7 @@
   }
   .carousel-content {
     height: 157px;
+    overflow-x: hidden;
   }
   .carousel__items {
     width: 83%;

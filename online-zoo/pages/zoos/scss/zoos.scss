@@ -12,7 +12,10 @@
   &__arrow_bottom {
     margin-top: 15px;
   }
-
+  &__arrow_top path,
+  &__arrow_bottom path {
+    fill: #333;
+  }
   &-wrapper {
     position: sticky;
     top: 159px;
@@ -38,16 +41,16 @@
       }
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         border-radius: 50%;
-        background: #fff;
+        background: var(--color-bg-primary);
         width: 150px;
         height: 150px;
         z-index: 2;
       }
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         background: linear-gradient(90deg, #07eee0, #df496d);
         width: 157px;
@@ -95,12 +98,21 @@
     position: absolute;
   }
   &__preview {
-    height: 141px;
-    left: 904px;
-    border-radius: 5px;
-    margin-right: 26px;
-    &:last-child {
-      margin-right: 0px;
+    pointer-events: none;
+    &-wrapper {
+      height: 141px;
+      width: 246px;
+      left: 904px;
+      border-radius: 5px;
+      margin-right: 26px;
+      &:last-child {
+        margin-right: 0px;
+      }
+      &:hover {
+        cursor: pointer;
+        opacity: 0.5;
+        transition: ease-in-out 0.5s;
+      }
     }
   }
 }
@@ -130,9 +142,13 @@
   align-items: center;
   position: relative;
   margin-bottom: 96px;
+  overflow: hidden;
   &__content {
     display: flex;
     justify-content: space-between;
+    position: relative;
+    align-self: flex-start;
+    transition: transform 0.5s ease-in;
   }
   &__plug {
     width: 100%;
@@ -156,7 +172,7 @@ label.carousel__label {
 }
 
 label.carousel__label:before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -173,8 +189,13 @@ input:checked + label:before {
 @media screen and (max-width: 1920px) {
   .zoo {
     width: 62.5vw;
-    &__preview {
+    &__preview-wrapper {
       height: 7.3vw;
+      width: 12.8vw;
+      margin-right: 1.35vw;
+      &:last-child {
+        margin-right: 0px;
+      }
     }
   }
 
@@ -187,8 +208,9 @@ input:checked + label:before {
 @media screen and (max-width: 1200px) {
   .zoo {
     width: 66.6vw;
-    &__preview {
+    &__preview-wrapper {
       height: 7.8vw;
+      width: 13.6vw;
       margin-right: 18px;
     }
     &__wrapper {
@@ -245,8 +267,9 @@ input:checked + label:before {
     &__main {
       flex-direction: column;
     }
-    &__preview {
+    &__preview-wrapper {
       height: 13.9vw;
+      width: 24.6vw;
       margin-right: 18px;
     }
     &__wrapper {
@@ -316,8 +339,9 @@ input:checked + label:before {
   .zoo {
     width: 64vw;
 
-    &__preview {
+    &__preview-wrapper {
       height: 13.9vw;
+      width: 31vw;
       margin-right: 18px;
     }
 
@@ -327,8 +351,7 @@ input:checked + label:before {
       font-size: 24px;
       line-height: 28px;
     }
-    &__preview {
-      width: 47.8%;
+    &__preview-wrapper {
       margin-right: 9px;
       &:last-child {
         display: none;
@@ -391,7 +414,7 @@ input:checked + label:before {
 }
 
 @media screen and (max-width: 320px) {
-  .zoo__preview {
+  .zoo__preview-wrapper {
     height: 56px;
   }
   .carousel__control {

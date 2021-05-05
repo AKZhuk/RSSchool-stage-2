@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow-x: hidden;
+    //overflow-x: hidden;
     gap: 30px;
     height: 157px;
   }
@@ -49,7 +49,7 @@
       justify-content: center;
     }
     &_active::before {
-      content: "";
+      content: '';
       position: absolute;
       background: linear-gradient(90deg, #07eee0, #df496d);
       width: 157px;
@@ -59,10 +59,10 @@
       border-radius: 50%;
     }
     &_active::after {
-      content: "";
+      content: '';
       position: absolute;
       border-radius: 50%;
-      background: #fff;
+      background: var(--color-bg-primary);
       width: 151px;
       height: 151px;
       left: -21px;
@@ -102,9 +102,10 @@
 
 .btn_map {
   margin-top: 43px;
+  width: auto;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1199px) {
   .map-page__wrapper {
     max-width: 800px;
   }
@@ -125,6 +126,7 @@
   .carousel {
     &-content {
       height: 157px;
+      overflow-x: hidden;
     }
 
     &__items {

@@ -65,7 +65,8 @@ html {
   --color-base: #333;
   --color-bg-header: #fefefe;
   --color-toggle-round: #ffffff;
-  $color-map-primary: #333333;
+  --color-map-primary: #333333;
+  --color-map-additional: #dadada;
 }
 
 .dark-theme {
@@ -77,10 +78,8 @@ html {
   --color-base: #fefefe;
   --color-bg-header: #333333;
   --color-toggle-round: #1b1b1b;
-  $color-map-primary: #e1e1e1;
-  .map-color_primary {
-    fill: #e1e1e1;
-  }
+  --color-map-primary: #e1e1e1;
+  --color-map-additional: #333;
 }
 body {
   font-size: 1.4rem;
