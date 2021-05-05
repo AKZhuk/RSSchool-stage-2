@@ -85,6 +85,7 @@ prev.addEventListener('click', (e) => {
 
 petsRange.addEventListener('input', (e) => {
   carousel.scrollTo(carouselWidth * (e.target.value - 1), 0);
+  slideIndex = e.target.value - 1;
 });
 
 //common

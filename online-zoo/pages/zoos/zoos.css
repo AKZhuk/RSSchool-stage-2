@@ -22,11 +22,6 @@
   margin-top: 15px;
 }
 
-.side-bar__arrow_top path,
-.side-bar__arrow_bottom path {
-  fill: #333;
-}
-
 .side-bar-wrapper {
   position: -webkit-sticky;
   position: sticky;
