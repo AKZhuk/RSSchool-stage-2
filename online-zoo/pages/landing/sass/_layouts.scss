@@ -138,7 +138,6 @@
   }
   &-wrapper {
     margin-left: 136px;
-    //scroll-behavior: smooth;
     overflow-x: clip;
   }
   &__card,
@@ -363,7 +362,6 @@
     text-align: center;
   }
   &__card {
-    //margin-right: 63px;
     margin-bottom: 30px;
     &:last-child {
       margin-right: 0px;
@@ -374,7 +372,7 @@
   }
   &__arrow {
     background-image: url(/akzhuk-JSFE2021Q1/online-zoo/assets/icons/card/arrow/light.svg);
-    //margin-right: 63px;
+
     margin-bottom: 30px;
     height: 16px;
     width: 107px;
@@ -491,6 +489,7 @@
     position: absolute;
     right: 12px;
     bottom: 42px;
+    pointer-events: none;
   }
   &__pin:hover path {
     fill: #eb5757;
@@ -519,6 +518,9 @@
   }
   &_right {
     right: 0px;
+  }
+  &__header {
+    color: var(--color-base);
   }
 }
 //footer style
@@ -549,14 +551,6 @@
     display: flex;
     justify-content: space-between;
   }
-  /*&__left {
-    margin-right: 76px;*/
-  //}
-  /*&__right {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 794px;
-    align-items: baseline;*/
 
   .choose-favorite {
     &-wrapper {
@@ -951,18 +945,19 @@
       margin-left: 73px;
     }
     &__control {
-      left: 15.5%;
+      left: 12.5%;
     }
   }
-  &.promo__title {
-    font-weight: 900;
-    font-size: 64px;
-    line-height: 75px;
+  &.promo {
+    &__title {
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 75px;
+    }
+    &__social {
+      top: 265px;
+    }
   }
-  .promo__social {
-    top: 265px;
-  }
-
   .footer {
     &-content {
       margin-bottom: 52px;
@@ -1204,7 +1199,7 @@
       margin-bottom: 5px;
       height: 21px;
       @include font(1.4rem, 16px, 900);
-      color: #333333;
+      color: var(--color-base);
     }
     &__text {
       @include font(1.1rem, 13px, normal, normal);
@@ -1281,7 +1276,6 @@
     max-width: $mobile-width;
   }
   .section__title {
-    //margin-top: 50px;
     font-weight: 900;
     font-size: 36px;
     line-height: 42px;
@@ -1368,9 +1362,7 @@
       margin-top: 20px;
     }
   }
-  .btn_main {
-    margin-bottom: 50px;
-  }
+
   .control {
     margin-top: 18px;
   }
@@ -1383,8 +1375,16 @@
       margin-bottom: 22px;
     }
   }
-  .btn_map {
-    margin-bottom: 56px;
+  .btn {
+    &_main {
+      margin-bottom: 50px;
+    }
+    &_map {
+      margin-bottom: 56px;
+    }
+    &_img {
+      margin-bottom: 60px;
+    }
   }
   .footer {
     &-content {
@@ -1408,9 +1408,6 @@
     }
   }
 
-  .btn_img {
-    margin-bottom: 60px;
-  }
   .form__btn {
     margin-right: 0px;
   }

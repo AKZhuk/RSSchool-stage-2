@@ -6,8 +6,8 @@ const slider = $('.gallery__carousel'),
   sliderCard = $('.gallery__card'),
   promoRange = $('.promo-range'),
   promoOutput = $('#PromoRange');
-let sliderCardWidth =
-  sliderCard.offsetWidth + Number(getComputedStyle(sliderCard).marginRight.substring(2, 0));
+let sliderCardWidth = getElementWidth(sliderCard);
+
 promoRange.addEventListener('input', (e) => {
   (slider.style.transform = `translateX(${-sliderCardWidth * (e.target.value - 1)}px)`), e.target.value;
   const newActive = document.getElementById(`${e.target.value}`);
@@ -94,7 +94,11 @@ const updateControl = (range, output, value) => {
   output.innerText = `0${value}/`;
 };
 
+function getElementWidth(element) {
+  return element.offsetWidth + Number(getComputedStyle(element).marginRight.substring(2, 0));
+}
+
 window.addEventListener('resize', (e) => {
   carouselWidth = carousel.offsetWidth;
-  sliderCardWidth = sliderCard.offsetWidth + Number(getComputedStyle(sliderCard).marginRight.substring(2, 0));
+  sliderCardWidth = getElementWidth(sliderCard);
 });

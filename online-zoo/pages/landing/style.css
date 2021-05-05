@@ -955,6 +955,7 @@ input:checked + .slider:before {
   position: absolute;
   right: 12px;
   bottom: 42px;
+  pointer-events: none;
 }
 
 .map__pin:hover path {
@@ -989,15 +990,12 @@ input:checked + .slider:before {
   right: 0px;
 }
 
+.tooltip__header {
+  color: var(--color-base);
+}
+
 .footer {
   background: #333;
-  /*&__left {
-    margin-right: 76px;*/
-  /*&__right {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 794px;
-    align-items: baseline;*/
 }
 
 .footer_layout {
@@ -1457,7 +1455,7 @@ input:checked + .slider:before {
     margin-left: 73px;
   }
   .gallery__control {
-    left: 15.5%;
+    left: 12.5%;
   }
   .promo__title {
     font-weight: 900;
@@ -1709,7 +1707,7 @@ input:checked + .slider:before {
     font-weight: 900;
     font-size: 1.4rem;
     line-height: 16px;
-    color: #333333;
+    color: var(--color-base);
   }
   .tooltip__text {
     font-size: 1.1rem;
@@ -1857,9 +1855,6 @@ input:checked + .slider:before {
   .testimonials__btn {
     margin-top: 20px;
   }
-  .btn_main {
-    margin-bottom: 50px;
-  }
   .control {
     margin-top: 18px;
   }
@@ -1869,8 +1864,14 @@ input:checked + .slider:before {
   .map__title {
     margin-bottom: 22px;
   }
+  .btn_main {
+    margin-bottom: 50px;
+  }
   .btn_map {
     margin-bottom: 56px;
+  }
+  .btn_img {
+    margin-bottom: 60px;
   }
   .footer-content {
     padding-top: 52px;
@@ -1888,9 +1889,6 @@ input:checked + .slider:before {
   }
   .footer__footer {
     height: 88px;
-  }
-  .btn_img {
-    margin-bottom: 60px;
   }
   .form__btn {
     margin-right: 0px;
