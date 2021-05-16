@@ -1,0 +1,44 @@
+.best-scores {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-players {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 185px 0 46px;
+  border-bottom: rgba(33, 33, 33, 0.08) 1px solid;
+}
+.user {
+  display: flex;
+  flex-direction: row;
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: yellowgreen;
+    margin-right: 16px;
+  }
+  &__name {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 21px;
+    letter-spacing: 0.1px;
+    margin: 7px 0;
+  }
+  &__email {
+    margin-top: 9px;
+  }
+}
+
+.score {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+
+  letter-spacing: 0.15px;
+  &__result {
+    color: var(--color-primary);
+  }
+}
