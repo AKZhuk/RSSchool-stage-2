@@ -17,4 +17,10 @@ window.onload = () => {
       application.onNav(navItem.dataset.link as string);
     });
   });
+
+  (btn as HTMLElement).addEventListener('click', (e) => {
+    const navItem = e.target as HTMLElement;
+    application.start();
+    application.onNav(navItem.dataset.link as string);
+  });
 };

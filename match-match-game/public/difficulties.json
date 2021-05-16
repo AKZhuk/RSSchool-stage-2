@@ -1,0 +1,14 @@
+[
+  {
+    "category": "4*4",
+    "cards": 8
+  },
+  {
+     "category": "6*6",
+    "cards": 16
+  },
+  {
+     "category": "8*8",
+    "cards": 32
+  }
+]

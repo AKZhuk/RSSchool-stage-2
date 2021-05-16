@@ -1,2 +1,197 @@
-@import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400;500&display=swap');
+//@import 'normalize.css';
+
+html {
+  --color-primary: #2196f3;
+  --color-light: #fff;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+}
+.logo {
+  width: 128px;
+  height: 64px;
+  background: url(./asstets/icons/logo.svg);
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+}
+svg {
+  pointer-events: none;
+}
+.btn {
+  background: #f2f9fe;
+  width: 207px;
+  height: 36px;
+  margin: 13px 20px auto 0;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+
+  color: #2196f3;
+
+  &:hover {
+    opacity: 0.8;
+    transition: 0.5 ease-in-out;
+  }
+  &_game-settings {
+    background-color: var(--color-primary);
+  }
+}
+
+.wrapper {
+  display: flex;
+  max-width: 1000px;
+  width: 90vw;
+  min-height: 90vh;
+  margin-top: 80px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+.title {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 30px;
+  margin: 28px 36px 20px 36px;
+}
+
+.form-img {
+  background: url('./asstets/form.jpg') no-repeat right;
+}
+
+.preview-img {
+  background: url('./asstets/preview.jpg') no-repeat right;
+}
+
+.cover {
+  width: 100vw;
+  height: 100vw;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.form-registration {
+  width: 640px;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+  top: calc(50vh - 230px);
+  left: calc(50vw - 320px);
+  background-color: white;
+  &-wrapper {
+    margin: 33px 38px 0 21px;
+  }
+  &__input {
+    width: 328px;
+    height: 56px;
+    background: rgba(33, 33, 33, 0.08);
+    border-radius: 4px 4px 0px 0px;
+    border: none;
+    border-bottom: rgba(0, 0, 0, 0.6) 2px solid;
+    outline: none;
+    font-size: 2rem;
+    box-sizing: border-box;
+    padding: 15px 0 0 52px;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  &__label {
+    font-size: 1.2rem;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: rgba(0, 0, 0, 0.38);
+    position: relative;
+    top: -19px;
+    left: -279px;
+  }
+
+  &__avatar {
+    background-image: url('/src/asstets/icons/avatar/avatar.svg');
+    height: 198px;
+    width: 198px;
+    position: absolute;
+    right: 7px;
+    top: 101px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.congratulations {
+  width: 360px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  top: calc(50vh - 65px);
+  left: calc(50vw - 180px);
+  background-color: white;
+
+  &__text {
+    width: 328px;
+    height: 40px;
+    margin: 12px;
+
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  &__btn {
+    width: 53px;
+    height: 36px;
+
+    background: #2196f3;
+
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 4px;
+
+    color: #ffffff;
+  }
+}
+select {
+  height: 30px;
+  width: 256px;
+  margin-left: 30px;
+  font-size: 1.8rem;
+  outline: none;
+  border: none;
+  border-bottom: 2px #e5e5e5 solid;
+}
+
+.setting__name {
+  margin-top: 32px;
+  margin-left: 46px;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 30px;
+  letter-spacing: 0.15px;
+}
