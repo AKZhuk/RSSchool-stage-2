@@ -1,11 +1,15 @@
 import { delay } from '../../shared/delay';
-import { GameField } from '../game-field/game-field';
-import { BaseComponent } from '../base-component';
-import { Card } from '../card/card';
-import { Congratulation } from '../congratulation/congratulation';
+import { GameField } from './game-field';
+import { BaseComponent } from '../../shared/base-component';
+import { Card } from './card/card';
 import { application } from '../../index';
+import { Registration } from '../registration/registration';
+import { Timer } from '../../shared/timer';
+import './game.scss'
 
 export class Game extends BaseComponent {
+  readonly timer: Timer;
+
   private readonly gameField: GameField;
 
   private activeCard?: Card;
@@ -20,7 +24,7 @@ export class Game extends BaseComponent {
   };
 
   constructor() {
-    super('div', ['game']);
+    super('div', ['game', 'wrapper']);
     this.isAnimation = false;
     this.gameResult = {
       flips: 0,
@@ -28,12 +32,17 @@ export class Game extends BaseComponent {
       mistakes: 0,
       cardsPairs: 0,
     };
+    this.timer = new Timer();
     this.gameField = new GameField();
+    this.element.appendChild(this.timer.element);
     this.element.appendChild(this.gameField.element);
   }
 
-  newGame(images: string[]) {
+  newGame(images: string[]): void {
     this.gameField.clear();
+    this.timer.clear();
+    this.timer.start();
+    application.header.addStopGameButton();
     this.gameResult.mistakes = 0;
     this.gameResult.corrects = 0;
     this.gameResult.flips = 0;
@@ -89,10 +98,19 @@ export class Game extends BaseComponent {
       this.gameResult.corrects++;
 
       if (this.gameResult.corrects === this.gameResult.cardsPairs) {
-        this.showCongratulation();
+        this.timer.stop();
+        const score = this.calculateScore(this.timer.min, this.timer.sec);
+        this.showModal(score, this.timer.min, this.timer.sec);
       }
     }
     this.isAnimation = false;
     this.activeCard = undefined;
+  }
+
+  calculateScore(min: number, sec: number): number {
+    const score = (this.gameResult.flips - this.gameResult.mistakes) * 100 - (min * 60 + sec) * 10;
+    console.log('calc', score);
+
+    return score < 0 ? 0 : score;
   }
 }
