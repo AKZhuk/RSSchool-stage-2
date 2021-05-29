@@ -2,15 +2,16 @@ import { delay } from '../../shared/delay';
 import { GameField } from './game-field';
 import { BaseComponent } from '../../shared/base-component';
 import { Card } from './card/card';
-import { application } from '../../index';
 import { Registration } from '../registration/registration';
 import { Timer } from '../../shared/timer';
-import './game.scss'
+import './game.scss';
 
 export class Game extends BaseComponent {
   readonly timer: Timer;
 
-  private readonly gameField: GameField;
+  gameField: GameField;
+
+  modal: Registration;
 
   private activeCard?: Card;
 
@@ -36,41 +37,39 @@ export class Game extends BaseComponent {
     this.gameField = new GameField();
     this.element.appendChild(this.timer.element);
     this.element.appendChild(this.gameField.element);
+    this.modal = new Registration();
   }
 
-  newGame(images: string[]): void {
+  newGame(images: string[], difficulty: number): void {
     this.gameField.clear();
     this.timer.clear();
     this.timer.start();
-    application.header.addStopGameButton();
     this.gameResult.mistakes = 0;
     this.gameResult.corrects = 0;
     this.gameResult.flips = 0;
     this.gameResult.cardsPairs = images.length;
     const cards = images
       .concat(images)
-      .map((url) => new Card(url))
+      .map((url) => new Card(url, difficulty))
       .sort(() => Math.random() - 0.5);
-    cards.forEach((card) => {
-      card.element.addEventListener('click', () => {
-        this.cardHandler(card);
-      });
-    });
     this.gameField.addCards(cards);
+
+    setTimeout(() => {
+      cards.forEach((card) => {
+        card.element.addEventListener('click', () => {
+          this.cardHandler(card);
+        });
+      });
+    }, 5000);
   }
 
-  showCongratulation() {
-    const congratulation = new Congratulation();
-    this.gameField.element.appendChild(congratulation.element);
-    const btn = document.querySelector('.congratulations__btn');
-    (btn as HTMLElement).addEventListener('click', (e) => {
-      e.preventDefault();
-      application.onNav('/best-score');
-    });
+  showModal(score: number, min: number, sec: number): void {
+    this.modal.render(score, min, sec);
+    this.gameField.element.appendChild(this.modal.element);
   }
 
   private async cardHandler(card: Card) {
-    if (this.isAnimation) return;
+    if (this.isAnimation || card.isCorrect) return;
     this.isAnimation = true;
 
     await card.flipToFront();
@@ -109,8 +108,6 @@ export class Game extends BaseComponent {
 
   calculateScore(min: number, sec: number): number {
     const score = (this.gameResult.flips - this.gameResult.mistakes) * 100 - (min * 60 + sec) * 10;
-    console.log('calc', score);
-
     return score < 0 ? 0 : score;
   }
 }

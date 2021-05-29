@@ -1,7 +1,6 @@
-import { BaseComponent } from '../base-component';
-import { ImageCategory } from '../interfaces';
+import { BaseComponent } from '../../shared/base-component';
+import { Category } from '../../shared/interfaces';
 import { Option } from './option';
-import './select.scss';
 
 export class Select extends BaseComponent {
   private readonly json;
@@ -14,11 +13,12 @@ export class Select extends BaseComponent {
     this.json = json;
   }
 
-  async getOptions() {
+  async getOptions(): Promise<void> {
     const res = await fetch(`./${this.json}`);
-    const categories: ImageCategory[] = await res.json();
+    const categories: Category[] = await res.json();
     categories.forEach((category) => {
-      const index = String(categories.indexOf(category));
+      const index = category.value;
+
       const option = new Option(`${category.category}`, index);
       this.element.appendChild(option.element);
     });

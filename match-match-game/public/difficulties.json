@@ -1,13 +1,26 @@
 [
   {
+    "value": "8",
     "category": "4*4",
     "cards": 8
   },
   {
-     "category": "6*6",
-    "cards": 16
+    "value": "12",
+     "category": "6*4",
+    "cards": 12
   },
   {
+    "value": "15",
+     "category": "6*5",
+    "cards": 15
+  },
+  {
+    "value": "18",
+     "category": "6*6",
+    "cards": 18
+  },
+  {
+    "value": "32",
      "category": "8*8",
     "cards": 32
   }

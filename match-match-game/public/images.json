@@ -1,5 +1,6 @@
 [
   {
+    "value": "0",
     "category": "animals",
     "images": [
 
@@ -37,6 +38,7 @@
 "032-whale.png"  ]
   },
   {
+    "value": "1",
      "category": "argentina",
     "images": [
 "001-soccer.png",
@@ -73,6 +75,7 @@
 "032-apple.png"  ]
   },
   {
+    "value": "2",
      "category": "beautiful-animals",
     "images": [
       "1.jpg",
