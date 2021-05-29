@@ -13,36 +13,24 @@ html {
 .main {
   width: 100%;
   height: 100%;
+}
+
+body,
+.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.logo {
-  width: 128px;
-  height: 64px;
-  background: url(./asstets/icons/logo.svg);
-}
-
-.game {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 a {
   text-decoration: none;
 }
+
 svg {
   pointer-events: none;
 }
+
 .btn {
   background: #f2f9fe;
   width: 207px;
@@ -57,14 +45,14 @@ svg {
   text-align: center;
   letter-spacing: 1.25px;
   text-transform: uppercase;
-
-  color: #2196f3;
+  color: var(--color-primary);
 
   &:hover {
     opacity: 0.8;
     transition: 0.5 ease-in-out;
     cursor: pointer;
   }
+
   &_game-settings {
     background-color: var(--color-primary);
   }
@@ -73,9 +61,10 @@ svg {
     width: 93px;
     height: 36px;
   }
+
   &_add-user {
-    background: #2196f3;
-    color: #ffffff;
+    background: var(--color-primary);
+    color: var(--color-light);
     width: 108px;
     height: 36px;
   }
@@ -90,6 +79,7 @@ svg {
   background: rgba(0, 0, 0, 0.05);
   border-radius: 5px;
 }
+
 .title {
   font-weight: 500;
   font-size: 2rem;
@@ -103,164 +93,4 @@ svg {
 
 .preview-img {
   background: url('./asstets/preview.jpg') no-repeat right;
-}
-
-.cover {
-  width: 100vw;
-  height: 100vw;
-  z-index: 10;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.form-registration {
-  width: 640px;
-  height: 470px;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  z-index: 100;
-  top: calc(50vh - 235px);
-  left: calc(50vw - 320px);
-  background-color: white;
-  &-wrapper {
-    margin: 0px 38px 0 21px;
-  }
-  &__input {
-    width: 328px;
-    height: 56px;
-    background: rgba(33, 33, 33, 0.08);
-    border-radius: 4px 4px 0px 0px;
-    border: none;
-    border-bottom: rgba(0, 0, 0, 0.6) 2px solid;
-    outline: none;
-    font-size: 1.4rem;
-    box-sizing: border-box;
-    padding: 15px 0 0 52px;
-    position: relative;
-    margin-bottom: 2px;
-    /* &:valid {
-      border-bottom: green 2px solid;
-    }
-    &:invalid {
-      border-bottom: red 2px solid;
-    }*/
-  }
-  .input_valid {
-    border-bottom: green 2px solid;
-  }
-
-  .input_error {
-    border-bottom: red 2px solid;
-    &-message {
-      height: 20px;
-      color: red;
-    }
-  }
-  &__label {
-    font-size: 1.2rem;
-    line-height: 16px;
-    letter-spacing: 0.4px;
-    color: rgba(0, 0, 0, 0.38);
-    position: relative;
-    top: -19px;
-    left: -279px;
-  }
-
-  &__avatar {
-    background-image: url('/src/asstets/icons/avatar/avatar.svg');
-    height: 198px;
-    width: 198px;
-    position: absolute;
-    right: 7px;
-    top: 133px;
-  }
-  &__buttons-wrapper {
-    display: flex;
-    align-self: flex-end;
-    margin-top: 30px;
-  }
-}
-
-.form__image-input {
-  opacity: 0;
-  border-radius: 50%;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.form__image {
-  width: 100%;
-  height: 100%;
-}
-.canvas {
-  border-radius: 50%;
-}
-.form__avatar {
-  height: 168px;
-  width: 168px;
-  position: absolute;
-  right: 62px;
-  top: 158px;
-}
-
-.invalid {
-  width: 328px;
-  height: 56px;
-  background: rgba(33, 33, 33, 0.08);
-  border-radius: 4px 4px 0px 0px;
-  border: none;
-  border-bottom: red 2px solid;
-  outline: none;
-  font-size: 2rem;
-  box-sizing: border-box;
-  padding: 15px 0 0 52px;
-  position: relative;
-  margin-bottom: 16px;
-}
-.input {
-  &_error {
-    border-bottom: red 2px solid;
-  }
-  &_valid {
-    border-bottom: green 2px solid;
-  }
-}
-
-.hidden {
-  display: none;
-}
-
-.congratulations__text {
-  width: 328px;
-  height: 40px;
-  margin: 25px auto 0 auto;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.25px;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-select {
-  height: 30px;
-  width: 256px;
-  margin-left: 30px;
-  font-size: 1.8rem;
-  outline: none;
-  border: none;
-  border-bottom: 2px #e5e5e5 solid;
-}
-
-.setting__name {
-  margin-top: 32px;
-  margin-left: 46px;
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 30px;
-  letter-spacing: 0.15px;
 }

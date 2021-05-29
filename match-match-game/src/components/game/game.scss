@@ -1,7 +1,14 @@
-.app-field {
+.game-field {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .timer {
