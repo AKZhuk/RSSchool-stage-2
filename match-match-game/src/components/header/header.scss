@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  z-index: 1000;
   height: 64px;
   background-color: var(--color-primary);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
@@ -24,11 +25,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  cursor: pointer;
   &:hover {
     opacity: 0.8;
     transition: 0.5 ease-in-out;
   }
 }
+
 .active {
   opacity: 0.5;
+}
+
+.navigation__svg {
+  pointer-events: none;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  order: -1;
+}
+
+.about-svg {
+  background: url(../../asstets/icons/header/about.svg) no-repeat center;
+}
+
+.best-score-svg {
+  background: url(../../asstets/icons/header/best-score.svg) no-repeat center;
+}
+
+.settings-svg {
+  background: url(../../asstets/icons/header/settings.svg) no-repeat center;
 }
