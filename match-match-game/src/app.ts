@@ -24,6 +24,8 @@ export class App {
 
   private readonly routes: { [key: string]: Node };
 
+  readonly locationOrigin: string;
+
   constructor(private readonly rootElement: HTMLElement) {
     this.iDB = new Database();
     this.iDB.init();
@@ -39,9 +41,10 @@ export class App {
       '/settings': this.settings.element,
       '/game': this.game.element,
     };
+    this.locationOrigin = window.location.href;
     this.rootElement.appendChild(this.header.element);
     this.rootElement.appendChild(this.main.element);
-    //this.onNav(window.location.pathname);
+    // this.onNav(window.location.pathname);
     this.main.element.appendChild(this.about.element);
   }
 
@@ -63,7 +66,7 @@ export class App {
       this.header.addStartGameButton();
     }
 
-    window.history.pushState({}, pathname, window.location.origin + pathname);
+    window.history.pushState({}, pathname, this.locationOrigin + pathname);
     this.main.element.appendChild(this.routes[pathname]);
 
     window.onpopstate = () => {
@@ -118,9 +121,9 @@ export class App {
     this.game.modal.element.addEventListener('submit', (e) => {
       e.preventDefault();
       const user: User = {
-        firstName: (<HTMLInputElement>this.game.modal.inputs[0].element).value,
-        lastName: (<HTMLInputElement>this.game.modal.inputs[1].element).value,
-        email: (<HTMLInputElement>this.game.modal.inputs[2].element).value,
+        firstName: (<HTMLInputElement> this.game.modal.inputs[0].element).value,
+        lastName: (<HTMLInputElement> this.game.modal.inputs[1].element).value,
+        email: (<HTMLInputElement> this.game.modal.inputs[2].element).value,
         image: this.game.modal.canvas.base64Files,
         score: this.game.modal.score,
       };
