@@ -41,7 +41,8 @@ export class App {
     };
     this.rootElement.appendChild(this.header.element);
     this.rootElement.appendChild(this.main.element);
-    this.onNav(window.location.pathname);
+    //this.onNav(window.location.pathname);
+    this.main.element.appendChild(this.about.element);
   }
 
   onNav(pathname: string): void {
@@ -117,9 +118,9 @@ export class App {
     this.game.modal.element.addEventListener('submit', (e) => {
       e.preventDefault();
       const user: User = {
-        firstName: (<HTMLInputElement> this.game.modal.inputs[0].element).value,
-        lastName: (<HTMLInputElement> this.game.modal.inputs[1].element).value,
-        email: (<HTMLInputElement> this.game.modal.inputs[2].element).value,
+        firstName: (<HTMLInputElement>this.game.modal.inputs[0].element).value,
+        lastName: (<HTMLInputElement>this.game.modal.inputs[1].element).value,
+        email: (<HTMLInputElement>this.game.modal.inputs[2].element).value,
         image: this.game.modal.canvas.base64Files,
         score: this.game.modal.score,
       };
