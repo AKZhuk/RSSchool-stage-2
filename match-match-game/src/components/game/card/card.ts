@@ -1,12 +1,16 @@
-import { BaseComponent } from '../base-component';
+import { BaseComponent } from '../../../shared/base-component';
 import './card.scss';
 
 export class Card extends BaseComponent {
   image: string;
 
-  constructor(image: string) {
-    super('div', ['card-container']);
+  isCorrect: boolean;
+
+  constructor(image: string, difficulty: number) {
+    const className = `card-${difficulty}`;
+    super('div', ['card-container', className]);
     this.image = image;
+    this.isCorrect = false;
     this.element.innerHTML = `
       <div class="card">
         <div class="card__front" style="background-image: url('./images/${image}')">
@@ -16,15 +20,18 @@ export class Card extends BaseComponent {
       </div>`;
   }
 
-  flipToBack() {
+  flipToBack(): Promise<void> {
     return this.flip(true);
   }
 
-  flipToFront() {
+  flipToFront(): Promise<void> {
     return this.flip();
   }
 
-  changeStatus(status: string) {
+  changeStatus(status: string): void {
+    if (status === 'correct') {
+      this.isCorrect = true;
+    }
     const cover = this.element.querySelector('.card__cover');
     cover?.classList.toggle(`${status}`);
   }
