@@ -13,9 +13,11 @@ export class Registration extends BaseComponent {
 
   private readonly buttonWrapper: BaseComponent;
 
+  congratulation: BaseComponent;
+
   inputs: Input[];
 
-  readonly buttonCancel: Button;
+  buttonCancel: Button;
 
   buttonAdd: Button;
 
@@ -30,16 +32,29 @@ export class Registration extends BaseComponent {
     this.inputs = [];
     this.score = 0;
     this.form = new BaseComponent('form', ['form']);
+    this.congratulation = new BaseComponent('span', ['congratulations__text']);
     this.formWrapper = new BaseComponent('div', ['form-wrapper']);
     this.buttonWrapper = new BaseComponent('div', ['form__buttons-wrapper']);
     this.buttonAdd = new Button(['btn', 'btn_add-user'], 'ADD USER', '/about', 'button', true);
     this.canvas = new Canvas('form__image');
     this.inputFile = new InputFile(this.canvas);
     this.buttonCancel = new Button(['btn', 'btn_cancel'], 'CANCEL', '/about');
+    const avatarWrapper = new BaseComponent('div', ['form__avatar']).element;
+
+    this.element.appendChild(this.form.element);
+    avatarWrapper.appendChild(this.canvas.element);
+    avatarWrapper.appendChild(this.inputFile.element);
+    this.form.element.appendChild(this.congratulation.element);
+    this.form.element.appendChild(new BaseComponent('h2', ['title'], 'Registr new Player').element);
+    this.form.element.appendChild(avatarWrapper);
+    this.form.element.appendChild(this.formWrapper.element);
+    this.form.element.appendChild(this.buttonWrapper.element);
+    this.buttonWrapper.element.appendChild(this.buttonAdd.element);
+    this.buttonWrapper.element.appendChild(this.buttonCancel.element);
   }
 
   clear(): void {
-    this.form.element.innerHTML = '';
+    this.congratulation.element.innerText = '';
     this.formWrapper.element.innerHTML = '';
     this.inputs = [];
     this.canvas.clear();
@@ -48,12 +63,8 @@ export class Registration extends BaseComponent {
   render(score: number, min: number, sec: number): void {
     this.clear();
     this.score = score;
-    this.form.element.innerHTML = `
-    <span class="congratulations__text">Congratulations!
-        You successfully found all matches on ${min}.${sec} minutes.
-    </span>
-    <h2 class='title'>Registr new Player</h2>`;
-    const avatarWrapper = new BaseComponent('div', ['form__avatar']).element;
+    this.congratulation.element.innerText = `
+    Congratulations! You successfully found all matches on ${min}.${sec} minutes.`;
 
     inputsParam.forEach((item) => {
       const label = new BaseComponent('label', ['form__label'], item.labelText);
@@ -64,13 +75,5 @@ export class Registration extends BaseComponent {
       this.formWrapper.element.appendChild(label.element);
       this.formWrapper.element.appendChild(errLabel.element);
     });
-    this.form.element.appendChild(avatarWrapper);
-    avatarWrapper.appendChild(this.canvas.element);
-    avatarWrapper.appendChild(this.inputFile.element);
-    this.element.appendChild(this.form.element);
-    this.form.element.appendChild(this.formWrapper.element);
-    this.form.element.appendChild(this.buttonWrapper.element);
-    this.buttonWrapper.element.appendChild(this.buttonAdd.element);
-    this.buttonWrapper.element.appendChild(this.buttonCancel.element);
   }
 }
