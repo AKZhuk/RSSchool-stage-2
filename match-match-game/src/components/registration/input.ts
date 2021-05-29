@@ -8,7 +8,7 @@ export class Input extends BaseComponent {
   errField: HTMLElement;
 
   constructor(id: string, type: string, rules: Rules[], errField: HTMLElement, inputs: Input[], buttonAdd: Button) {
-    super('input', ['form-registration__input']);
+    super('input', ['form__input']);
     this.element.id = id;
     this.isValid = false;
     this.element.setAttribute('type', type);
@@ -17,7 +17,7 @@ export class Input extends BaseComponent {
     // this.addListener(form, rules, type);
 
     this.element.addEventListener('input', (e) => {
-      this.element.className = 'form-registration__input';
+      this.element.className = 'form__input';
       const { value } = <HTMLInputElement>e.target;
       this.isValid = this.checkIsEmpty();
       this.errField.innerText = '';
@@ -39,7 +39,7 @@ export class Input extends BaseComponent {
         }
       });
       if (this.isValid) {
-        this.element.className = 'form-registration__input input_valid';
+        this.element.className = 'form__input input_valid';
       }
 
       if (inputs.every((input) => input.isValid)) {
@@ -62,7 +62,7 @@ export class Input extends BaseComponent {
   /*
   addListener(form: Registration, rules: Rules[], type: string): void {
     this.element.addEventListener('input', (e) => {
-      this.element.className = 'form-registration__input';
+      this.element.className = 'form__input';
       const { value } = <HTMLInputElement>e.target;
       this.isValid = this.checkIsEmpty();
       this.errField.innerText = '';
@@ -84,7 +84,7 @@ export class Input extends BaseComponent {
         }
       });
       if (this.isValid) {
-        this.element.className = 'form-registration__input input_valid';
+        this.element.className = 'form__input input_valid';
       }
 
       if (form.inputs.every((input) => input.isValid)) {

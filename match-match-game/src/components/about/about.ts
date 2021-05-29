@@ -3,7 +3,7 @@ import './about.scss';
 
 export class About extends BaseComponent {
   constructor() {
-    super('div', ['app-field', 'wrapper']);
+    super('div', ['game-field', 'wrapper']);
     this.element.innerHTML = `<h2 class="title">How to play?</h2>
       <div class="how-to-play">
         <section class="how-to-play__item">

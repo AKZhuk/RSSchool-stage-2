@@ -5,7 +5,7 @@ export class GameField extends BaseComponent {
   private cards: Card[] = [];
 
   constructor() {
-    super('div', ['app-field']);
+    super('div', ['game-field']);
   }
 
   clear(): void {

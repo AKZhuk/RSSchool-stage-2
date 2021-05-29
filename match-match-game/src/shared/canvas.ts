@@ -20,4 +20,9 @@ export class Canvas extends BaseComponent {
       this.base64Files = (this.element as HTMLCanvasElement).toDataURL();
     };
   }
+
+  clear(): void {
+    const ctx = <CanvasRenderingContext2D>(<HTMLCanvasElement> this.element).getContext('2d');
+    ctx.clearRect(0, 0, 198, 198);
+  }
 }

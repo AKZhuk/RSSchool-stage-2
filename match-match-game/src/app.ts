@@ -42,8 +42,8 @@ export class App {
     this.rootElement.appendChild(this.header.element);
     this.rootElement.appendChild(this.main.element);
 
-    // this.onNav(window.location.pathname);
-    this.main.element.appendChild(this.about.element);
+    console.log(window.location.pathname);
+    this.onNav(window.location.pathname);
   }
 
   onNav(pathname: string): void {
@@ -53,17 +53,18 @@ export class App {
       item.classList.remove('active');
     });
     document.getElementById(`${pathname}`)?.classList.add('active');
+
     if (pathname === '/best-score') {
       this.iDB.readAll('users').then((arr) => {
         this.bestScore.renderScore(arr);
       });
     }
+
     if (window.location.pathname === '/game') {
       this.header.addStartGameButton();
     }
-    console.log(pathname, '----', window.location.origin + pathname, 'routes:', this.routes[pathname]);
-    // .origin
-    // window.history.pushState({}, pathname, window.location + pathname);
+
+    window.history.pushState({}, pathname, window.location.origin + pathname);
     this.main.element.appendChild(this.routes[pathname]);
 
     window.onpopstate = () => {
@@ -119,6 +120,7 @@ export class App {
       e.preventDefault();
       this.onNav('/');
     });
+
     this.game.modal.element.addEventListener('submit', (e) => {
       e.preventDefault();
       const user: User = {
@@ -129,6 +131,7 @@ export class App {
         score: this.game.modal.score,
       };
       this.iDB.write('users', user);
+
       this.onNav('/best-score');
     });
   }

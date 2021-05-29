@@ -1,5 +1,6 @@
 import { BaseComponent } from '../../shared/base-component';
 import { Select } from './select';
+import './settings.scss';
 
 export class Settings extends BaseComponent {
   settings: Select[];

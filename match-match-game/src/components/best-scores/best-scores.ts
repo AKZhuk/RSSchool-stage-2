@@ -1,7 +1,7 @@
 import { Canvas } from '../../shared/canvas';
 import { BaseComponent } from '../../shared/base-component';
 import { User } from '../../shared/interfaces';
-// import { Registration } from '../registration/registration';
+import { Registration } from '../registration/registration';
 import './best-score.scss';
 
 export class BestScore extends BaseComponent {
@@ -48,6 +48,8 @@ export class BestScore extends BaseComponent {
         </div>`;
       section.element.appendChild(canvas.element);
     });
-    // this.element.appendChild(new Registration(0, 0, 0).element);
+    const a = new Registration();
+    a.render(100, 10, 1);
+    this.element.appendChild(a.element);
   }
 }
