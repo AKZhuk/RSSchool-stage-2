@@ -41,8 +41,6 @@ export class App {
     };
     this.rootElement.appendChild(this.header.element);
     this.rootElement.appendChild(this.main.element);
-
-    console.log(window.location.pathname);
     this.onNav(window.location.pathname);
   }
 
@@ -92,9 +90,9 @@ export class App {
   addListeners(): void {
     this.header.StopGameButton.element.addEventListener('click', (e) => {
       e.preventDefault();
-
       const navItem = e.target as HTMLElement;
       this.onNav(navItem.dataset.link as string);
+      this.header.addStartGameButton();
       this.header.element.appendChild(this.header.StartGameButton.element);
     });
 
@@ -102,11 +100,11 @@ export class App {
       const navItem = e.target as HTMLElement;
       this.start();
       this.onNav(navItem.dataset.link as string);
+      this.header.addStopGameButton();
     });
 
     window.onload = () => {
       const navItems = document.querySelectorAll('.navigation__item');
-
       navItems.forEach((item: Element) => {
         item.addEventListener('click', (e) => {
           e.preventDefault();
@@ -115,11 +113,6 @@ export class App {
         });
       });
     };
-
-    this.game.modal.buttonCancel.element.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.onNav('/');
-    });
 
     this.game.modal.element.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -133,6 +126,11 @@ export class App {
       this.iDB.write('users', user);
 
       this.onNav('/best-score');
+    });
+
+    this.game.modal.buttonCancel.element.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.onNav('/');
     });
   }
 }
