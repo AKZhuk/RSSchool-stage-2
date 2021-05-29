@@ -24,9 +24,7 @@ export class Database {
     const store = transaction.objectStore(collection);
     const result = store.add(row);
 
-    result.onsuccess = () => {
-      console.log('writting complete', result.result);
-    };
+    result.onsuccess = () => {};
 
     result.onerror = () => {
       throw new Error(`Errror has occured! Writing in DB error, ${transaction.error}`);

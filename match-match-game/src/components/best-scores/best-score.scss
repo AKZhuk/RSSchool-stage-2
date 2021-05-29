@@ -5,7 +5,6 @@
 
 .top-players {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 0 185px 0 46px;
   border-bottom: rgba(33, 33, 33, 0.08) 1px solid;
@@ -17,8 +16,10 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: yellowgreen;
+    background-image: url('/src/asstets/icons/avatar/avatar.svg');
+    background-size: cover;
     margin-right: 16px;
+    order: -1;
   }
   &__name {
     font-weight: 500;
@@ -36,7 +37,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-
+  margin-left: auto;
   letter-spacing: 0.15px;
   &__result {
     color: var(--color-primary);
