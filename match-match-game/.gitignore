@@ -30,3 +30,9 @@ node_modules/
 
 # Build results
 dist
+
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+*.css

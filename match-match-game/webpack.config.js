@@ -8,17 +8,16 @@ const { web } = require('webpack');
 
 const esLintPlugin = (isDev) => (isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'js'] })]);
 
-const devServer = (isDev) =>
-  !isDev
-    ? {}
-    : {
-        devServer: {
-          open: true,
-          // hot: true,
-          port: 8080,
-          contentBase: path.join(__dirname, 'public'),
-        },
-      };
+const devServer = (isDev) => (!isDev
+  ? {}
+  : {
+    devServer: {
+      open: true,
+      // hot: true,
+      port: 8080,
+      contentBase: path.join(__dirname, 'public'),
+    },
+  });
 
 module.exports = ({ development }) => ({
   mode: development ? 'development' : 'production',
