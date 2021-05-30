@@ -4,6 +4,7 @@ import { BaseComponent } from '../../shared/base-component';
 import { Card } from './card/card';
 import { Registration } from '../registration/registration';
 import { Timer } from '../../shared/timer';
+import { GameResult } from '../../shared/interfaces';
 import './game.scss';
 
 export class Game extends BaseComponent {
@@ -17,12 +18,7 @@ export class Game extends BaseComponent {
 
   private isAnimation: boolean;
 
-  private gameResult: {
-    flips: number;
-    corrects: number;
-    mistakes: number;
-    cardsPairs: number;
-  };
+  private gameResult: GameResult;
 
   constructor() {
     super('div', ['game', 'wrapper']);
@@ -57,6 +53,7 @@ export class Game extends BaseComponent {
     setTimeout(() => {
       cards.forEach((card) => {
         card.element.addEventListener('click', () => {
+          console.log('listener', card);
           this.cardHandler(card);
         });
       });
@@ -85,10 +82,10 @@ export class Game extends BaseComponent {
       this.activeCard.changeStatus('mistake');
       await delay(3000);
       await Promise.all([
-        this.activeCard.flipToBack(),
         this.activeCard.changeStatus('mistake'),
-        card.flipToBack(),
+        this.activeCard.flipToBack(),
         card.changeStatus('mistake'),
+        card.flipToBack(),
       ]);
       this.gameResult.mistakes++;
     } else {

@@ -21,3 +21,10 @@ export interface Rules {
   RegExp: RegExp;
   errMessage: string;
 }
+
+export interface GameResult {
+  flips: number;
+  corrects: number;
+  mistakes: number;
+  cardsPairs: number;
+}
