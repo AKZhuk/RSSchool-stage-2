@@ -45,17 +45,17 @@ export const inputsParam = [
 
 export const navLinkParam = [
   {
-    link: '/',
+    link: 'about',
     text: 'About Game',
     svgClass: 'about-svg',
   },
   {
-    link: '/best-score',
+    link: 'best-score',
     text: 'Best Score',
     svgClass: 'best-score-svg',
   },
   {
-    link: '/settings',
+    link: 'settings',
     text: 'Game Settings',
     svgClass: 'settings-svg',
   },

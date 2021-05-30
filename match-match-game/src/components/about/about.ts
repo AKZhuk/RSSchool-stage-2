@@ -15,7 +15,7 @@ export class About extends BaseComponent {
           <figure class="circle">2</figure>
           <span class="how-to-play__text">Configure your game settings</span>
         </section>
-        <a href="#" data-link="/settings" class="navigation__item btn_game-settings"
+        <a href="#" data-link="settings" class="navigation__item btn_game-settings"
           ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52

@@ -17,8 +17,8 @@ export class Header extends BaseComponent {
     super('header', ['header']);
     this.logo = new BaseComponent('div', ['logo']);
     this.navigationWrapper = new BaseComponent('div', ['header__navigation']);
-    this.StartGameButton = new Button(['btn'], 'Start Game', '/game', 'a');
-    this.StopGameButton = new Button(['btn'], 'STOP GAME', '/', 'a');
+    this.StartGameButton = new Button(['btn'], 'Start Game', 'game', 'a');
+    this.StopGameButton = new Button(['btn'], 'STOP GAME', 'about', 'a');
     this.element.appendChild(this.logo.element);
     this.element.appendChild(this.navigationWrapper.element);
     navLinkParam.forEach((item) => {

@@ -24,8 +24,6 @@ export class App {
 
   private readonly routes: { [key: string]: Node };
 
-  readonly locationOrigin: string;
-
   constructor(private readonly rootElement: HTMLElement) {
     this.iDB = new Database();
     this.iDB.init();
@@ -36,43 +34,36 @@ export class App {
     this.settings = new Settings();
     this.game = new Game();
     this.routes = {
-      '/': this.about.element,
-      '/best-score': this.bestScore.element,
-      '/settings': this.settings.element,
-      '/game': this.game.element,
+      about: this.about.element,
+      'best-score': this.bestScore.element,
+      settings: this.settings.element,
+      game: this.game.element,
     };
-    this.locationOrigin = window.location.href;
+
     this.rootElement.appendChild(this.header.element);
     this.rootElement.appendChild(this.main.element);
-    // this.onNav(window.location.pathname);
+    window.location.hash = 'about';
+    this.header.toggleActiveLink('about');
     this.main.element.appendChild(this.about.element);
+    // this.onNav('about');
+    // this.main.element.appendChild(this.about.element);
   }
 
   onNav(pathname: string): void {
-    this.clear();
     this.header.toggleActiveLink(pathname);
-    document.querySelectorAll('.navigation__item').forEach((item) => {
-      item.classList.remove('active');
-    });
-    document.getElementById(`${pathname}`)?.classList.add('active');
 
-    if (pathname === '/best-score') {
+    if (pathname === 'best-score') {
       this.iDB.readAll('users').then((arr) => {
         this.bestScore.renderScore(arr);
       });
     }
+    console.log(window.location.hash);
 
-    if (window.location.pathname === '/game') {
+    if (window.location.hash === '#game') {
       this.header.addStartGameButton();
     }
 
-    window.history.pushState({}, pathname, this.locationOrigin + pathname);
-    this.main.element.appendChild(this.routes[pathname]);
-
-    window.onpopstate = () => {
-      this.clear();
-      this.main.element.appendChild(this.routes[window.location.pathname]);
-    };
+    window.location.hash = pathname;
   }
 
   private clear() {
@@ -88,7 +79,6 @@ export class App {
       .slice(0, difficulty)
       .map((name) => `${categories[this.settings.settingsValues[0]].category}/${name}`);
     this.game.newGame(images, difficulty);
-    this.header.addStopGameButton();
   }
 
   addListeners(): void {
@@ -96,9 +86,14 @@ export class App {
       e.preventDefault();
       const navItem = e.target as HTMLElement;
       this.onNav(navItem.dataset.link as string);
-      this.header.addStartGameButton();
-      this.header.element.appendChild(this.header.StartGameButton.element);
     });
+
+    window.onpopstate = () => {
+      const id = window.location.hash.slice(1);
+      this.clear();
+      this.header.toggleActiveLink(id);
+      this.main.element.appendChild(this.routes[id]);
+    };
 
     this.header.StartGameButton.element.addEventListener('click', (e) => {
       const navItem = e.target as HTMLElement;
@@ -129,12 +124,12 @@ export class App {
       };
       this.iDB.write('users', user);
 
-      this.onNav('/best-score');
+      this.onNav('best-score');
     });
 
     this.game.modal.buttonCancel.element.addEventListener('click', (e) => {
       e.preventDefault();
-      this.onNav('/');
+      this.onNav('about');
     });
   }
 }

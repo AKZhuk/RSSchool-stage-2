@@ -35,10 +35,10 @@ export class Registration extends BaseComponent {
     this.congratulation = new BaseComponent('span', ['congratulations__text']);
     this.formWrapper = new BaseComponent('div', ['form-wrapper']);
     this.buttonWrapper = new BaseComponent('div', ['form__buttons-wrapper']);
-    this.buttonAdd = new Button(['btn', 'btn_add-user'], 'ADD USER', '/about', 'button', true);
+    this.buttonAdd = new Button(['btn', 'btn_add-user'], 'ADD USER', 'about', 'button', true);
     this.canvas = new Canvas('form__image');
     this.inputFile = new InputFile(this.canvas);
-    this.buttonCancel = new Button(['btn', 'btn_cancel'], 'CANCEL', '/about');
+    this.buttonCancel = new Button(['btn', 'btn_cancel'], 'CANCEL', 'about');
     const avatarWrapper = new BaseComponent('div', ['form__avatar']).element;
 
     this.element.appendChild(this.form.element);
