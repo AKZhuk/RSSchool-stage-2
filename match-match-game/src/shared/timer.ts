@@ -43,6 +43,7 @@ export class Timer extends BaseComponent {
   }
 
   clear(): void {
+    this.element.innerHTML = `00<p>:</p>00`;
     this.min = 0;
     this.sec = 0;
     this.clock = 0;
@@ -67,7 +68,8 @@ export class Timer extends BaseComponent {
       this.min++;
       this.reset();
     }
-
-    this.element.innerHTML = `${this.min}<p>:</p>${this.sec}`;
+    this.element.innerHTML = `${this.min < 10 ? `0${this.min}` : this.min}:${
+      this.sec < 10 ? `0${this.sec}` : this.sec
+    }`;
   }
 }
