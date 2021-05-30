@@ -17,6 +17,7 @@
   },
 
   "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
     "no-plusplus": "off",
     "no-console": "warn",
     "max-len": [

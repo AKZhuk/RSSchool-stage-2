@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const { web } = require('webpack');
 
 const esLintPlugin = (isDev) => (isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'js'] })]);
 
@@ -13,7 +12,7 @@ const devServer = (isDev) => (!isDev
   : {
     devServer: {
       open: true,
-      // hot: true,
+      hot: true,
       port: 8080,
       contentBase: path.join(__dirname, 'public'),
     },
