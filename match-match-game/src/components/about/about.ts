@@ -6,13 +6,10 @@ export class About extends BaseComponent {
     super('div', ['game-field', 'wrapper']);
     this.element.innerHTML = `<h2 class="title">How to play?</h2>
       <div class="how-to-play">
+
+
         <section class="how-to-play__item">
           <figure class="circle">1</figure>
-          <span class="how-to-play__text">Register new player in game</span>
-        </section>
-        <section class="how-to-play__item form-img"></section>
-        <section class="how-to-play__item">
-          <figure class="circle">2</figure>
           <span class="how-to-play__text">Configure your game settings</span>
         </section>
         <a href="#" data-link="settings" class="navigation__item btn_game-settings"
@@ -58,12 +55,17 @@ export class About extends BaseComponent {
           Game Settings</a
         >
         <section class="how-to-play__item">
-          <figure class="circle">3</figure>
+          <figure class="circle">2</figure>
           <span class="how-to-play__text"
             >Start you new game! Remember card <br />positions and match it before times up.</span
           >
         </section>
         <section class="how-to-play__item preview-img"></section>
+         <section class="how-to-play__item">
+          <figure class="circle">3</figure>
+          <span class="how-to-play__text">Register new player in game for best scores</span>
+        </section>
+        <section class="how-to-play__item form-img"></section>
       </div>
     `;
   }

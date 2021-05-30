@@ -45,8 +45,6 @@ export class App {
     window.location.hash = 'about';
     this.header.toggleActiveLink('about');
     this.main.element.appendChild(this.about.element);
-    // this.onNav('about');
-    // this.main.element.appendChild(this.about.element);
   }
 
   onNav(pathname: string): void {
