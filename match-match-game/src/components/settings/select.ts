@@ -16,7 +16,7 @@ export class Select extends BaseComponent {
   async getOptions(): Promise<void> {
     const res = await fetch(`./${this.json}`);
     const categories: Category[] = await res.json();
-    categories.forEach((category) => {
+    categories.forEach(category => {
       const index = category.value;
 
       const option = new Option(`${category.category}`, index);

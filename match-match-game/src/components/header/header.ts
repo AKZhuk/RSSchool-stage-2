@@ -21,7 +21,7 @@ export class Header extends BaseComponent {
     this.StopGameButton = new Button(['btn'], 'STOP GAME', 'about', 'a');
     this.element.appendChild(this.logo.element);
     this.element.appendChild(this.navigationWrapper.element);
-    navLinkParam.forEach((item) => {
+    navLinkParam.forEach(item => {
       const navItem = new NavItem(item.text, item.link, item.svgClass);
       this.navigationWrapper.element.appendChild(navItem.element);
     });
@@ -39,7 +39,7 @@ export class Header extends BaseComponent {
   }
 
   toggleActiveLink(id: string): void {
-    this.element.querySelectorAll('.navigation__item').forEach((item) => {
+    this.element.querySelectorAll('.navigation__item').forEach(item => {
       item.classList.remove('active');
     });
     document.getElementById(`${id}`)?.classList.add('active');

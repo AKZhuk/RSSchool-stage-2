@@ -15,10 +15,10 @@ export class GameField extends BaseComponent {
 
   addCards(cards: Card[]): void {
     this.cards = cards;
-    this.cards.forEach((card) => this.element.appendChild(card.element));
+    this.cards.forEach(card => this.element.appendChild(card.element));
 
     setTimeout(() => {
-      this.cards.forEach((card) => card.flipToBack());
+      this.cards.forEach(card => card.flipToBack());
     }, 5000);
   }
 }

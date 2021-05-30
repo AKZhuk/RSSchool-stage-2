@@ -53,11 +53,10 @@ export class App {
     this.header.toggleActiveLink(pathname);
 
     if (pathname === 'best-score') {
-      this.iDB.readAll('users').then((arr) => {
+      this.iDB.readAll('users').then(arr => {
         this.bestScore.renderScore(arr);
       });
     }
-    console.log(window.location.hash);
 
     if (window.location.hash === '#game') {
       this.header.addStartGameButton();
@@ -77,12 +76,12 @@ export class App {
     const difficulty = this.settings.settingsValues[1];
     const images = imageCategory.images
       .slice(0, difficulty)
-      .map((name) => `${categories[this.settings.settingsValues[0]].category}/${name}`);
+      .map(name => `${categories[this.settings.settingsValues[0]].category}/${name}`);
     this.game.newGame(images, difficulty);
   }
 
   addListeners(): void {
-    this.header.StopGameButton.element.addEventListener('click', (e) => {
+    this.header.StopGameButton.element.addEventListener('click', e => {
       e.preventDefault();
       const navItem = e.target as HTMLElement;
       this.onNav(navItem.dataset.link as string);
@@ -95,7 +94,7 @@ export class App {
       this.main.element.appendChild(this.routes[id]);
     };
 
-    this.header.StartGameButton.element.addEventListener('click', (e) => {
+    this.header.StartGameButton.element.addEventListener('click', e => {
       const navItem = e.target as HTMLElement;
       this.start();
       this.onNav(navItem.dataset.link as string);
@@ -105,7 +104,7 @@ export class App {
     window.onload = () => {
       const navItems = document.querySelectorAll('.navigation__item');
       navItems.forEach((item: Element) => {
-        item.addEventListener('click', (e) => {
+        item.addEventListener('click', e => {
           e.preventDefault();
           const navItem = e.target as HTMLElement;
           this.onNav(navItem.dataset.link as string);
@@ -113,12 +112,12 @@ export class App {
       });
     };
 
-    this.game.modal.element.addEventListener('submit', (e) => {
+    this.game.modal.element.addEventListener('submit', e => {
       e.preventDefault();
       const user: User = {
-        firstName: (<HTMLInputElement> this.game.modal.inputs[0].element).value,
-        lastName: (<HTMLInputElement> this.game.modal.inputs[1].element).value,
-        email: (<HTMLInputElement> this.game.modal.inputs[2].element).value,
+        firstName: (<HTMLInputElement>this.game.modal.inputs[0].element).value,
+        lastName: (<HTMLInputElement>this.game.modal.inputs[1].element).value,
+        email: (<HTMLInputElement>this.game.modal.inputs[2].element).value,
         image: this.game.modal.canvas.base64Files,
         score: this.game.modal.score,
       };
@@ -127,7 +126,7 @@ export class App {
       this.onNav('best-score');
     });
 
-    this.game.modal.buttonCancel.element.addEventListener('click', (e) => {
+    this.game.modal.buttonCancel.element.addEventListener('click', e => {
       e.preventDefault();
       this.onNav('about');
     });

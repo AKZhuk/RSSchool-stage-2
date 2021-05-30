@@ -66,7 +66,7 @@ export class Registration extends BaseComponent {
     this.congratulation.element.innerText = `
     Congratulations! You successfully found all matches on ${min}.${sec} minutes.`;
 
-    inputsParam.forEach((item) => {
+    inputsParam.forEach(item => {
       const label = new BaseComponent('label', ['form__label'], item.labelText);
       const errLabel = new BaseComponent('div', ['input_error-message'], 'заполните это поле');
       const input = new Input(item.id, item.type, item.rule, errLabel.element, this.inputs, this.buttonAdd);

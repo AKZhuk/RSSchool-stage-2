@@ -16,12 +16,12 @@ export class Input extends BaseComponent {
     this.errField = errField;
     // this.addListener(form, rules, type);
 
-    this.element.addEventListener('input', (e) => {
+    this.element.addEventListener('input', e => {
       this.element.className = 'form__input';
       const { value } = <HTMLInputElement>e.target;
       this.isValid = this.checkIsEmpty();
       this.errField.innerText = '';
-      rules.forEach((rule) => {
+      rules.forEach(rule => {
         let test = value.match(rule.RegExp);
         if (type === 'email') {
           if (test != null) {
@@ -42,7 +42,7 @@ export class Input extends BaseComponent {
         this.element.className = 'form__input input_valid';
       }
 
-      if (inputs.every((input) => input.isValid)) {
+      if (inputs.every(input => input.isValid)) {
         buttonAdd.element.removeAttribute('disabled');
       } else {
         buttonAdd.element.setAttribute('disabled', '');
@@ -51,7 +51,7 @@ export class Input extends BaseComponent {
   }
 
   checkIsEmpty(): boolean {
-    const { value } = <HTMLInputElement> this.element;
+    const { value } = <HTMLInputElement>this.element;
     if (value === '') {
       this.errField.innerText = 'заполните это поле';
       this.isValid = false;

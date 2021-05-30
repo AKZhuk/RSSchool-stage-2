@@ -29,7 +29,7 @@ export class BestScore extends BaseComponent {
       return 0;
     });
 
-    arr.slice(0, 10).forEach((e) => {
+    arr.slice(0, 10).forEach(e => {
       const canvas = new Canvas('user__avatar');
       canvas.drawImage(e.image);
       const section = new BaseComponent('section', ['top-players']);

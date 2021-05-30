@@ -17,7 +17,7 @@ export class Settings extends BaseComponent {
       setting.getOptions();
       this.element.appendChild(setting.element);
 
-      setting.element.addEventListener('change', (e) => {
+      setting.element.addEventListener('change', e => {
         this.settingsValues[index] = Number((<HTMLInputElement>e.target).value);
       });
     });
