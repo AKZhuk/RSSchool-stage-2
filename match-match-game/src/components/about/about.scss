@@ -35,3 +35,22 @@
   color: var(--color-light);
   margin: 16px;
 }
+
+.message {
+  width: 300px;
+  position: absolute;
+  top: 73px;
+  left: 50px;
+  color: red;
+  font-size: 15px;
+}
+
+.relative {
+  position: relative;
+}
+
+.about__svg {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}

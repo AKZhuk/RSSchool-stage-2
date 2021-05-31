@@ -44,6 +44,8 @@
     right: 0;
     backface-visibility: hidden;
     background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
   &__front {
@@ -63,8 +65,8 @@
 }
 
 .flip > .card {
-  transform: rotateY(180deg) translateX(-100%) translateZ(20px);
-  transform-origin: left;
+  transform: rotateY(180deg)  translateZ(20px);
+  transform-origin: center;
 }
 
 .correct {

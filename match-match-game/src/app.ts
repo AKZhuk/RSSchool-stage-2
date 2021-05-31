@@ -79,12 +79,6 @@ export class App {
   }
 
   addListeners(): void {
-    this.header.StopGameButton.element.addEventListener('click', e => {
-      e.preventDefault();
-      const navItem = e.target as HTMLElement;
-      this.onNav(navItem.dataset.link as string);
-    });
-
     window.onpopstate = () => {
       const id = window.location.hash.slice(1);
       this.clear();
@@ -97,6 +91,12 @@ export class App {
       this.start();
       this.onNav(navItem.dataset.link as string);
       this.header.addStopGameButton();
+    });
+
+    this.header.StopGameButton.element.addEventListener('click', e => {
+      e.preventDefault();
+      const navItem = e.target as HTMLElement;
+      this.onNav(navItem.dataset.link as string);
     });
 
     window.onload = () => {

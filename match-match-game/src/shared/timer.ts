@@ -52,7 +52,6 @@ export class Timer extends BaseComponent {
   private delta(): number {
     const now = Date.now();
     const d = now - this.offset;
-
     this.offset = now;
     return d;
   }
