@@ -57,6 +57,7 @@ export class App {
     }
 
     if (window.location.hash === '#game') {
+      this.game.resetGame();
       this.header.addStartGameButton();
     }
 
@@ -95,6 +96,7 @@ export class App {
 
     this.header.StopGameButton.element.addEventListener('click', e => {
       e.preventDefault();
+      this.game.resetGame();
       const navItem = e.target as HTMLElement;
       this.onNav(navItem.dataset.link as string);
     });

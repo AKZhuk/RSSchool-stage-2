@@ -17,6 +17,7 @@
   },
 
   "rules": {
+     "no-control-regex": 0,
     "@typescript-eslint/no-explicit-any": "error",
     "no-plusplus": "off",
     "no-console": "warn",

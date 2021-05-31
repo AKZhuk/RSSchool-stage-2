@@ -40,6 +40,7 @@ export class Game extends BaseComponent {
     this.gameField.clear();
     this.activeCard = undefined;
     this.isAnimation = false;
+    this.timer.stop();
     this.timer.clear();
     this.gameResult.mistakes = 0;
     this.gameResult.corrects = 0;
