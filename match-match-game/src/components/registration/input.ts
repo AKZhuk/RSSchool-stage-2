@@ -49,7 +49,6 @@ export class Input extends BaseComponent {
     });
   }
 
-
   checkIsEmpty(): boolean {
     const { value } = <HTMLInputElement>this.element;
     if (value === '') {
