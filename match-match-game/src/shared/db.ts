@@ -8,7 +8,7 @@ export class Database {
     const openRequest = iDB.open('AKZhuk', 1);
     openRequest.onupgradeneeded = () => {
       const database = openRequest.result;
-      database.createObjectStore('users', { keyPath: 'email' });
+      database.createObjectStore('users', { keyPath: 'id', autoIncrement: true });
       this.db = database;
     };
     openRequest.onsuccess = () => {
