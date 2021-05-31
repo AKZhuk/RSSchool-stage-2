@@ -22,7 +22,7 @@ export class Input extends BaseComponent {
       this.isValid = this.checkIsEmpty();
       rules.forEach(rule => {
         let test = value.match(rule.RegExp);
-        if (type === 'email') {
+        if (this.element.id === 'email') {
           if (test != null) {
             test = null;
           } else {
@@ -36,6 +36,7 @@ export class Input extends BaseComponent {
           this.isValid = false;
         }
       });
+
       if (this.isValid) {
         this.element.className = 'form__input input_valid';
       }
@@ -47,6 +48,7 @@ export class Input extends BaseComponent {
       }
     });
   }
+
 
   checkIsEmpty(): boolean {
     const { value } = <HTMLInputElement>this.element;
