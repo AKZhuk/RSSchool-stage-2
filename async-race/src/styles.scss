@@ -1,11 +1,74 @@
 body {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 h1 {
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 500px;
+  &-create {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+}
+
+.garage-view {
+  margin: 0 20px;
+}
+
+.road {
+  height: 88px;
+  border-bottom: 2px dotted black;
+  display: flex;
+  &__flag {
+    background-image: url(../public/icon/flag.png);
+    background-size: cover;
+    align-self: flex-end;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 118px;
+  }
+}
+
+.car {
+  display: flex;
+  height: 48px;
+  align-items: flex-end;
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    padding: 3px 10px;
+    margin: 2px;
+  }
+  &__svg {
+    height: 70px;
+  }
+}
+
+.winners {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  max-width: 600px;
+  margin-top: 50px;
+}
+
+.hidden {
+  display: none;
 }
