@@ -5,15 +5,10 @@ export const renderWinners = (): string => `
       <th scope="col">#</th>
       <th scope="col">Car</th>
       <th scope="col">Name</th>
-      <th scope="col">Wins</th>
+      <th scope="col" class="sort" data-sort="wins">Wins</th>
+      <th scope="col" class="sort" data-sort="time">Time</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
+  <tbody class="table-result">
   </tbody>
 </table>`;
