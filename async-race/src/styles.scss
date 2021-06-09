@@ -72,3 +72,36 @@ h1 {
 .hidden {
   display: none;
 }
+
+.btn-group {
+  width: fit-content;
+}
+
+.sort {
+  cursor: pointer;
+  &:hover {
+    color: #0d6efd;
+  }
+}
+
+*:disabled {
+  color: gray;
+}
+
+.navbar-brand,
+.nav-link {
+  color: white !important;
+}
+
+.pop-up {
+  position: absolute;
+  top: 0;
+  font-size: 60px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+}

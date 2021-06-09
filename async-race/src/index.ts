@@ -5,25 +5,36 @@ import {
   getCar,
   deleteCar,
   toggleEngine,
+  getWinners,
 } from './api';
-import { Car } from './interfaces';
-import { $, enableForm, disableForm } from './utils';
+import { Car, State, Winner } from './interfaces';
+import { $, enableForm, race, winnerHandler } from './utils';
 import './styles.scss';
 import { renderCar } from './ui/car';
 import { renderHeader } from './ui/header';
 import { renderForm } from './ui/form';
 import { renderWinners } from './ui/winners';
+import { renderWinner } from './ui/winner';
 
-let selectedCarId: number;
-let page = 1;
-const render = async (page: number) => {
-  const response = await await getCars(page, 7);
+export const state: State = {
+  garagePage: 1,
+  winnerPage: 1,
+  sortBy: 'id',
+  selectedCarId: null,
+  amimation: {},
+  view: 'garage',
+  winner: [],
+};
+
+const render = async () => {
+  const cars = await getCars(state.garagePage, 7);
+  const winners = await getWinners(state.winnerPage, 10, state.sortBy);
   document.body.innerHTML = `
   ${renderHeader()}
   <div id="nav" class="garage-view">
     <div class="form">${renderForm()}</div>
-    <h2>Garage (${response.count})</h2>
-    <h3>Page #(${page})</h3>
+    <h4>Garage (${cars.count})</h4>
+    <h5>Page #(${state.garagePage})</h5>
     <div class="garage"></div>
     <nav>
       <ul class="pagination">
@@ -39,8 +50,7 @@ const render = async (page: number) => {
   <div id="nav" class="winners hidden">
     ${renderWinners()}
   </div>`;
-
-  response.items.forEach((car: Car) => {
+  cars.items.forEach((car: Car) => {
     $('.garage').innerHTML += renderCar(car);
   });
 };
@@ -64,9 +74,9 @@ document.body.addEventListener('submit', async (e) => {
       name: (<HTMLInputElement>$('#formUpdateCar').children[0]).value,
       color: (<HTMLInputElement>$('#formUpdateCar').children[1]).value,
     };
-    await updateCar(selectedCarId, car);
+    await updateCar(<number>state.selectedCarId, car);
   }
-  await render(page);
+  await render();
 });
 
 document.body.addEventListener('click', async (e) => {
@@ -78,27 +88,33 @@ document.body.addEventListener('click', async (e) => {
   if (elem.id === 'remove') {
     const carId = Number(elem.dataset.id);
     await deleteCar(carId);
-    await render(page);
+    await render();
   }
   if (elem.id === 'select') {
-    selectedCarId = Number(elem.dataset.id);
-    enableForm();
+    state.selectedCarId = Number(elem.dataset.id);
+    const car: Car = await getCar(state.selectedCarId);
+    enableForm(car);
   }
+
   if (elem.id === 'engine') {
     const carId = Number(elem.dataset.id);
-    const param = await toggleEngine(carId, 'started');
-    const time = param.distance / param.velocity;
-    console.log(param, time);
+    race(carId);
+  }
+
+  if (elem.id === 'resetCar') {
+    const carId = Number(elem.dataset.id);
+    await toggleEngine(carId, 'stoppeded');
+    $(`#car-${carId}`).style.marginLeft = '';
   }
 
   if (elem.id === 'nextPage') {
-    page++;
-    render(page);
+    state.garagePage++;
+    render();
   }
 
-  if (elem.id === 'prevPage' && page > 1) {
-    page--;
-    render(page);
+  if (elem.id === 'prevPage' && state.garagePage > 1) {
+    state.garagePage--;
+    render();
   }
 
   if (elem.id === 'winners') {
@@ -112,6 +128,26 @@ document.body.addEventListener('click', async (e) => {
     $('.winners').classList.add('hidden');
     $('.garage-view').classList.remove('hidden');
   }
+
+  if (elem.id === 'startRace') {
+    let isWin: boolean = false;
+    $('.garage')
+      .querySelectorAll('.car__svg')
+      .forEach(async (car) => {
+        const carId = Number(car.id[4]);
+        let result = await race(carId);
+        if (result.success !== false && !isWin) {
+          isWin = true;
+          await winnerHandler(result);
+        }
+      });
+  }
+
+  if (elem.id === 'resetRace') {
+    document.querySelectorAll('.car__svg').forEach(async (car) => {
+      (<HTMLElement>car).style.marginLeft = '';
+    });
+  }
 });
 
-render(page);
+render();

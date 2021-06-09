@@ -4,7 +4,8 @@ import { Car } from '../interfaces';
 export const renderCar = (car: Car): string => `
 <div class="road">
  <div class="car-wrapper">
-    <div class="btn-conainer">
+    <div class="btn-group" role="group">
+
       <button id='select' type="button" class="btn btn-primary btn-sm select"
       data-id="${car.id}">select</button>
       <button id="remove" type="button" class="btn btn-danger btn-sm remove"
@@ -14,14 +15,16 @@ export const renderCar = (car: Car): string => `
     </div>
     <div class="car">
       <button id='engine' type="button" class="btn btn-outline-success car__button"  data-id="${
-        car.id
-      }">
+  car.id
+}">
         A
       </button>
-      <button type="button" class="btn btn-outline-danger car__button">
+      <button id='resetCar' type="button" class="btn btn-outline-danger car__button" data-id="${
+  car.id
+}">
         B
       </button>
-${renderCarImage(car.color)}
+${renderCarImage(car)}
 </div>
 </div>
 <div class="road__flag"></div>

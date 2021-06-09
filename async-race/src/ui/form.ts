@@ -36,4 +36,7 @@ export const renderForm = (): string => `
         <button type="submit" class="btn btn-primary mb-3" disabled>
           Update
         </button>
-      </form>`;
+      </form>
+      <div class = "btn-group"><button  id="startRace" type="button" class="btn btn-danger">Race</button>
+      <button  id="resetRace" type="button" class="btn btn-info">Reset</button></div>
+      `;
