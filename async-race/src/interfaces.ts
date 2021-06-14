@@ -3,10 +3,9 @@ export interface Car {
   color: string;
   id?: number;
 }
-
 export interface Winner {
   id: number;
-  wins?: number;
+  wins: number;
   time: string;
 }
 export interface AnimateParam {
@@ -14,12 +13,18 @@ export interface AnimateParam {
   duration: number;
 }
 
+export type Sort = 'id' | 'wins' | 'time';
 export interface State {
   garagePage: number;
   winnerPage: number;
-  sortBy: 'id' | 'wins' | 'time';
+  sortBy: Sort;
+  orderBy: 'DESC' | 'ASC';
   selectedCarId: number | null;
   amimation: { [id: number]: number };
   view: string;
   winner: null | { id: number; time: number };
+  winnersPagesCount: number;
+  garagePagesCount: number;
 }
+
+export type GetsCarsResponse = { items: Car[]; count: string };

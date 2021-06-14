@@ -4,6 +4,7 @@ export const renderCarImage = (car: Car): string => `
     <svg
       version="1.1"
       id="car-${car.id}"
+      data-id = "${car.id}"
       class="car__svg"
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
