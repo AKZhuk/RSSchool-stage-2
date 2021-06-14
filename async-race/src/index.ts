@@ -8,7 +8,9 @@ import {
   stopEngine,
 } from './api';
 import { Car, Sort } from './interfaces';
-import { $, enableForm, generateCars, race } from './utils';
+import {
+  $, enableForm, generateCars, race,
+} from './utils';
 import { renderCar } from './ui/car';
 import { renderHeader } from './ui/header';
 import { renderForm } from './ui/form';
@@ -146,7 +148,7 @@ document.body.addEventListener('click', async (e) => {
     $('.pop-up').innerHTML = '';
     elem.setAttribute('disabled', '');
     document.querySelectorAll('.car__svg').forEach(async (car) => {
-      const carId = Number(car.dataset.id);
+      const carId = Number((<HTMLElement>car).dataset.id);
       await stopEngine(carId);
       await cancelAnimationFrame(state.amimation[carId]);
 
@@ -156,8 +158,8 @@ document.body.addEventListener('click', async (e) => {
   }
   if (elem.id === 'nextPage') {
     if (
-      elem.dataset.view === 'garage' &&
-      state.garagePage < state.garagePagesCount
+      elem.dataset.view === 'garage'
+      && state.garagePage < state.garagePagesCount
     ) {
       state.garagePage++;
       render();
