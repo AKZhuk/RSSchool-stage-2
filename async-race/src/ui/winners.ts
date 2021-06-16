@@ -5,14 +5,13 @@ import { $ } from '../utils';
 import { renderCarImage } from './carImage';
 
 const renderWinner = (winner: Winner, car: Car, index: number): string => `
-    <tr>
-      <th scope="row">${index + 1}</th>
-      <td>${renderCarImage(car)}</td>
-      <td>${car.name}</td>
-      <td>${winner.wins}</td>
-      <td>${winner.time}</td>
-    </tr>
-`;
+  <tr>
+    <th scope="row">${index + 1}</th>
+    <td>${renderCarImage(car)}</td>
+    <td>${car.name}</td>
+    <td>${winner.wins}</td>
+    <td>${winner.time}</td>
+  </tr>`;
 
 export const renderWinners = async (): Promise<void> => {
   const winners = await getWinners(
@@ -22,7 +21,6 @@ export const renderWinners = async (): Promise<void> => {
     state.orderBy
   );
   let index = 0;
-  // const cars = await getAllCars(); // исправить
   state.winnersPagesCount = Math.ceil(Number(winners.count) / 10);
   $('.winners__count').innerHTML = `Winners (${winners.count})`;
   $('.winners__page').innerHTML = `Page #(${state.winnerPage})`;
@@ -32,7 +30,7 @@ export const renderWinners = async (): Promise<void> => {
     const car = await getCar(winner.id);
     $('.table-result').innerHTML += renderWinner(
       winner,
-      car, // s.items[winner.id - 1] надо искать по id
+      car,
       index + (state.winnerPage - 1) * 10
     );
     index++;

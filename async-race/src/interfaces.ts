@@ -25,6 +25,17 @@ export interface State {
   winner: null | { id: number; time: number };
   winnersPagesCount: number;
   garagePagesCount: number;
+  cars: GetsCarsResponse;
 }
 
+export type CarParam = { velocity: number; distance: number };
+
 export type GetsCarsResponse = { items: Car[]; count: string };
+
+export type GetsWinnerssResponse = { items: Winner[]; count: string };
+
+export type RaceResult = {
+  success: boolean;
+  carId: number;
+  time: number;
+};

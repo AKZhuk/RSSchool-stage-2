@@ -11,4 +11,5 @@ export const state: State = {
   winner: null,
   garagePagesCount: 0,
   winnersPagesCount: 0,
+  cars: { items: [], count: '0' },
 };
