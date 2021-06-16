@@ -1,7 +1,5 @@
-import {
-  createCar, drive, startEngine, toggleEngine,
-} from './api';
-import { Car, AnimateParam } from './interfaces';
+import { createCar, drive, startEngine } from './api';
+import { Car, AnimateParam, RaceResult } from './interfaces';
 import { state } from './state';
 
 const carBrands: string[] = [
@@ -30,15 +28,19 @@ const carModels: string[] = [
   'AMG',
 ];
 
-export const $ = (cls: string): HTMLElement => <HTMLElement>document.querySelector(cls);
+export const $ = (cls: string): HTMLElement =>
+  <HTMLElement>document.querySelector(cls);
 
-export const disableForm = (): void => {
-  document.querySelectorAll('#formUpdateCar *').forEach((elem) => {
-    elem.setAttribute('disabled', '');
-  });
+export const disableUpdateForm = (): void => {
+  const inputName = $('#updateName') as HTMLFormElement;
+  const inputColor = $('#updateColor') as HTMLFormElement;
+  inputName.value = '';
+  inputColor.value = '#563d7c';
+  inputName.disabled = true;
+  inputColor.disabled = true;
 };
 
-export const enableForm = (car: Car): void => {
+export const enableUpdateForm = (car: Car): void => {
   ($('#formUpdateCar').children[0] as HTMLInputElement).value = car.name;
   ($('#formUpdateCar').children[1] as HTMLInputElement).value = car.color;
   document.querySelectorAll('#formUpdateCar *').forEach((elem) => {
@@ -49,7 +51,7 @@ export const enableForm = (car: Car): void => {
 export function animate({ carId, duration }: AnimateParam): void {
   const start = performance.now();
   state.amimation[carId] = requestAnimationFrame(function animateCar(
-    time,
+    time
   ): void {
     let progress = (time - start) / duration;
     if (progress > 1) progress = 1;
@@ -64,10 +66,9 @@ export function animate({ carId, duration }: AnimateParam): void {
   });
 }
 
-export const race = async (carId: number) => {
-  const param = await startEngine(carId);
-
-  const time = param.distance / param.velocity;
+export const race = async (carId: number): Promise<RaceResult> => {
+  const carParams = await startEngine(carId);
+  const time = carParams.distance / carParams.velocity;
   animate({
     duration: time,
     carId,
@@ -102,3 +103,24 @@ export const generateCars = async (): Promise<void> => {
   }
   Promise.all(createCarRequests);
 };
+
+export const disableButtons = (): void => {
+  document
+    .querySelectorAll(
+      '.select, .remove , button.page-link, #startRace, #resetRace, #generateCars, form button'
+    )
+    .forEach((elem) => elem.setAttribute('disabled', ''));
+  disableUpdateForm();
+};
+
+export const enableButtons = (): void => {
+  document
+    .querySelectorAll(
+      '.select, .remove , button.page-link, #startRace, #resetRace, #generateCars, #buttonCreate'
+    )
+    .forEach((elem) => elem.removeAttribute('disabled'));
+};
+
+export function isEmpty(obj: { [id: number]: number }): boolean {
+  return Object.keys(obj).length === 0;
+}
