@@ -25,7 +25,6 @@ export const renderWinners = async (): Promise<void> => {
   $('.winners__count').innerHTML = `Winners (${winners.count})`;
   $('.winners__page').innerHTML = `Page #(${state.winnerPage})`;
   $('.table-result').innerHTML = '';
-
   winners.items.forEach(async (winner: Winner) => {
     const car = await getCar(winner.id);
     $('.table-result').innerHTML += renderWinner(

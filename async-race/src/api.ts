@@ -16,45 +16,54 @@ export const getCars = async (
   page: number,
   limit: number,
 ): Promise<GetsCarsResponse> => {
-  const response = await fetch(`${garage}?_page=${page}&_limit=${limit}`);
-  return {
-    items: await response.json(),
-    count: <string>response.headers.get('X-Total-Count'),
-  };
-};
-
-export const getAllCars = async (): Promise<GetsCarsResponse> => {
-  const response = await fetch(`${garage}?`);
-  return {
-    items: await response.json(),
-    count: <string>response.headers.get('X-Total-Count'),
-  };
+  try {
+    const response = await fetch(`${garage}?_page=${page}&_limit=${limit}`);
+    return {
+      items: await response.json(),
+      count: <string>response.headers.get('X-Total-Count'),
+    };
+  } catch (error) {
+    return {
+      items: [],
+      count: '0',
+    };
+  }
 };
 
 export const getCar = async (id: number): Promise<Car> => (await fetch(`${garage}/${id}`)).json();
 
-export const createCar = async (body: Car): Promise<void> => {
-  (
-    await fetch(garage, {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: {
-        'Content-Type': 'application/JSON',
-      },
-    })
-  ).json();
+export const createCar = async (body: Car): Promise<boolean> => {
+  try {
+    (
+      await fetch(garage, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/JSON',
+        },
+      })
+    ).json();
+    return true;
+  } catch (error) {
+    return false;
+  }
 };
 
-export const updateCar = async (id: number, body: Car): Promise<void> => {
-  (
-    await fetch(`${garage}/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(body),
-      headers: {
-        'Content-Type': 'application/JSON',
-      },
-    })
-  ).json();
+export const updateCar = async (id: number, body: Car): Promise<boolean> => {
+  try {
+    (
+      await fetch(`${garage}/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/JSON',
+        },
+      })
+    ).json();
+    return true;
+  } catch (error) {
+    return false;
+  }
 };
 
 export const toggleEngine = async (
@@ -100,22 +109,25 @@ export const getWinners = async (
   sort: Sort = 'id',
   order: 'DESC' | 'ASC',
 ): Promise<GetsWinnerssResponse> => {
-  const response = await fetch(
-    `${winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`,
-  );
-  return {
-    items: await response.json(),
-    count: <string>response.headers.get('X-Total-Count'),
-  };
+  try {
+    const response = await fetch(
+      `${winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`,
+    );
+    return {
+      items: await response.json(),
+      count: <string>response.headers.get('X-Total-Count'),
+    };
+  } catch (error) {
+    return {
+      items: [],
+      count: '0',
+    };
+  }
 };
 
 export const getWinner = async (id: number): Promise<Winner> => (await fetch(`${winners}/${id}`)).json();
 
-export const isInWinner = async (id: number): Promise<number> => fetch(`${winners}/${id}`)
-  .then((response) => response.status)
-  .catch((err) => {
-    throw new Error(`something went wrong, ${err}`);
-  });
+export const isInWinner = async (id: number): Promise<number> => (await fetch(`${winners}/${id}`)).status;
 
 export const createWinner = async (body: Winner): Promise<void> => {
   (

@@ -90,7 +90,7 @@ const generateColor = (): string => {
 };
 
 export const generateCars = async (): Promise<void> => {
-  const createCarRequests: Promise<void>[] = [];
+  const createCarRequests: Promise<boolean>[] = [];
   for (let i = 0; i < 100; i++) {
     const brand = carBrands[Math.floor(Math.random() * carBrands.length)];
     const model = carModels[Math.floor(Math.random() * carModels.length)];
@@ -106,7 +106,7 @@ export const generateCars = async (): Promise<void> => {
 export const disableButtons = (): void => {
   document
     .querySelectorAll(
-      '.select, .remove , button.page-link, #startRace, #resetRace, #generateCars, form button',
+      '.select, .remove , button.page-link, #startRace, #generateCars, form button',
     )
     .forEach((elem) => elem.setAttribute('disabled', ''));
   disableUpdateForm();
@@ -115,7 +115,7 @@ export const disableButtons = (): void => {
 export const enableButtons = (): void => {
   document
     .querySelectorAll(
-      '.select, .remove , button.page-link, #startRace, #resetRace, #generateCars, #buttonCreate',
+      '.select, .remove , button.page-link, #startRace,  #generateCars, #buttonCreate',
     )
     .forEach((elem) => elem.removeAttribute('disabled'));
 };

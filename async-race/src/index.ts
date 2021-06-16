@@ -33,10 +33,10 @@ const render = async () => {
     <nav>
       <ul class="pagination">
         <li class="page-item">
-          <button id="prevPage" class="page-link" data-view="garage">Previous</button>
+          <button class="page-link prevPage" data-view="garage">Previous</button>
         </li>
         <li class="page-item">
-          <button id="nextPage" class="page-link" data-view="garage">Next</button>
+          <button class="page-link nextPage" data-view="garage">Next</button>
         </li>
       </ul>
     </nav>
@@ -62,10 +62,10 @@ const render = async () => {
    <nav>
     <ul class="pagination">
       <li class="page-item">
-        <a id="prevPage" class="page-link" data-view="winners" href="#">Previous</a>
+        <a  class="page-link prevPage" data-view="winners" href="#">Previous</a>
       </li>
       <li class="page-item">
-        <a id="nextPage" class="page-link" data-view="winners" href="#">Next</a>
+        <a class="page-link nextPage" data-view="winners" href="#">Next</a>
       </li>
     </ul>
     </nav>
@@ -79,13 +79,14 @@ document.body.addEventListener('submit', async (e) => {
     return;
   }
   const form = <HTMLFormElement>e.target;
+  let requestResult = false;
 
   if (form.id === 'formCreateCar') {
     const car: Car = {
       name: (<HTMLInputElement>$('#formCreateCar').children[0]).value,
       color: (<HTMLInputElement>$('#formCreateCar').children[1]).value,
     };
-    await createCar(car);
+    requestResult = await createCar(car);
   }
 
   if (form.id === 'formUpdateCar') {
@@ -93,10 +94,13 @@ document.body.addEventListener('submit', async (e) => {
       name: (<HTMLInputElement>$('#formUpdateCar').children[0]).value,
       color: (<HTMLInputElement>$('#formUpdateCar').children[1]).value,
     };
-    await updateCar(<number>state.selectedCarId, car);
+    requestResult = await updateCar(<number>state.selectedCarId, car);
   }
-  await renderGarage();
-  await renderWinners();
+
+  if (requestResult) {
+    await renderGarage();
+    await renderWinners();
+  }
   disableUpdateForm();
 });
 
@@ -158,7 +162,7 @@ document.body.addEventListener('click', async (e) => {
     elem.setAttribute('disabled', '');
   }
 
-  if (elem.id === 'nextPage') {
+  if (elem.classList.contains('nextPage')) {
     if (
       elem.dataset.view === 'garage'
       && state.garagePage < state.garagePagesCount
@@ -171,7 +175,7 @@ document.body.addEventListener('click', async (e) => {
     }
   }
 
-  if (elem.id === 'prevPage') {
+  if (elem.classList.contains('prevPage')) {
     if (elem.dataset.view === 'garage' && state.garagePage > 1) {
       state.garagePage--;
       renderGarage();
