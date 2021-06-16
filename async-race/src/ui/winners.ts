@@ -18,7 +18,7 @@ export const renderWinners = async (): Promise<void> => {
     state.winnerPage,
     10,
     state.sortBy,
-    state.orderBy
+    state.orderBy,
   );
   let index = 0;
   state.winnersPagesCount = Math.ceil(Number(winners.count) / 10);
@@ -31,7 +31,7 @@ export const renderWinners = async (): Promise<void> => {
     $('.table-result').innerHTML += renderWinner(
       winner,
       car,
-      index + (state.winnerPage - 1) * 10
+      index + (state.winnerPage - 1) * 10,
     );
     index++;
   });

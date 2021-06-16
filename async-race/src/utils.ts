@@ -28,8 +28,7 @@ const carModels: string[] = [
   'AMG',
 ];
 
-export const $ = (cls: string): HTMLElement =>
-  <HTMLElement>document.querySelector(cls);
+export const $ = (cls: string): HTMLElement => <HTMLElement>document.querySelector(cls);
 
 export const disableUpdateForm = (): void => {
   const inputName = $('#updateName') as HTMLFormElement;
@@ -51,7 +50,7 @@ export const enableUpdateForm = (car: Car): void => {
 export function animate({ carId, duration }: AnimateParam): void {
   const start = performance.now();
   state.amimation[carId] = requestAnimationFrame(function animateCar(
-    time
+    time,
   ): void {
     let progress = (time - start) / duration;
     if (progress > 1) progress = 1;
@@ -107,7 +106,7 @@ export const generateCars = async (): Promise<void> => {
 export const disableButtons = (): void => {
   document
     .querySelectorAll(
-      '.select, .remove , button.page-link, #startRace, #resetRace, #generateCars, form button'
+      '.select, .remove , button.page-link, #startRace, #resetRace, #generateCars, form button',
     )
     .forEach((elem) => elem.setAttribute('disabled', ''));
   disableUpdateForm();
@@ -116,7 +115,7 @@ export const disableButtons = (): void => {
 export const enableButtons = (): void => {
   document
     .querySelectorAll(
-      '.select, .remove , button.page-link, #startRace, #resetRace, #generateCars, #buttonCreate'
+      '.select, .remove , button.page-link, #startRace, #resetRace, #generateCars, #buttonCreate',
     )
     .forEach((elem) => elem.removeAttribute('disabled'));
 };

@@ -9,12 +9,12 @@ export const renderCar = (car: Car): string => `
     <div class="car-wrapper">
       <div class="btn-group" role="group">
         <button id='select-${
-          car.id
-        }' type="button" class="btn btn-primary btn-sm select"
+  car.id
+}' type="button" class="btn btn-primary btn-sm select"
         data-id="${car.id}">select</button>
         <button id="remove-${
-          car.id
-        }" type="button" class="btn btn-danger btn-sm remove"
+  car.id
+}" type="button" class="btn btn-danger btn-sm remove"
         data-id="${car.id}">
         remove</button>
         <span>${car.name}</span>
@@ -24,8 +24,8 @@ export const renderCar = (car: Car): string => `
         type="button" class="btn btn-outline-success car__button engine"
         data-id="${car.id}">A</button>
         <button id='resetCar-${
-          car.id
-        }' type="button" class="btn btn-outline-danger
+  car.id
+}' type="button" class="btn btn-outline-danger
         car__button reset-car" data-id="${car.id}" disabled>B</button>
       ${renderCarImage(car)}
       </div>
