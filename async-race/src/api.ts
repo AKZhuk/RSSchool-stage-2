@@ -1,5 +1,10 @@
 import {
-  Car, Winner, Sort, GetsCarsResponse,
+  Car,
+  Winner,
+  Sort,
+  GetsCarsResponse,
+  GetsWinnerssResponse,
+  CarParam,
 } from './interfaces';
 
 const baseUrl: RequestInfo = 'http://127.0.0.1:3000';
@@ -52,12 +57,14 @@ export const updateCar = async (id: number, body: Car): Promise<void> => {
   ).json();
 };
 
-export const toggleEngine = async (id: number, status: string) => {
-  const response = await fetch(`${engine}?id=${id}&status=${status}`);
-  return response.json();
+export const toggleEngine = async (
+  id: number,
+  status: string,
+): Promise<void> => {
+  await fetch(`${engine}?id=${id}&status=${status}`);
 };
 
-export const startEngine = async (id: number) => {
+export const startEngine = async (id: number): Promise<CarParam> => {
   (<HTMLElement>document.getElementById(`engine-${id}`)).setAttribute(
     'disabled',
     '',
@@ -69,19 +76,18 @@ export const startEngine = async (id: number) => {
   return response.json();
 };
 
-export const stopEngine = async (id: number) => {
+export const stopEngine = async (id: number): Promise<void> => {
   (<HTMLElement>document.getElementById(`resetCar-${id}`)).setAttribute(
     'disabled',
     '',
   );
-  const response = await fetch(`${engine}?id=${id}&status=stoppeded`);
+  await fetch(`${engine}?id=${id}&status=stoppeded`);
   (<HTMLElement>document.getElementById(`engine-${id}`)).removeAttribute(
     'disabled',
   );
-  return response.json();
 };
 
-export const drive = async (id: number): Promise<any> => {
+export const drive = async (id: number): Promise<{ success: boolean }> => {
   const response = await fetch(`${engine}?id=${id}&status=drive`);
   return response.status !== 200
     ? { success: false }
@@ -93,22 +99,22 @@ export const getWinners = async (
   limit: number,
   sort: Sort = 'id',
   order: 'DESC' | 'ASC',
-) => {
+): Promise<GetsWinnerssResponse> => {
   const response = await fetch(
     `${winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`,
   );
   return {
     items: await response.json(),
-    count: response.headers.get('X-Total-Count'),
+    count: <string>response.headers.get('X-Total-Count'),
   };
 };
 
 export const getWinner = async (id: number): Promise<Winner> => (await fetch(`${winners}/${id}`)).json();
 
-export const isInWinner = async (id: number) => fetch(`${winners}/${id}`)
+export const isInWinner = async (id: number): Promise<number> => fetch(`${winners}/${id}`)
   .then((response) => response.status)
   .catch((err) => {
-    throw new Error(`not in winner, ${err}`);
+    throw new Error(`something went wrong, ${err}`);
   });
 
 export const createWinner = async (body: Winner): Promise<void> => {
