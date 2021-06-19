@@ -1,6 +1,4 @@
-import {
-  createCar, updateCar, deleteCar, getCar,
-} from './api';
+import { createCar, updateCar, deleteCar, getCar } from './api';
 import { Car } from './interfaces';
 import {
   $,
@@ -114,6 +112,7 @@ document.body.addEventListener('click', async (e) => {
     const carId = Number(elem.dataset.id);
     await deleteCar(carId);
     await renderGarage();
+    await renderWinners();
   }
   if (elem.classList.contains('select')) {
     state.selectedCarId = Number(elem.dataset.id);
@@ -164,8 +163,8 @@ document.body.addEventListener('click', async (e) => {
 
   if (elem.classList.contains('nextPage')) {
     if (
-      elem.dataset.view === 'garage'
-      && state.garagePage < state.garagePagesCount
+      elem.dataset.view === 'garage' &&
+      state.garagePage < state.garagePagesCount
     ) {
       state.garagePage++;
       renderGarage();
