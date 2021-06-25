@@ -1,4 +1,15 @@
-export const cards = [
+import { CardType } from './interfaces';
+
+export type CardData = (string[] | CardType[])[];
+export const cards: CardData = [
+  [
+    'Action (set A)',
+    'Action (set B)',
+    'Animal (set A)',
+    'Animal (set B)',
+    'Clothes',
+    'Emotions',
+  ],
   [
     {
       word: 'cry',
@@ -299,13 +310,4 @@ export const cards = [
       audioSrc: 'audio/laugh.mp3',
     },
   ],
-];
-
-const category = [
-  'Action (set A)',
-  'Action (set B)',
-  'Animal (set A)',
-  'Animal (set B)',
-  'Clothes',
-  'Emotions',
 ];

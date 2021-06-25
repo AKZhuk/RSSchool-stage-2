@@ -10,7 +10,6 @@ export class BaseComponent {
     this.element = document.createElement(tag);
     this.element.classList.add(...styles);
     this.element.innerText = text;
-    this.element.innerHTML = '<h1>APP<h1>';
     parent.appendChild(this.element);
   }
 }

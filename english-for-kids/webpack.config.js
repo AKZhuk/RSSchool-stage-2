@@ -27,9 +27,9 @@ module.exports = ({ development }) => ({
     main: './src/index.ts',
   },
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'assets/[hash][ext]',
+    assetModuleFilename: 'asset/[name][ext]',
   },
   module: {
     rules: [
@@ -58,7 +58,7 @@ module.exports = ({ development }) => ({
   },
   plugins: [
     ...esLintPlugin(development),
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
     new HtmlWebpackPlugin({ title: 'English for kids' }),
     new CopyPlugin({
       patterns: [{ from: 'public' }],
