@@ -1,6 +1,6 @@
-import { CardType } from './interfaces';
+import { IAppState, ICard } from './interfaces';
 
-export type CardData = (string[] | CardType[])[];
+export type CardData = (string[] | ICard[])[];
 export const cards: CardData = [
   [
     'Action (set A)',
@@ -311,3 +311,10 @@ export const cards: CardData = [
     },
   ],
 ];
+
+export const appState: IAppState = {
+  isGameMode: false,
+  isGame: false,
+  gameWords: [],
+  currentGameWord: undefined,
+};

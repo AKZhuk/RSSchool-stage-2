@@ -1,11 +1,11 @@
 import { BaseComponent } from '../shared/base-component';
-import { CardType } from '../shared/interfaces';
+import { ICard } from '../shared/interfaces';
 
 export class Card extends BaseComponent {
   constructor(
     parent: BaseComponent,
     text: string,
-    words: CardType[],
+    words: ICard[],
     index: number,
   ) {
     super(parent.element, 'a', ['card']);
@@ -13,7 +13,7 @@ export class Card extends BaseComponent {
     this.element.dataset.category = text;
     this.element.innerHTML = `
        <div class='img' style="background-image: url('./${words[0].image}')"></div>
-      <p>${text}</p>
+      <p class="card__description">${text}</p>
     `;
   }
 }

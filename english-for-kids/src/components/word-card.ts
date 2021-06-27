@@ -1,6 +1,7 @@
 import { BaseComponent } from '../shared/base-component';
-import { CardType } from '../shared/interfaces';
-import { $ } from '../shared/utils';
+import { appState } from '../shared/constants';
+import { ICard } from '../shared/interfaces';
+import { $, playAudio } from '../shared/utils';
 
 export class WordCard extends BaseComponent {
   readonly imageSRC: string;
@@ -13,7 +14,7 @@ export class WordCard extends BaseComponent {
 
   translation: string;
 
-  constructor(card: CardType) {
+  constructor(card: ICard) {
     super($('.main'), 'div', ['card-container']);
     this.isFlip = false;
     this.imageSRC = card.image;
@@ -21,11 +22,16 @@ export class WordCard extends BaseComponent {
     this.word = card.word;
     this.translation = card.translation;
     this.element.innerHTML = this.render();
-    this.listen();
   }
 
-  private render = (): string => {
-    return `
+  render = (): string => (appState.isGameMode ? this.renderGameCard() : this.renderTrainCard());
+
+  renderGameCard = (): string => `
+      <div class="card card_game" data-word="${this.word}" style="background-image: url('./${this.imageSRC}')" >
+         <div class=""></div>
+      </div>`;
+
+  renderTrainCard = (): string => `
       <div class="card">
         <div class="card__front " >
           <div class=" img" style="background-image: url('./${this.imageSRC}')"></div>
@@ -36,31 +42,24 @@ export class WordCard extends BaseComponent {
         </div>
         <div class="card__back">
           <div class="img" style="background-image: url('./${this.imageSRC}')"></div>
-          <h5 class="description__title">${this.translation}</h5>
+          <h5 class="card__description">${this.translation}</h5>
         </div>
       </div>`;
-  };
 
-  private listen = (): void => {
-    this.element.addEventListener('click', () => {
-      this.playAudio();
-    });
+  listen = (): void => {
+    if (!appState.isGameMode) {
+      this.element.addEventListener('click', () => {
+        playAudio(this.audioSRC);
+      });
 
-    (<HTMLElement>this.element.querySelector('.card__rotate')).addEventListener(
-      'click',
-      async () => this.flipToBack()
-    );
+      (<HTMLElement>(
+        this.element.querySelector('.card__rotate')
+      )).addEventListener('click', async () => this.flipToBack());
 
-    this.element.addEventListener('mouseleave', async () => {
-      if (this.isFlip) this.flipToFront();
-    });
-  };
-
-  playAudio = (): void => {
-    const audio = new Audio();
-    audio.currentTime = 0;
-    audio.src = this.audioSRC;
-    audio.play();
+      this.element.addEventListener('mouseleave', async () => {
+        if (this.isFlip) this.flipToFront();
+      });
+    }
   };
 
   flipToBack = (): Promise<void> => {
@@ -68,16 +67,12 @@ export class WordCard extends BaseComponent {
     return this.flip(true);
   };
 
-  flipToFront = (): Promise<void> => {
-    return this.flip();
-  };
+  flipToFront = (): Promise<void> => this.flip();
 
-  private flip = (isFront = false): Promise<void> => {
-    return new Promise((resolve) => {
-      this.element.classList.toggle('flip', isFront);
-      this.element.addEventListener('transitionend', () => resolve(), {
-        once: true,
-      });
+  private flip = (isFront = false): Promise<void> => new Promise((resolve) => {
+    this.element.classList.toggle('flip', isFront);
+    this.element.addEventListener('transitionend', () => resolve(), {
+      once: true,
     });
-  };
+  });
 }

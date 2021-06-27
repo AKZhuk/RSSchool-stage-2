@@ -1,5 +1,4 @@
 import { IRoutes } from './interfaces';
-import { $ } from './utils';
 
 export class Router {
   routes: IRoutes[] = [];
@@ -33,12 +32,8 @@ export class Router {
     return this;
   };
 */
-  static clearMain = (): void => {
-    $('main').innerHTML = '';
-  };
 
-  clearSlashes = (path: string): string =>
-    path.toString().replace(/\/$/, '').replace(/^\//, '');
+  clearSlashes = (path: string): string => path.toString().replace(/\/$/, '').replace(/^\//, '');
 
   getFragment = (): string => {
     let fragment = '';
@@ -49,10 +44,9 @@ export class Router {
   };
 
   navigate = (path = ''): void => {
-    Router.clearMain();
     window.location.href = `${window.location.href.replace(
       /#(.*)$/,
-      ''
+      '',
     )}#${path}`;
     const func = this.routes[2].cb;
     func();
@@ -71,7 +65,6 @@ export class Router {
     this.routes.some((route) => {
       const match = this.current.match(route.path);
       if (match) {
-        Router.clearMain();
         match.shift();
         route.cb.apply({}, match as []);
         return match;

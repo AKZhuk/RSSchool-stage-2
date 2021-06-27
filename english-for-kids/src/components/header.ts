@@ -1,11 +1,12 @@
 import { BaseComponent } from '../shared/base-component';
+import { appState } from '../shared/constants';
+import { Router } from '../shared/routes';
 import { $ } from '../shared/utils';
 
 export class Header extends BaseComponent {
   constructor(categories: string[]) {
     super(document.body, 'header', ['header']);
     this.element.innerHTML = this.renderSideNav(categories);
-    this.listen();
   }
 
   openNav(): void {
@@ -16,7 +17,7 @@ export class Header extends BaseComponent {
     $('#mySidenav').style.width = '0';
   }
 
-  listen(): void {
+  listen(router: Router): void {
     $('.openBtn').addEventListener('click', () => {
       this.openNav();
     });
@@ -24,8 +25,16 @@ export class Header extends BaseComponent {
     $('.closebtn').addEventListener('click', () => {
       Header.closeNav();
     });
-    $('.sidenav__links').addEventListener('click', (e) => {
+    $('.sidenav__links').addEventListener('click', () => {
       Header.closeNav();
+    });
+
+    $('#gameCheck').addEventListener('input', (e) => {
+      const element = <HTMLInputElement>e.target;
+      element.toggleAttribute('checked');
+      appState.isGameMode = element.checked;
+      document.body.classList.toggle('game__mode');
+      router.navigate(document.location.hash);
     });
   }
 
@@ -39,9 +48,8 @@ export class Header extends BaseComponent {
 
   renderSideNav(categories: string[]): string {
     return `
-    <div class="navigation">
-     <span class="openBtn" style="font-size:30px;cursor:pointer">&#9776;</span>
-     <div id="mySidenav" class="sidenav bg-info">
+     <span class="openBtn">&#9776;</span>
+     <div id="mySidenav" class="sidenav">
         <ul class="sidenav__links">
         <a href="javascript:void(0)" class="closebtn">&times;</a>
         <a href="#">Main page</a>
@@ -49,9 +57,16 @@ export class Header extends BaseComponent {
         </ul>
       </div>
       </div>
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
-        <label class="form-check-label" for="flexSwitchCheckChecked">Checked</label>
-      </div>`;
+      <div id="gameCheck" class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
+      </div>
+      `;
   }
+
+  toggleActiveLink = (link: string): void => {
+    document.querySelectorAll('.sidenav a').forEach((elem) => {
+      if (elem.classList.contains('active-link')) elem.classList.remove('active-link');
+      if (elem.getAttribute('href') === link) elem.classList.add('active-link');
+    });
+  };
 }

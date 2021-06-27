@@ -1,8 +1,8 @@
-export interface State {
+export interface IState {
   isGame: boolean;
 }
 
-export interface CardType {
+export interface ICard {
   word: string;
   translation: string;
   image: string;
@@ -12,4 +12,11 @@ export interface CardType {
 export interface IRoutes {
   path: string;
   cb: () => void;
+}
+
+export interface IAppState {
+  isGameMode: boolean;
+  isGame: boolean;
+  gameWords: ICard[];
+  currentGameWord: ICard | undefined;
 }
