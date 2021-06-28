@@ -4,25 +4,37 @@ import { Router } from '../shared/routes';
 import { $ } from '../shared/utils';
 
 export class Header extends BaseComponent {
+  openButton: BaseComponent;
+
   constructor(categories: string[]) {
     super(document.body, 'header', ['header']);
-    this.element.innerHTML = this.renderSideNav(categories);
+    this.openButton = new BaseComponent(this.element, 'span', ['openBtn']);
+    this.openButton.element.innerHTML = '&#9776;';
+    this.element.innerHTML += this.renderSideNav(categories);
   }
 
-  openNav(): void {
+  static openNav(): void {
     $('#mySidenav').style.width = '320px';
+    $('#overlay').style.width = '100vw';
   }
 
   static closeNav(): void {
     $('#mySidenav').style.width = '0';
+    $('#overlay').style.width = '0';
   }
 
   listen(router: Router): void {
     $('.openBtn').addEventListener('click', () => {
-      this.openNav();
+      Header.openNav();
+    });
+    this.openButton.element.addEventListener('click', () => {
+      Header.openNav();
+    });
+    $('.closebtn').addEventListener('click', () => {
+      Header.closeNav();
     });
 
-    $('.closebtn').addEventListener('click', () => {
+    $('#overlay').addEventListener('click', () => {
       Header.closeNav();
     });
     $('.sidenav__links').addEventListener('click', () => {
@@ -38,7 +50,7 @@ export class Header extends BaseComponent {
     });
   }
 
-  renderLinks(categories: string[]): string {
+  static renderLinks(categories: string[]): string {
     let HTMLText = '';
     categories.forEach((category, index) => {
       HTMLText += `<a href="/#/category/${index + 1}">${category}</a>`;
@@ -48,26 +60,24 @@ export class Header extends BaseComponent {
   }
 
   renderSideNav(categories: string[]): string {
+    this.element.id = 'openBtn';
     return `
-     <span class="openBtn">&#9776;</span>
-     <div id="mySidenav" class="sidenav">
-        <ul class="sidenav__links">
-        <a href="javascript:void(0)" class="closebtn">&times;</a>
-        <a href="#">Main page</a>
-        ${this.renderLinks(categories)}
-        </ul>
-      </div>
-      </div>
-      <div id="gameCheck" class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
-      </div>
-      `;
+    <div id="mySidenav" class="sidenav">
+      <ul class="sidenav__links">
+      <a href="javascript:void(0)" class="closebtn">&times;</a>
+      <a href="#">Main page</a>
+      ${Header.renderLinks(categories)}
+      </ul>
+    </div>
+    <div id="overlay" class="sidenav__overlay"></div>
+    <div id="gameCheck" class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
+    </div>`;
   }
 
   toggleActiveLink = (link: string): void => {
     document.querySelectorAll('.sidenav a').forEach((elem) => {
-      if (elem.classList.contains('active-link'))
-        elem.classList.remove('active-link');
+      if (elem.classList.contains('active-link')) elem.classList.remove('active-link');
       if (elem.getAttribute('href') === link) elem.classList.add('active-link');
     });
   };

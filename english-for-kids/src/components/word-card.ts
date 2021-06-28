@@ -28,8 +28,9 @@ export class WordCard extends BaseComponent {
   render = (): string => (appState.isGameMode ? this.renderGameCard() : this.renderTrainCard());
 
   renderGameCard = (): string => `
+  <div class="card__bg">
       <div class="card card_game" data-word="${this.word}" style="background-image: url('./${this.imageSRC}')" >
-         <div class=""></div>
+         </div>
       </div>`;
 
   renderTrainCard = (): string => `

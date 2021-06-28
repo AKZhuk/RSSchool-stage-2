@@ -1,6 +1,7 @@
 import { BaseComponent } from '../shared/base-component';
 import { appState } from '../shared/constants';
 import { ICard } from '../shared/interfaces';
+import { Router } from '../shared/routes';
 import { $, playAudio } from '../shared/utils';
 import { Statistic } from './statisctic';
 
@@ -10,6 +11,13 @@ export class Game {
   errorsCounter = 0;
 
   rating: BaseComponent;
+
+  router: Router;
+
+  constructor(router: Router) {
+    this.router = router;
+    this.rating = new BaseComponent($('.main'), 'div', ['rating__container']);
+  }
 
   newGame = (cards: ICard[]): void => {
     if (!appState.isGame) {
@@ -36,7 +44,10 @@ export class Game {
       if (
         card.classList.contains('correct')
         || !card.classList.contains('card_game')
-      ) return;
+      ) {
+        return;
+      }
+
       if (card.dataset.word === appState.currentGameWord?.word) {
         this.handleCorrect(card);
         Statistic.update(card.dataset.word as string, 'correct');
@@ -69,22 +80,27 @@ export class Game {
   showResult = (): void => {
     appState.isGame = false;
     if (this.errorsCounter) {
-      this.renderResult('failure', `Failure(( You have ${this.errorsCounter}`);
+      this.renderResult(
+        'failure',
+        `Failure(( You have ${this.errorsCounter} mistakes`,
+      );
     } else {
       this.renderResult('success');
     }
   };
 
-  renderResult = (result: string, text?: string): void => {
+  renderResult = (result: string, text = ''): void => {
     $('main').innerHTML = `
-    <div>
-    <div class="game__result ${result}">
+    <div class="congratulation">
+    <div class="congratulation__img ${result}">
     </div>
-    <h1>${text}</h1>
+    <h2>${text}</h2>
     </div>
     `;
     setTimeout(() => {
-      window.location.hash = '';
+      window.location.hash = '#';
     }, 5000);
+    // this.router.navigate('#');
+    window.location.hash = '';
   };
 }

@@ -7,8 +7,11 @@ export class Router {
 
   current: string = this.root;
 
+  intervalId: NodeJS.Timeout;
+
   constructor() {
     this.listen();
+    this.intervalId = setInterval(this.interval, 50);
   }
 
   add = (path: string, cb: () => void): this => {
@@ -53,9 +56,9 @@ export class Router {
   };
 
   listen = (): void => {
-    clearInterval(this.interval);
-    setInterval(this.interval, 50);
-    // this.interval =
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(this.interval, 50);
+    //
   };
 
   interval = (): void => {

@@ -23,14 +23,14 @@ export class App {
   constructor() {
     this.header = new Header(cards[0] as string[]);
     this.main = new BaseComponent(document.body, 'main', ['main']);
-    this.game = new Game();
     this.router = new Router();
     this.header.listen(this.router);
+    this.game = new Game(this.router);
     this.statistic = new Statistic();
   }
 
   configRoutes = (): void => {
-    cards[0].forEach((category, index) => {
+    (cards[0] as string[]).forEach((category, index: number) => {
       this.router.add(`category/${index + 1}`, () => {
         this.game.resetGame();
         this.clearMain();
@@ -44,7 +44,7 @@ export class App {
     this.router.add('statistic', () => {
       this.game.resetGame();
       this.clearMain();
-      this.header.toggleActiveLink('#/statistic');
+      this.header.toggleActiveLink('/#/statistic');
       this.statistic.render();
       this.statistic.listen();
     });
@@ -68,7 +68,7 @@ export class App {
     const categories: string[] = cards[0] as string[];
     categories.forEach((category, index) => {
       const words: ICard[] = cards[index + 1] as ICard[];
-      new Card(this.main, <string>category, words, index + 1);
+      const card = new Card(this.main, <string>category, words, index + 1);
     });
   };
 
@@ -82,10 +82,11 @@ export class App {
     if (appState.isGameMode) {
       const startBtn = new BaseComponent(
         this.main.element,
-        'div',
+        'button',
         ['btn', 'game__start-btn'],
         'Start Game',
       );
+
       startBtn.element.addEventListener('click', () => {
         this.game.newGame(words);
       });

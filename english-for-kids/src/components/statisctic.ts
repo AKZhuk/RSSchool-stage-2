@@ -49,7 +49,8 @@ export class Statistic extends BaseComponent {
     $('.main').innerHTML += `
     <button id="resetBtn" class="btn">Reset</button>
     <a id="trainBtn" href="#/train" class="btn">Train difficult</a>
-    <table class="table table-striped table-sm table-hover">
+    <div style="overflow-x:auto; width:100%">
+    <table class="table table-striped  table-hover">
     <thead>
     <tr>
       <th scope="col">Word</th>
@@ -64,7 +65,8 @@ export class Statistic extends BaseComponent {
   <tbody>
     ${this.renderData()}
   </tbody>
-</table>`;
+</table>
+    </div>`;
   };
 
   static update = (
@@ -78,7 +80,7 @@ export class Statistic extends BaseComponent {
 
   renderData = (): string => {
     let HTML = '';
-    for (const key in localStorage) {
+    Object.keys(localStorage).forEach((key) => {
       const wordStat = Statistic.getWordStatistic(key);
       if (wordStat) {
         HTML += `<tr>
@@ -89,9 +91,9 @@ export class Statistic extends BaseComponent {
       <td>${wordStat.correct}</td>
       <td>${wordStat.incorect}</td>
       <td>${this.calculateResult(wordStat.correct, wordStat.incorect)}</td>
-    </tr>`;
+      </tr>`;
       }
-    }
+    });
     return HTML;
   };
 
