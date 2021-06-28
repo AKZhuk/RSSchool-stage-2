@@ -317,4 +317,5 @@ export const appState: IAppState = {
   isGame: false,
   gameWords: [],
   currentGameWord: undefined,
+  trainWords: [],
 };

@@ -7,6 +7,7 @@ import { Router } from '../shared/routes';
 import { WordCard } from './word-card';
 import { $ } from '../shared/utils';
 import { Game } from './game';
+import { Statistic } from './statisctic';
 
 export class App {
   readonly main: BaseComponent;
@@ -17,13 +18,15 @@ export class App {
 
   router: Router;
 
+  statistic: Statistic;
+
   constructor() {
     this.header = new Header(cards[0] as string[]);
     this.main = new BaseComponent(document.body, 'main', ['main']);
     this.game = new Game();
     this.router = new Router();
     this.header.listen(this.router);
-    this.configRoutes();
+    this.statistic = new Statistic();
   }
 
   configRoutes = (): void => {
@@ -33,8 +36,24 @@ export class App {
         this.clearMain();
         this.header.toggleActiveLink(`/#/category/${index + 1}`);
         $(`a[href="/#/category/${index + 1}"]`).classList.add('active-link');
-        this.renderWordCards(index);
+        const words: ICard[] = cards[index + 1] as ICard[];
+        this.renderWordCards(words);
       });
+    });
+
+    this.router.add('statistic', () => {
+      this.game.resetGame();
+      this.clearMain();
+      this.header.toggleActiveLink('#/statistic');
+      this.statistic.render();
+      this.statistic.listen();
+    });
+
+    this.router.add('train', () => {
+      this.game.resetGame();
+      this.clearMain();
+      this.header.toggleActiveLink('#/train');
+      this.renderWordCards(appState.trainWords);
     });
 
     this.router.add('', () => {
@@ -53,8 +72,7 @@ export class App {
     });
   };
 
-  renderWordCards = (index: number): void => {
-    const words: ICard[] = cards[index + 1] as ICard[];
+  renderWordCards = (words: ICard[]): void => {
     words.forEach((word) => {
       const wordCard = new WordCard(word);
       wordCard.render();

@@ -5,6 +5,9 @@ a {
   color: black;
 }
 
+table {
+  background-color: white;
+}
 body {
   transition: background-color 0.5s;
   --main-color: #ffbc29;
@@ -41,8 +44,6 @@ main {
     //left: 40px;
     //bottom: 40px;
     width: 40%;
-    height: 40px;
-    background-color: var(--main-color);
   }
   &__result {
     width: 485px;
@@ -217,4 +218,9 @@ main {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+.btn {
+  height: 40px;
+  background-color: var(--main-color);
 }

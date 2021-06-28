@@ -2,6 +2,7 @@ import { BaseComponent } from '../shared/base-component';
 import { appState } from '../shared/constants';
 import { ICard } from '../shared/interfaces';
 import { $, playAudio } from '../shared/utils';
+import { Statistic } from './statisctic';
 
 export class WordCard extends BaseComponent {
   readonly imageSRC: string;
@@ -50,6 +51,7 @@ export class WordCard extends BaseComponent {
     if (!appState.isGameMode) {
       this.element.addEventListener('click', () => {
         playAudio(this.audioSRC);
+        Statistic.update(this.word, 'trained');
       });
 
       (<HTMLElement>(

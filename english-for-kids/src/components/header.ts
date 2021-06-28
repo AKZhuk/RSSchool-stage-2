@@ -34,7 +34,7 @@ export class Header extends BaseComponent {
       element.toggleAttribute('checked');
       appState.isGameMode = element.checked;
       document.body.classList.toggle('game__mode');
-      router.navigate(document.location.hash);
+      router.navigate(document.location.hash.slice(1));
     });
   }
 
@@ -43,6 +43,7 @@ export class Header extends BaseComponent {
     categories.forEach((category, index) => {
       HTMLText += `<a href="/#/category/${index + 1}">${category}</a>`;
     });
+    HTMLText += '<a href="/#/statistic">Statistic</a></a>';
     return HTMLText;
   }
 
@@ -65,7 +66,8 @@ export class Header extends BaseComponent {
 
   toggleActiveLink = (link: string): void => {
     document.querySelectorAll('.sidenav a').forEach((elem) => {
-      if (elem.classList.contains('active-link')) elem.classList.remove('active-link');
+      if (elem.classList.contains('active-link'))
+        elem.classList.remove('active-link');
       if (elem.getAttribute('href') === link) elem.classList.add('active-link');
     });
   };
