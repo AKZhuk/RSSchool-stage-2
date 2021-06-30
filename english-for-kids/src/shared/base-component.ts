@@ -2,7 +2,7 @@ export class BaseComponent {
   readonly element: HTMLElement;
 
   constructor(
-    parent: HTMLElement,
+    parent?: HTMLElement,
     tag: keyof HTMLElementTagNameMap = 'div',
     styles: string[] = [],
     text = '',
@@ -10,6 +10,6 @@ export class BaseComponent {
     this.element = document.createElement(tag);
     this.element.classList.add(...styles);
     this.element.innerText = text;
-    parent.appendChild(this.element);
+    if (parent) parent.appendChild(this.element);
   }
 }

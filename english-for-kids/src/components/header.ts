@@ -13,32 +13,19 @@ export class Header extends BaseComponent {
     this.element.innerHTML += this.renderSideNav(categories);
   }
 
-  static openNav(): void {
-    $('#mySidenav').style.width = '320px';
-    $('#overlay').style.width = '100vw';
-  }
-
-  static closeNav(): void {
-    $('#mySidenav').style.width = '0';
-    $('#overlay').style.width = '0';
-  }
-
   listen(router: Router): void {
-    $('.openBtn').addEventListener('click', () => {
-      Header.openNav();
-    });
-    this.openButton.element.addEventListener('click', () => {
-      Header.openNav();
-    });
-    $('.closebtn').addEventListener('click', () => {
-      Header.closeNav();
-    });
+    const header = this.element;
+    header.addEventListener('click', (e) => {
+      const elem = e.target as HTMLElement;
+      if (elem.classList.contains('openBtn')) {
+        $('.sidenav').classList.add('open');
+        $('.sidenav__overlay').classList.add('open');
+      }
 
-    $('#overlay').addEventListener('click', () => {
-      Header.closeNav();
-    });
-    $('.sidenav__links').addEventListener('click', () => {
-      Header.closeNav();
+      if (elem.classList.contains('close')) {
+        $('.sidenav').classList.remove('open');
+        $('.sidenav__overlay').classList.remove('open');
+      }
     });
 
     $('#gameCheck').addEventListener('input', (e) => {
@@ -46,30 +33,32 @@ export class Header extends BaseComponent {
       element.toggleAttribute('checked');
       appState.isGameMode = element.checked;
       document.body.classList.toggle('game__mode');
-      router.navigate(document.location.hash.slice(1));
+      router.navigate(document.location.hash);
     });
   }
 
   static renderLinks(categories: string[]): string {
     let HTMLText = '';
     categories.forEach((category, index) => {
-      HTMLText += `<a href="/#/category/${index + 1}">${category}</a>`;
+      HTMLText += `<a href="/#/category/${
+        index + 1
+      }" class="close">${category}</a>`;
     });
-    HTMLText += '<a href="/#/statistic">Statistic</a></a>';
+    HTMLText += '<a href="/#/statistic" class="close">Statistic</a></a>';
     return HTMLText;
   }
 
   renderSideNav(categories: string[]): string {
     this.element.id = 'openBtn';
     return `
-    <div id="mySidenav" class="sidenav">
+    <aside id="mySidenav" class="sidenav">
       <ul class="sidenav__links">
-      <a href="javascript:void(0)" class="closebtn">&times;</a>
-      <a href="#">Main page</a>
+      <a  class="closebtn close">&times;</a>
+      <a href="#" class="close">Main page</a>
       ${Header.renderLinks(categories)}
       </ul>
-    </div>
-    <div id="overlay" class="sidenav__overlay"></div>
+    </aside>
+    <div id="overlay" class="sidenav__overlay close"></div>
     <div id="gameCheck" class="form-check form-switch">
       <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
     </div>`;

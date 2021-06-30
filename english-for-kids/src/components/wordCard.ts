@@ -44,7 +44,9 @@ export class WordCard extends BaseComponent {
         </div>
         <div class="card__back">
           <div class="img" style="background-image: url('./${this.imageSRC}')"></div>
-          <h5 class="card__description">${this.translation}</h5>
+          <div class="card__description">
+          <h5>${this.translation}</h5>
+          </div>
         </div>
       </div>`;
 

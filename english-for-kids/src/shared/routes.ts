@@ -3,7 +3,7 @@ import { IRoutes } from './interfaces';
 export class Router {
   routes: IRoutes[] = [];
 
-  root = '/';
+  root = '/english-for-kids/dist/';
 
   current: string = this.root;
 
@@ -19,23 +19,6 @@ export class Router {
     return this;
   };
 
-  /*
-  remove = (path: string) => {
-    for (let i = 0; i < this.routes.length; i += 1) {
-      if (this.routes[i].path === path) {
-        this.routes.slice(i, 1);
-        return this;
-      }
-    }
-    return this;
-  };
-
-  flush = () => {
-    this.routes = [];
-    return this;
-  };
-*/
-
   clearSlashes = (path: string): string => path.toString().replace(/\/$/, '').replace(/^\//, '');
 
   getFragment = (): string => {
@@ -46,19 +29,25 @@ export class Router {
     return this.clearSlashes(fragment);
   };
 
-  navigate = (path = ''): void => {
+  navigate = (path = ''): this => {
     window.location.href = `${window.location.href.replace(
       /#(.*)$/,
       '',
     )}#${path}`;
-    const func = this.routes[2].cb;
-    func();
+    this.routes.some((route): boolean => {
+      if (route.path === path) {
+        route.cb();
+        return true;
+      }
+      return false;
+    });
+
+    return this;
   };
 
   listen = (): void => {
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.interval, 50);
-    //
   };
 
   interval = (): void => {

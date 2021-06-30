@@ -1,13 +1,13 @@
-import { Card } from './card';
 import { Header } from './header';
 import { BaseComponent } from '../shared/base-component';
 import { appState, cards } from '../shared/constants';
 import { ICard } from '../shared/interfaces';
 import { Router } from '../shared/routes';
-import { WordCard } from './word-card';
+import { WordCard } from './wordCard';
 import { $ } from '../shared/utils';
 import { Game } from './game';
 import { Statistic } from './statisctic';
+import { Categories } from './categories';
 
 export class App {
   readonly main: BaseComponent;
@@ -20,11 +20,14 @@ export class App {
 
   statistic: Statistic;
 
+  categories: Categories;
+
   constructor() {
     this.header = new Header(cards[0] as string[]);
     this.main = new BaseComponent(document.body, 'main', ['main']);
     this.router = new Router();
     this.header.listen(this.router);
+    this.categories = new Categories();
     this.game = new Game(this.router);
     this.statistic = new Statistic();
   }
@@ -45,8 +48,8 @@ export class App {
       this.game.resetGame();
       this.clearMain();
       this.header.toggleActiveLink('/#/statistic');
-      this.statistic.render();
-      this.statistic.listen();
+      this.main.element.appendChild(this.statistic.element);
+      this.statistic.renderData(this.statistic.getAllStatistic());
     });
 
     this.router.add('train', () => {
@@ -60,15 +63,7 @@ export class App {
       this.game.resetGame();
       this.clearMain();
       this.header.toggleActiveLink('#');
-      this.renderWordCategories();
-    });
-  };
-
-  renderWordCategories = (): void => {
-    const categories: string[] = cards[0] as string[];
-    categories.forEach((category, index) => {
-      const words: ICard[] = cards[index + 1] as ICard[];
-      const card = new Card(this.main, <string>category, words, index + 1);
+      this.main.element.appendChild(this.categories.element);
     });
   };
 
