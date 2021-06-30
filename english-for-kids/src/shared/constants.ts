@@ -7,8 +7,10 @@ export const cards: CardData = [
     'Action (set B)',
     'Animal (set A)',
     'Animal (set B)',
-    'Clothes',
+    'Clothes (set A)',
     'Emotions',
+    'Food',
+    'Clothes (set B)',
   ],
   [
     {
@@ -308,6 +310,106 @@ export const cards: CardData = [
       translation: 'смех',
       image: 'img/laugh.jpg',
       audioSrc: 'audio/laugh.mp3',
+    },
+  ],
+  [
+    {
+      word: 'butter',
+      translation: 'масло',
+      image: 'img/butter.jpg',
+      audioSrc: 'audio/butter.mp3',
+    },
+    {
+      word: 'tea',
+      translation: 'чай',
+      image: 'img/tea.jpg',
+      audioSrc: 'audio/tea.mp3',
+    },
+    {
+      word: 'salt',
+      translation: 'соль',
+      image: 'img/salt.jpg',
+      audioSrc: 'audio/salt.mp3',
+    },
+    {
+      word: 'caviar',
+      translation: 'икра',
+      image: 'img/caviar.jpg',
+      audioSrc: 'audio/caviar.mp3',
+    },
+    {
+      word: 'sugar',
+      translation: 'сахар',
+      image: 'img/sugar.jpg',
+      audioSrc: 'audio/sugar.mp3',
+    },
+    {
+      word: 'flour',
+      translation: 'мука',
+      image: 'img/flour.jpg',
+      audioSrc: 'audio/flour.mp3',
+    },
+    {
+      word: 'pancake',
+      translation: 'блин',
+      image: 'img/pancake.jpg',
+      audioSrc: 'audio/pancake.mp3',
+    },
+    {
+      word: 'bean',
+      translation: 'фасоль',
+      image: 'img/bean.jpg',
+      audioSrc: 'audio/bean.mp3',
+    },
+  ],
+  [
+    {
+      word: 'clothes',
+      translation: 'одежда',
+      image: 'img/clothes.png',
+      audioSrc: 'audio/clothes.mp3',
+    },
+    {
+      word: 'pajamas',
+      translation: 'пижама',
+      image: 'img/pajamas.jpg',
+      audioSrc: 'audio/pajamas.mp3',
+    },
+    {
+      word: 'buttons',
+      translation: 'пуговицы',
+      image: 'img/buttons.jpg',
+      audioSrc: 'audio/buttons.mp3',
+    },
+    {
+      word: 'gloves',
+      translation: 'перччатки',
+      image: 'img/gloves.jpg',
+      audioSrc: 'audio/gloves.mp3',
+    },
+    {
+      word: 'underpants',
+      translation: 'трусы',
+      image: 'img/underpants.jpg',
+      audioSrc: 'audio/underpants.mp3',
+    },
+    {
+      word: 'boots',
+      translation: 'ботинки',
+      image: 'img/boots.jpg',
+      audioSrc: 'audio/boots.mp3',
+    },
+    {
+      word: 'wellies',
+      translation: 'резиновые сапоги',
+      image: 'img/wellies.jpg',
+      audioSrc: 'audio/wellies.mp3',
+    },
+    {
+      word: 'raincoat',
+      translation: 'плащ',
+      image: 'img/raincoat.jpg',
+      audioSrc: 'audio/raincoat.mp3',
     },
   ],
 ];
