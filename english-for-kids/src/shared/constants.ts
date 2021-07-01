@@ -1,6 +1,7 @@
 import { IAppState, ICard } from './interfaces';
 
 export type CardData = (string[] | ICard[])[];
+
 export const cards: CardData = [
   [
     'Action (set A)',
@@ -38,9 +39,9 @@ export const cards: CardData = [
       audioSrc: 'audio/draw.mp3',
     },
     {
-      word: 'fish',
+      word: 'fishing',
       translation: 'ловить рыбу',
-      image: 'img/fish.jpg',
+      image: 'img/fishing.jpg',
       audioSrc: 'audio/fish.mp3',
     },
     {

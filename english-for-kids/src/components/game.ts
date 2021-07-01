@@ -23,10 +23,11 @@ export class Game {
     if (!appState.isGame) {
       appState.gameWords = cards.sort(() => Math.random() - 0.5);
       this.listen();
-      this.rating = new BaseComponent($('.main'), 'div', ['rating__container']);
+      this.rating = new BaseComponent(undefined, 'div', ['rating__container']);
       appState.currentGameWord = appState.gameWords.shift();
       appState.isGame = true;
       $('.game__start-btn').innerText = 'repeat';
+      $('.game__start-btn').classList.add('game__repeat-btn');
     }
     playAudio((appState.currentGameWord as ICard).audioSrc);
   };
@@ -97,10 +98,10 @@ export class Game {
     <h2>${text}</h2>
     </div>
     `;
-    setTimeout(() => {
-      window.location.hash = '#';
+    /* setTimeout(() => {
+      window.location.hash = '';
     }, 5000);
-    // this.router.navigate('#');
-    window.location.hash = '';
+*/
+    // window.location.hash = '';
   };
 }

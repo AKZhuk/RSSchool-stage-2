@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 
+%transistion {
+  transition: 0.5s ease all;
+}
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 table {
@@ -13,13 +17,21 @@ thead {
   background-color: var(--main-color);
   color: white;
 }
+
+th[scope="col"]:hover {
+  color: #818181;
+  cursor: pointer;
+  @extend %transistion;
+}
+
 body {
-  transition: background-color 0.5s;
+  @extend %transistion;
   --main-color: #ffbc29;
+  --hover-color: #e6c684;
   font-family: "Montserrat", sans-serif;
   font-size: 10px;
   font-weight: 500;
-  background-image: url("../assets/img/dot-bg.jpg");
+  background-image: url("../assets/img/bg-dots.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -32,11 +44,7 @@ body {
 
 .main {
   flex-wrap: wrap;
-  gap: 30px;
-
-  transition: margin-left 0.5s;
-
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .header,
@@ -46,9 +54,18 @@ body {
   margin: 0 auto;
   padding: 0 50px;
 }
+
+.categories {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .game {
   &__mode {
     --main-color: #7033ff;
+    --hover-color: #8665d3;
   }
 
   &__img {
@@ -59,10 +76,33 @@ body {
     width: 300px;
     align-self: center;
   }
+
+  &__repeat-btn {
+    border-radius: 50px;
+  }
+}
+
+.rating {
+  height: 17px;
+  width: 20px;
+  &__container {
+    height: 20px;
+    width: 300px;
+    justify-content: flex-end;
+    align-self: center;
+    overflow-x: hidden;
+    display: flex;
+    gap: 10px;
+  }
+  &__success {
+    background-image: url("../assets/icons/heart-red.svg");
+  }
+  &__error {
+    background-image: url("../assets/icons/heart-grey.svg");
+  }
 }
 
 .congratulation {
-  position: absolute;
   width: 100%;
   height: 80vh;
   display: flex;
@@ -76,6 +116,9 @@ body {
     min-height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+  &__text {
+    color: red;
   }
 }
 .success {
@@ -99,32 +142,41 @@ body {
 }
 .img {
   width: 100%;
-  height: 90%;
+  height: 80%;
+  background-size: cover;
   border-bottom: 3px solid var(--main-color);
 }
 
 .card {
-  width: 300px;
-  height: 280px;
-  border: 0px;
-  border-radius: 20px;
-
-  position: relative;
-  cursor: pointer;
   transform-style: preserve-3d;
-  transition: all 0.5s ease;
+  border: none;
+
+  @extend %transistion;
+
+  &,
   &__bg {
     width: 100%;
     height: 100%;
+  }
+
+  &__bg {
     background-color: green;
     border-radius: 20px;
   }
   &-container {
+    height: 280px;
+    width: calc(100% / 4 - 30px);
+    margin-bottom: 40px;
+    border: 0px;
     border-radius: 20px;
-  }
-
-  &:hover {
-    box-shadow: 0px 4px 16px rgb(0 0 0 / 40%);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 4px 16px rgb(0 0 0 / 15%);
+    &:hover {
+      box-shadow: 0px 4px 16px rgb(0 0 0 / 40%);
+    }
+    @extend %transistion;
   }
 
   &_game {
@@ -133,8 +185,8 @@ body {
   &__description {
     display: flex;
     justify-content: space-between;
-    font-size: 1rem;
     margin: 10px 20px;
+    font-size: 1rem;
     color: black;
   }
 
@@ -143,7 +195,7 @@ body {
     background-size: cover;
     width: 30px;
     height: 30px;
-    transition: transform 0.5s ease;
+    @extend %transistion;
     &:hover {
       opacity: 0.5;
     }
@@ -152,7 +204,7 @@ body {
   &__front,
   &__back {
     width: 100%;
-    height: 90%;
+    height: 100%;
     position: absolute;
     left: 0;
     right: 0;
@@ -160,6 +212,7 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    box-shadow: 0px 4px 16px rgb(0 0 0 / 20%);
   }
 
   &__back {
@@ -176,13 +229,21 @@ body {
   color: var(--main-color);
   font-size: 40px;
   cursor: pointer;
+  @extend %transistion;
+  &:hover {
+    color: var(--hover-color);
+  }
 }
 .sidenav {
   z-index: 2;
   background: var(--main-color);
   overflow-x: hidden;
-  transition: 0.5s;
+  @extend %transistion;
   padding-top: 60px;
+  width: 0;
+  &.open {
+    width: 320px;
+  }
   &,
   &__overlay {
     height: 100%;
@@ -192,9 +253,13 @@ body {
     left: 0;
   }
   &__overlay {
-    background-color: gray;
-    opacity: 0.5;
+    background-color: #2d303a;
+    opacity: 0.4;
     z-index: 1;
+    width: 0;
+    &.open {
+      width: 100vw;
+    }
   }
   & a {
     padding: 8px 8px 8px 32px;
@@ -202,34 +267,16 @@ body {
     font-size: 25px;
     color: #f1f1f1;
     display: block;
-    transition: 0.3s;
+    @extend %transistion;
     &:hover {
       color: #818181;
     }
   }
+  box-shadow: 0px 4px 16px rgb(0 0 0 / 20%);
 }
 
 .active-link {
   color: #ff6024 !important;
-}
-
-.rating {
-  height: 17px;
-  width: 20px;
-  &__container {
-    height: 20px;
-    width: 300px;
-    justify-content: flex-end;
-    overflow-x: hidden;
-    display: flex;
-    gap: 10px;
-  }
-  &__success {
-    background-image: url("../assets/icons/heart-red.svg");
-  }
-  &__error {
-    background-image: url("../assets/icons/heart-grey.svg");
-  }
 }
 
 .sidenav .closebtn {
@@ -238,6 +285,31 @@ body {
   right: 25px;
   font-size: 60px;
   margin-left: 50px;
+}
+@media screen and (max-width: 1400px) {
+  .card {
+    &-container {
+      width: calc(100% / 3 - 30px);
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .card {
+    &-container {
+      width: calc(100% / 2 - 30px);
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    &-container {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+  }
 }
 
 @media screen and (max-height: 450px) {
@@ -254,15 +326,57 @@ body {
   .main {
     padding: 0 10px;
   }
-  .card {
-    width: 90vw;
+  .sidenav.open {
+    width: 100%;
   }
 }
+
 .btn {
   height: 40px;
+  margin: 10px 0 10px 10px;
   background-color: var(--main-color);
-  transition: all 0.5s ease;
+  @extend %transistion;
   &:hover {
     box-shadow: 0px 4px 16px rgb(0 0 0 / 40%);
+    background-color: var(--hover-color);
+  }
+}
+
+.statistic {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.tableFixHead {
+  overflow: auto;
+  height: 78vh;
+  width: 100%;
+  & thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  & table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+}
+
+[data-order="asc"] {
+  display: flex;
+  gap: 3px;
+  &::after {
+    content: url(../assets/icons/sort-up.svg);
+  }
+}
+
+[data-order="desc"] {
+  display: flex;
+  gap: 3px;
+  &::after {
+    content: url(../assets/icons/sort-down.svg);
   }
 }
