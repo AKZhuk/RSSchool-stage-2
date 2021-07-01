@@ -17,13 +17,14 @@ export class Game {
   constructor(router: Router) {
     this.router = router;
     this.rating = new BaseComponent($('.main'), 'div', ['rating__container']);
+    this.listen();
   }
 
   newGame = (cards: ICard[]): void => {
     if (!appState.isGame) {
-      appState.gameWords = cards.sort(() => Math.random() - 0.5);
-      this.listen();
-      this.rating = new BaseComponent(undefined, 'div', ['rating__container']);
+      appState.gameWords = [...cards.sort(() => Math.random() - 0.5)];
+
+      this.rating = new BaseComponent($('.main'), 'div', ['rating__container']);
       appState.currentGameWord = appState.gameWords.shift();
       appState.isGame = true;
       $('.game__start-btn').innerText = 'repeat';
@@ -36,6 +37,7 @@ export class Game {
     appState.isGame = false;
     appState.currentGameWord = undefined;
     appState.gameWords = [];
+    this.errorsCounter = 0;
   };
 
   listen = (): void => {
@@ -54,7 +56,7 @@ export class Game {
         Statistic.update(card.dataset.word as string, 'correct');
       } else {
         this.handleError();
-        Statistic.update(card.dataset.word as string, 'incorect');
+        Statistic.update(appState.currentGameWord?.word as string, 'incorect');
       }
     });
   };
@@ -74,17 +76,14 @@ export class Game {
 
   handleError = (): void => {
     playAudio('./audio/failure.mp3');
-    this.rating.element.innerHTML += '<div class="rating__error rating"></div>';
     this.errorsCounter++;
+    this.rating.element.innerHTML += '<div class="rating__error rating"></div>';
   };
 
   showResult = (): void => {
     appState.isGame = false;
     if (this.errorsCounter) {
-      this.renderResult(
-        'failure',
-        `Failure(( You have ${this.errorsCounter} mistakes`,
-      );
+      this.renderResult('failure', `${this.errorsCounter} mistakes`);
     } else {
       this.renderResult('success');
     }
@@ -95,13 +94,11 @@ export class Game {
     <div class="congratulation">
     <div class="congratulation__img ${result}">
     </div>
-    <h2>${text}</h2>
+    <h2 class="congratulation__text">${text}</h2>
     </div>
     `;
-    /* setTimeout(() => {
+    setTimeout(() => {
       window.location.hash = '';
     }, 5000);
-*/
-    // window.location.hash = '';
   };
 }

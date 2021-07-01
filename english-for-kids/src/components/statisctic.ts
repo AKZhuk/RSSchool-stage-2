@@ -50,7 +50,7 @@ export class Statistic extends BaseComponent {
   private getDifficultWords = (): IWordStatistic[] => {
     let stat = this.getAllStatistic();
     stat = stat.filter((word) => word.incorect > 0);
-    stat.sort((a, b) => b.incorect - a.incorect).slice(0, 8);
+    stat.sort((a, b) => b.incorect - a.incorect);
     return stat;
   };
 
@@ -110,7 +110,7 @@ export class Statistic extends BaseComponent {
     correct: number,
     incorrect: number,
   ): number => {
-    if (correct === 0 || incorrect === 0) {
+    if (correct === 0) {
       return 0;
     }
     return Math.ceil((correct / (incorrect + correct)) * 100);
