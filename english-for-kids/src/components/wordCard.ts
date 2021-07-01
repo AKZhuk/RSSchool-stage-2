@@ -28,27 +28,27 @@ export class WordCard extends BaseComponent {
   render = (): string => (appState.isGameMode ? this.renderGameCard() : this.renderTrainCard());
 
   renderGameCard = (): string => `
-  <div class="card__bg">
+    <div class="card__bg">
       <div class="card card_game" data-word="${this.word}" style="background-image: url('./${this.imageSRC}')" >
-         </div>
-      </div>`;
+      </div>
+    </div>`;
 
   renderTrainCard = (): string => `
-      <div class="card">
-        <div class="card__front " >
-          <div class=" img" style="background-image: url('./${this.imageSRC}')"></div>
-          <div class="card__description">
-            <h5 class="description__title">${this.word}</h5>
-            <div class="card__rotate"></div>
-          </div>
+    <div class="card">
+      <div class="card__front " >
+        <div class=" img" style="background-image: url('./${this.imageSRC}')"></div>
+        <div class="card__description">
+          <h5 class="description__title">${this.word}</h5>
+          <div class="card__rotate"></div>
         </div>
-        <div class="card__back">
-          <div class="img" style="background-image: url('./${this.imageSRC}')"></div>
-          <div class="card__description">
-          <h5>${this.translation}</h5>
-          </div>
+      </div>
+      <div class="card__back">
+        <div class="img" style="background-image: url('./${this.imageSRC}')"></div>
+        <div class="card__description">
+        <h5>${this.translation}</h5>
         </div>
-      </div>`;
+      </div>
+    </div>`;
 
   listen = (): void => {
     if (!appState.isGameMode) {
