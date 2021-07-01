@@ -49,7 +49,7 @@ export class App {
       this.clearMain();
       this.header.toggleActiveLink('/#/statistic');
       this.main.element.appendChild(this.statistic.element);
-      this.statistic.renderData(this.statistic.getAllStatistic());
+      this.statistic.renderData();
     });
 
     this.router.add('train', () => {

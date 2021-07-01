@@ -66,7 +66,9 @@ export class Header extends BaseComponent {
 
   toggleActiveLink = (link: string): void => {
     document.querySelectorAll('.sidenav a').forEach((elem) => {
-      if (elem.classList.contains('active-link')) elem.classList.remove('active-link');
+      if (elem.classList.contains('active-link')) {
+        elem.classList.remove('active-link');
+      }
       if (elem.getAttribute('href') === link) elem.classList.add('active-link');
     });
   };

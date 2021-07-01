@@ -8,51 +8,11 @@ export class Statistic extends BaseComponent {
     super($('.main'), 'section', ['statistic']);
     this.render();
     this.listen();
-    this.renderData(this.getAllStatistic());
+    this.renderData();
     if (localStorage.length < 1) {
       this.setDefaultData();
     }
   }
-
-  private setDefaultData = (): void => {
-    for (let i = 1; i < cards.length; i++) {
-      const words: ICard[] = cards[i] as ICard[];
-      words.forEach((elem) => {
-        localStorage.setItem(
-          elem.word,
-          JSON.stringify({
-            word: elem.word,
-            translation: elem.translation,
-            category: cards[0][i - 1] as string,
-            trained: 0,
-            correct: 0,
-            incorect: 0,
-            result: 0,
-          }),
-        );
-      });
-    }
-  };
-
-  static getWordStatistic = (word: string): IWordStatistic => JSON.parse(localStorage.getItem(`${word}`) as string);
-
-  getAllStatistic = (): IWordStatistic[] => {
-    const stat: IWordStatistic[] = [];
-    Object.keys(localStorage).forEach((key) => {
-      const wordStat = Statistic.getWordStatistic(key);
-      if (wordStat) {
-        stat.push(wordStat);
-      }
-    });
-    return stat;
-  };
-
-  private getDifficultWords = (): IWordStatistic[] => {
-    let stat = this.getAllStatistic();
-    stat = stat.filter((word) => word.incorect > 0);
-    stat.sort((a, b) => b.incorect - a.incorect);
-    return stat;
-  };
 
   private render = (): void => {
     this.element.innerHTML = `
@@ -60,40 +20,29 @@ export class Statistic extends BaseComponent {
     <a id="trainBtn" href="#/train" class="btn">Train difficult</a>
     <div class="tableFixHead ">
     <table class="table table-striped  table-hover sortable">
-    <thead>
-    <tr>
-      <th scope="col" data-order="" data-name="word">Word</th>
-      <th scope="col" data-name="translation">Translation</th>
-      <th scope="col" data-name="category">Category</th>
-      <th scope="col" data-name="trained">Trained</th>
-      <th scope="col" data-name="correct">Correct</th>
-      <th scope="col" data-name="incorect">Incorect</th>
-      <th scope="col" data-name="result">%</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th scope="col"  data-name="word">Word</th>
+          <th scope="col" data-name="translation">Translation</th>
+          <th scope="col" data-name="category">Category</th>
+          <th scope="col" data-name="trained">Trained</th>
+          <th scope="col" data-name="correct">Correct</th>
+          <th scope="col" data-name="incorect">Incorect</th>
+          <th scope="col" data-order="desc" data-name="result">%</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
     </div>`;
   };
 
-  static update = (
-    word: string,
-    StatisticType: 'correct' | 'incorect' | 'trained',
-  ): void => {
-    const wordStat: IWordStatistic = Statistic.getWordStatistic(word);
-    wordStat[StatisticType] += 1;
-    wordStat.result = Statistic.calculateResult(
-      wordStat.correct,
-      wordStat.incorect,
-    );
-    localStorage.setItem(word, JSON.stringify(wordStat));
-  };
-
-  renderData = (stat: IWordStatistic[]): void => {
+  renderData = (): void => {
+    let data: IWordStatistic[] = this.getAllStatistic();
+    data = this.sortData(data);
     $('tbody').innerHTML = '';
 
-    stat.forEach((word) => {
+    data.forEach((word) => {
       $('tbody').innerHTML += `<tr>
       <th scope="row">${word.word}</th>
       <td>${word.translation}</td>
@@ -119,7 +68,7 @@ export class Statistic extends BaseComponent {
   private listen = (): void => {
     $('#resetBtn').addEventListener('click', () => {
       this.setDefaultData();
-      this.renderData(this.getAllStatistic());
+      this.renderData();
     });
 
     $('#trainBtn').addEventListener('click', () => {
@@ -134,25 +83,85 @@ export class Statistic extends BaseComponent {
       const cell = e.target as HTMLElement;
       if (cell.dataset.order === 'desc') {
         cell.dataset.order = 'asc';
+        appState.orderBy = 'asc';
       } else {
         $('[data-order]').removeAttribute('data-order');
         cell.dataset.order = 'desc';
+        appState.orderBy = 'desc';
       }
-      const sortParam = cell.dataset.name as keyof IWordStatistic;
 
-      let stat = this.getAllStatistic().sort((b, a) => {
-        if (a[sortParam] > b[sortParam]) {
-          return 1;
-        }
-        if (a[sortParam] < b[sortParam]) {
-          return -1;
-        }
-        return 0;
-      });
-      if (cell.dataset.order === 'asc') {
-        stat = stat.reverse();
-      }
-      this.renderData(stat);
+      appState.sortBy = cell.dataset.name as keyof IWordStatistic;
+      this.renderData();
     });
+  };
+
+  private setDefaultData = (): void => {
+    for (let i = 1; i < cards.length; i++) {
+      const words: ICard[] = cards[i] as ICard[];
+      words.forEach((elem) => {
+        localStorage.setItem(
+          elem.word,
+          JSON.stringify({
+            word: elem.word,
+            translation: elem.translation,
+            category: cards[0][i - 1] as string,
+            trained: 0,
+            correct: 0,
+            incorect: 0,
+            result: 0,
+          }),
+        );
+      });
+    }
+  };
+
+  getAllStatistic = (): IWordStatistic[] => {
+    const stat: IWordStatistic[] = [];
+    Object.keys(localStorage).forEach((key) => {
+      const wordStat = Statistic.getWordStatistic(key);
+      if (wordStat) {
+        stat.push(wordStat);
+      }
+    });
+    return stat;
+  };
+
+  sortData = (data: IWordStatistic[]): IWordStatistic[] => {
+    let tempData = data;
+    tempData.sort((b, a) => {
+      if (a[appState.sortBy] > b[appState.sortBy]) {
+        return 1;
+      }
+      if (a[appState.sortBy] < b[appState.sortBy]) {
+        return -1;
+      }
+      return 0;
+    });
+    if (appState.orderBy === 'asc') {
+      tempData = tempData.reverse();
+    }
+    return tempData;
+  };
+
+  static getWordStatistic = (word: string): IWordStatistic => JSON.parse(localStorage.getItem(`${word}`) as string);
+
+  static update = (
+    word: string,
+    StatisticType: 'correct' | 'incorect' | 'trained',
+  ): void => {
+    const wordStat: IWordStatistic = Statistic.getWordStatistic(word);
+    wordStat[StatisticType] += 1;
+    wordStat.result = Statistic.calculateResult(
+      wordStat.correct,
+      wordStat.incorect,
+    );
+    localStorage.setItem(word, JSON.stringify(wordStat));
+  };
+
+  private getDifficultWords = (): IWordStatistic[] => {
+    let stat = this.getAllStatistic();
+    stat = stat.filter((word) => word.incorect > 0);
+    stat.sort((a, b) => b.incorect - a.incorect);
+    return stat.slice(0, 8);
   };
 }

@@ -47,6 +47,7 @@ export class Game {
       if (
         card.classList.contains('correct')
         || !card.classList.contains('card_game')
+        || !appState.isGame
       ) {
         return;
       }
@@ -62,6 +63,7 @@ export class Game {
   };
 
   handleCorrect = (card: HTMLElement): void => {
+    playAudio('./audio/correct.mp3');
     card.classList.add('correct');
 
     if (appState.gameWords.length === 0) {
@@ -75,7 +77,7 @@ export class Game {
   };
 
   handleError = (): void => {
-    playAudio('./audio/failure.mp3');
+    playAudio('./audio/error.mp3');
     this.errorsCounter++;
     this.rating.element.innerHTML += '<div class="rating__error rating"></div>';
   };
@@ -91,12 +93,12 @@ export class Game {
 
   renderResult = (result: string, text = ''): void => {
     $('main').innerHTML = `
-    <div class="congratulation">
-    <div class="congratulation__img ${result}">
-    </div>
-    <h2 class="congratulation__text">${text}</h2>
-    </div>
+    <section class="congratulation">
+      <div class="congratulation__img ${result}"></div>
+      <h2 class="congratulation__text">${text}</h2>
+    </section>
     `;
+    playAudio(`./audio/${result}.mp3`);
     setTimeout(() => {
       window.location.hash = '';
     }, 5000);

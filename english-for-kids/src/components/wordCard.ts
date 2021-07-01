@@ -39,7 +39,7 @@ export class WordCard extends BaseComponent {
         <div class=" img" style="background-image: url('./${this.imageSRC}')"></div>
         <div class="card__description">
           <h5 class="description__title">${this.word}</h5>
-          <div class="card__rotate"></div>
+          <div  onclick="" class="card__rotate"></div>
         </div>
       </div>
       <div class="card__back">

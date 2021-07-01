@@ -2,6 +2,8 @@ export interface IState {
   isGame: boolean;
 }
 
+export type TCardData = (string[] | ICard[])[];
+
 export interface IWordStatistic {
   word: string;
   translation: string;
@@ -30,4 +32,6 @@ export interface IAppState {
   gameWords: ICard[];
   currentGameWord: ICard | undefined;
   trainWords: ICard[];
+  sortBy: keyof IWordStatistic;
+  orderBy: 'asc' | 'desc';
 }
