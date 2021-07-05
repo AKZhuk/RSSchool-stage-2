@@ -57,6 +57,11 @@ export class Header extends BaseComponent {
       <a href="#" class="close">Main page</a>
       ${Header.renderLinks(categories)}
       </ul>
+      <footer class="footer">
+        <a class="footer__github" href="https://github.com/AKZhuk"
+        target="_blank" rel="noopener noreferrer">github/AKZhuk</a>
+        <a href="https://rs.school/js/" class="footer__logo"></a>
+      </footer>
     </aside>
     <div id="overlay" class="sidenav__overlay close"></div>
     <div id="gameCheck" class="form-check form-switch">

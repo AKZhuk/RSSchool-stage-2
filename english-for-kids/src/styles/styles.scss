@@ -37,12 +37,16 @@ body {
   }
 }
 .sidenav {
-  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  z-index: 3;
   background: var(--main-color);
   overflow-x: hidden;
-  @extend %transistion;
   padding-top: 60px;
   width: 0;
+  transition: ease-in-out 0.5s width;
+
   &.open {
     width: 320px;
   }
@@ -57,7 +61,7 @@ body {
   &__overlay {
     background-color: #2d303a;
     opacity: 0.4;
-    z-index: 1;
+    z-index: 2;
     width: 0;
     &.open {
       width: 100vw;
@@ -69,7 +73,7 @@ body {
     font-size: 25px;
     color: #f1f1f1;
     display: block;
-    @extend %transistion;
+    //@extend %transistion;
     &:hover {
       color: #818181;
     }
@@ -217,7 +221,6 @@ body {
   border: none;
 
   @extend %transistion;
-
   &,
   &__bg {
     width: 100%;
@@ -237,11 +240,13 @@ body {
     overflow: hidden;
     position: relative;
     cursor: pointer;
+
+    @extend %transistion;
+
     box-shadow: 0px 4px 16px rgb(0 0 0 / 15%);
     &:hover {
       box-shadow: 0px 4px 16px rgb(0 0 0 / 40%);
     }
-    @extend %transistion;
   }
 
   &_game {
@@ -258,14 +263,10 @@ body {
   &__rotate {
     background-image: url(../assets/icons/rotate.svg);
     background-size: cover;
+
     width: 30px;
     height: 30px;
     @extend %transistion;
-    transition: opacity transform 0.5s ease-in-out;
-    &:hover {
-      transform: rotate(720deg);
-      opacity: 0.1;
-    }
   }
 
   &__front,
@@ -395,5 +396,22 @@ th[scope="col"]:hover {
   }
   .sidenav a {
     font-size: 18px;
+  }
+}
+
+.footer {
+  width: 95%;
+  height: 71px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  &__github {
+    color: black !important;
+    font-size: 20px !important;
+    align-self: flex-end;
+  }
+  &__logo {
+    background: url("../assets/icons/logoRS.svg") no-repeat center;
+    width: 40%;
   }
 }
