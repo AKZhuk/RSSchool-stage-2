@@ -1,4 +1,4 @@
-import { IAppState, TCardData } from './interfaces';
+import { IAppState } from './interfaces';
 
 export const appState: IAppState = {
   isGameMode: false,
@@ -8,7 +8,53 @@ export const appState: IAppState = {
   trainWords: [],
   sortBy: 'result',
   orderBy: 'desc',
+  categories: [],
+  words: [],
+  currentCategoryID: '',
 };
+/*
+export const dataCategory = [
+  {
+    name: 'Action (set A)',
+    imageSRC:
+      'https://res.cloudinary.com/dshgus1qp/image/upload/v1625521113/english-for-kids/img/cry_jdpvnn.jpg',
+  },
+  {
+    name: 'Action (set B)',
+    imageSRC:
+      'https://res.cloudinary.com/dshgus1qp/image/upload/v1625521116/english-for-kids/img/play_gsfhxv.jpg',
+  },
+  {
+    name: 'Animal (set A))',
+    imageSRC:
+      'https://res.cloudinary.com/dshgus1qp/image/upload/v1625521114/english-for-kids/img/cat_uvu3wc.jpg',
+  },
+  {
+    name: 'Animal (set B)',
+    imageSRC:
+      'https://res.cloudinary.com/dshgus1qp/image/upload/v1625521113/english-for-kids/img/bird_ud4fhq.jpg',
+  },
+  {
+    name: 'Clothes (set A)',
+    imageSRC:
+      'https://res.cloudinary.com/dshgus1qp/image/upload/v1625521112/english-for-kids/img/clothes_llbdxo.png',
+  },
+  {
+    name: 'Emotions',
+    imageSRC:
+      'https://res.cloudinary.com/dshgus1qp/image/upload/v1625521117/english-for-kids/img/sad_jqe5dz.jpg',
+  },
+  {
+    name: 'Food',
+    imageSRC:
+      'https://res.cloudinary.com/dshgus1qp/image/upload/v1625521117/english-for-kids/img/salt_hyzcpc.jpg',
+  },
+  {
+    name: 'Clothes (set B)',
+    imageSRC:
+      'https://res.cloudinary.com/dshgus1qp/image/upload/v1625521112/english-for-kids/img/clothes_llbdxo.png',
+  },
+];
 
 export const cards: TCardData = [
   [
@@ -422,3 +468,4 @@ export const cards: TCardData = [
     },
   ],
 ];
+*/

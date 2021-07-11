@@ -2,8 +2,20 @@ export interface IState {
   isGame: boolean;
 }
 
-export type TCardData = (string[] | ICard[])[];
+export type TCategory = {
+  _id: string;
+  name: string;
+  imageSRC: string;
+};
 
+export type TWord = {
+  _id: string;
+  categoryID: string;
+  word: string;
+  translation: string;
+  imageSRC: string;
+  audioSRC: string;
+};
 export interface IWordStatistic {
   word: string;
   translation: string;
@@ -14,13 +26,6 @@ export interface IWordStatistic {
   result: number;
 }
 
-export interface ICard {
-  word: string;
-  translation: string;
-  image: string;
-  audioSrc: string;
-}
-
 export interface IRoutes {
   path: string;
   cb: () => void;
@@ -29,9 +34,12 @@ export interface IRoutes {
 export interface IAppState {
   isGameMode: boolean;
   isGame: boolean;
-  gameWords: ICard[];
-  currentGameWord: ICard | undefined;
-  trainWords: ICard[];
+  gameWords: TWord[];
+  currentGameWord: TWord | undefined;
+  trainWords: TWord[];
   sortBy: keyof IWordStatistic;
   orderBy: 'asc' | 'desc';
+  categories: TCategory[];
+  words: TWord[];
+  currentCategoryID: string;
 }

@@ -1,6 +1,6 @@
 import { BaseComponent } from '../shared/base-component';
 import { appState } from '../shared/constants';
-import { ICard } from '../shared/interfaces';
+import { TWord } from '../shared/interfaces';
 import { $, playAudio } from '../shared/utils';
 import { Statistic } from './statisctic';
 
@@ -15,13 +15,13 @@ export class WordCard extends BaseComponent {
 
   translation: string;
 
-  constructor(card: ICard) {
+  constructor(card: TWord) {
     super($('.main'), 'div', ['card-container']);
     this.isFlip = false;
-    this.imageSRC = card.image;
-    this.audioSRC = `./${card.audioSrc}`;
     this.word = card.word;
     this.translation = card.translation;
+    this.imageSRC = card.imageSRC;
+    this.audioSRC = card.audioSRC;
     this.element.innerHTML = this.render();
   }
 
@@ -29,21 +29,21 @@ export class WordCard extends BaseComponent {
 
   renderGameCard = (): string => `
     <div class="card__bg">
-      <div class="card card_game" data-word="${this.word}" style="background-image: url('./${this.imageSRC}')" >
+      <div class="card card_game" data-word="${this.word}" style="background-image: url(${this.imageSRC})" >
       </div>
     </div>`;
 
   renderTrainCard = (): string => `
     <div class="card">
       <div class="card__front " >
-        <div class=" img" style="background-image: url('./${this.imageSRC}')"></div>
+        <div class=" img" style="background-image: url(${this.imageSRC})"></div>
         <div class="card__description">
           <h5 class="description__title">${this.word}</h5>
           <div  onclick="" class="card__rotate"></div>
         </div>
       </div>
       <div class="card__back">
-        <div class="img" style="background-image: url('./${this.imageSRC}')"></div>
+        <div class="img" style="background-image: url(${this.imageSRC})"></div>
         <div class="card__description">
         <h5>${this.translation}</h5>
         </div>
@@ -54,7 +54,8 @@ export class WordCard extends BaseComponent {
     if (!appState.isGameMode) {
       this.element.addEventListener('click', () => {
         playAudio(this.audioSRC);
-        Statistic.update(this.word, 'trained');
+
+        // Statistic.update(this.word, 'trained');
       });
 
       (<HTMLElement>(

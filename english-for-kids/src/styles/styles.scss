@@ -85,7 +85,7 @@ body {
   color: #ff6024 !important;
 }
 
-.sidenav .closebtn {
+.closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -96,11 +96,17 @@ body {
 .btn {
   height: 40px;
   margin: 0 0 10px 10px;
-  background-color: var(--main-color);
+
   @extend %transistion;
   &:hover {
     box-shadow: 0px 4px 16px rgb(0 0 0 / 40%);
-    background-color: var(--hover-color);
+    // background-color: var(--hover-color);
+  }
+  &_colored {
+    background-color: var(--main-color);
+    &:hover {
+      background-color: var(--hover-color);
+    }
   }
 }
 
@@ -221,6 +227,14 @@ body {
   border: none;
 
   @extend %transistion;
+
+  &_admin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+  }
   &,
   &__bg {
     width: 100%;
@@ -248,7 +262,9 @@ body {
       box-shadow: 0px 4px 16px rgb(0 0 0 / 40%);
     }
   }
-
+  &_word {
+    height: 350px;
+  }
   &_game {
     background-size: cover;
   }
@@ -414,4 +430,23 @@ th[scope="col"]:hover {
     background: url("../assets/icons/logoRS.svg") no-repeat center;
     width: 40%;
   }
+}
+
+.add {
+  background-image: url("../assets/icons/add.svg");
+  width: 85px;
+  height: 85px;
+  @extend %transistion;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.form {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }

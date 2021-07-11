@@ -6,11 +6,11 @@ import { $ } from '../shared/utils';
 export class Header extends BaseComponent {
   openButton: BaseComponent;
 
-  constructor(categories: string[]) {
+  constructor() {
     super(document.body, 'header', ['header']);
     this.openButton = new BaseComponent(this.element, 'span', ['openBtn']);
     this.openButton.element.innerHTML = '&#9776;';
-    this.element.innerHTML += this.renderSideNav(categories);
+    this.element.innerHTML += this.renderSideNav();
   }
 
   listen(router: Router): void {
@@ -18,6 +18,7 @@ export class Header extends BaseComponent {
     header.addEventListener('click', (e) => {
       const elem = e.target as HTMLElement;
       if (elem.classList.contains('openBtn')) {
+        this.renderLinks();
         $('.sidenav').classList.add('open');
         $('.sidenav__overlay').classList.add('open');
       }
@@ -25,6 +26,10 @@ export class Header extends BaseComponent {
       if (elem.classList.contains('close')) {
         $('.sidenav').classList.remove('open');
         $('.sidenav__overlay').classList.remove('open');
+      }
+
+      if (elem.classList.contains('category-link')) {
+        appState.currentCategoryID = elem.dataset.id as string;
       }
     });
 
@@ -37,25 +42,26 @@ export class Header extends BaseComponent {
     });
   }
 
-  static renderLinks(categories: string[]): string {
+  renderLinks(): void {
     let HTMLText = '';
-    categories.forEach((category, index) => {
-      HTMLText += `<a href="/#/category/${
-        index + 1
-      }" class="close">${category}</a>`;
+    appState.categories.forEach((category) => {
+      HTMLText += `<a href="/#/category/${category.name}" data-id="${category._id}"
+       class="close category-link">${category.name}</a>`;
     });
-    HTMLText += '<a href="/#/statistic" class="close">Statistic</a></a>';
-    return HTMLText;
+    HTMLText
+      += '<a href="/#/statistic" class="close category-link">Statistic</a></a>';
+    $('.link-container').innerHTML = HTMLText;
   }
 
-  renderSideNav(categories: string[]): string {
+  renderSideNav(): string {
     this.element.id = 'openBtn';
     return `
     <aside id="mySidenav" class="sidenav">
       <ul class="sidenav__links">
       <a  class="closebtn close">&times;</a>
       <a href="#" class="close">Main page</a>
-      ${Header.renderLinks(categories)}
+      <a href="#/admin/categories" class="close">Admin panel</a>
+      <div class="link-container"></div>
       </ul>
       <footer class="footer">
         <a class="footer__github" href="https://github.com/AKZhuk"

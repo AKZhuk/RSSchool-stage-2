@@ -1,6 +1,6 @@
 import { BaseComponent } from '../shared/base-component';
 import { appState } from '../shared/constants';
-import { ICard } from '../shared/interfaces';
+import { TCardCustom } from '../shared/interfaces';
 import { Router } from '../shared/routes';
 import { $, playAudio } from '../shared/utils';
 import { Statistic } from './statisctic';
@@ -20,7 +20,7 @@ export class Game {
     this.listen();
   }
 
-  newGame = (cards: ICard[]): void => {
+  newGame = (cards: TCardCustom[]): void => {
     if (!appState.isGame) {
       appState.gameWords = [...cards.sort(() => Math.random() - 0.5)];
 
@@ -30,7 +30,7 @@ export class Game {
       $('.game__start-btn').innerText = 'repeat';
       $('.game__start-btn').classList.add('game__repeat-btn');
     }
-    playAudio((appState.currentGameWord as ICard).audioSrc);
+    playAudio((appState.currentGameWord as TCardCustom).audioSRC);
   };
 
   resetGame = (): void => {
@@ -73,7 +73,7 @@ export class Game {
     this.rating.element.innerHTML
       += '<div class="rating__success rating"></div>';
     appState.currentGameWord = appState.gameWords.shift();
-    playAudio((appState.currentGameWord as ICard).audioSrc);
+    playAudio((appState.currentGameWord as TCardCustom).audioSRC);
   };
 
   handleError = (): void => {

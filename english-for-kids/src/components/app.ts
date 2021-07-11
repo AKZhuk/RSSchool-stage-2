@@ -1,13 +1,14 @@
 import { Header } from './header';
 import { BaseComponent } from '../shared/base-component';
-import { appState, cards } from '../shared/constants';
-import { ICard } from '../shared/interfaces';
+import { appState } from '../shared/constants';
+import { TWord } from '../shared/interfaces';
 import { Router } from '../shared/routes';
 import { WordCard } from './wordCard';
-import { $ } from '../shared/utils';
 import { Game } from './game';
 import { Statistic } from './statisctic';
 import { Categories } from './categories';
+import { AdminCategories } from './adminPanel/adminCategories';
+import { AdminWords } from './adminPanel/adminWords';
 
 export class App {
   readonly main: BaseComponent;
@@ -23,7 +24,7 @@ export class App {
   categories: Categories;
 
   constructor() {
-    this.header = new Header(cards[0] as string[]);
+    this.header = new Header();
     this.main = new BaseComponent(document.body, 'main', ['main']);
     this.router = new Router();
     this.header.listen(this.router);
@@ -33,17 +34,25 @@ export class App {
   }
 
   configRoutes = (): void => {
-    (cards[0] as string[]).forEach((category, index: number) => {
-      this.router.add(`category/${index + 1}`, () => {
-        this.game.resetGame();
-        this.clearMain();
-        this.header.toggleActiveLink(`/#/category/${index + 1}`);
-        $(`a[href="/#/category/${index + 1}"]`).classList.add('active-link');
-        const words: ICard[] = cards[index + 1] as ICard[];
-        this.renderWordCards(words);
-      });
+    this.router.add('/words', () => {
+      this.clearMain();
+      const view = new AdminWords(appState.currentCategoryID);
+      this.main.element.appendChild(view.element);
+      view.listen();
     });
 
+    this.router.add('category', () => {
+      this.game.resetGame();
+      this.clearMain();
+
+      // this.header.toggleActiveLink(`/#/category/${index + 1}`);
+      // $(`a[href="/#/category/${index + 1}"]`).classList.add('active-link');
+      const words: TWord[] = appState.words.filter(
+        (word) => word.categoryID === appState.currentCategoryID
+      );
+      this.renderWordCards(words);
+    });
+    //
     this.router.add('statistic', () => {
       this.game.resetGame();
       this.clearMain();
@@ -56,7 +65,16 @@ export class App {
       this.game.resetGame();
       this.clearMain();
       this.header.toggleActiveLink('#/train');
-      this.renderWordCards(appState.trainWords);
+      // this.renderWordCards(appState.trainWords);
+    });
+
+    this.router.add('admin/categories', () => {
+      this.game.resetGame();
+      this.clearMain();
+      this.header.toggleActiveLink('#/admin/categories');
+      const view = new AdminCategories();
+      this.main.element.appendChild(view.element);
+      view.listen();
     });
 
     this.router.add('', () => {
@@ -67,7 +85,7 @@ export class App {
     });
   };
 
-  renderWordCards = (words: ICard[]): void => {
+  renderWordCards = (words: TWord[]): void => {
     words.forEach((word) => {
       const wordCard = new WordCard(word);
       wordCard.render();
@@ -78,8 +96,8 @@ export class App {
       const startBtn = new BaseComponent(
         this.main.element,
         'button',
-        ['btn', 'game__start-btn'],
-        'Start Game',
+        ['btn', 'game__start-btn', 'btn_colored'],
+        'Start Game'
       );
 
       startBtn.element.addEventListener('click', () => {

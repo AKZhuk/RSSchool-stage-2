@@ -1,6 +1,6 @@
 import { BaseComponent } from '../shared/base-component';
-import { cards } from '../shared/constants';
-import { ICard } from '../shared/interfaces';
+import { appState } from '../shared/constants';
+import { TWord } from '../shared/interfaces';
 import { CategoryCard } from './categoryCard';
 
 export class Categories extends BaseComponent {
@@ -9,15 +9,23 @@ export class Categories extends BaseComponent {
   constructor() {
     super(undefined, 'section', ['categories']);
     this.renderCategories();
+    this.listen();
   }
 
   renderCategories = (): void => {
-    const categories: string[] = cards[0] as string[];
-    categories.forEach((category, index) => {
-      const words: ICard[] = cards[index + 1] as ICard[];
-      this.cards.push(
-        new CategoryCard(this, <string>category, words, index + 1),
+    appState.categories.forEach((category) => {
+      const words: TWord[] = appState.words.filter(
+        (word) => word.categoryID === category._id,
       );
+      this.cards.push(new CategoryCard(this, category, words));
+    });
+  };
+
+  listen = (): void => {
+    this.element.addEventListener('click', (e) => {
+      const elem = e.target as HTMLElement;
+
+      appState.currentCategoryID = elem.dataset.id as string;
     });
   };
 }
