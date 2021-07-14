@@ -5,7 +5,6 @@ export interface IState {
 export type TCategory = {
   _id: string;
   name: string;
-  imageSRC: string;
 };
 
 export type TWord = {

@@ -20,10 +20,22 @@ export const createWord = async (data: FormData): Promise<void> => {
       })
     ).json();
   } catch (err) {
-    alert(err);
+    throw new Error(`something went wrong(( Error: ${err}`);
   }
 };
 
+export const updateWord = async (data: FormData, id: string): Promise<void> => {
+  try {
+    (
+      await fetch(`${baseUrl}/words/update/?${new URLSearchParams({ id })}`, {
+        method: 'PUT',
+        body: data,
+      })
+    ).json();
+  } catch (err) {
+    throw new Error(`something went wrong(( Error: ${err}`);
+  }
+};
 /*
 export const loadWord = async (id:string,words: ICard[]) => {
   console.log(words[0], JSON.stringify(words[0]));
@@ -59,7 +71,7 @@ export const deleteWord = async (id: string): Promise<void> => {
       })
     ).json();
   } catch (err) {
-    alert(err);
+    throw new Error(`something went wrong(( Error: ${err}`);
   }
 };
 
@@ -84,7 +96,7 @@ export const createCategory = async (name: string): Promise<void> => {
       })
     ).json();
   } catch (err) {
-    alert(err);
+    throw new Error(`something went wrong(( Error: ${err}`);
   }
 };
 
@@ -103,7 +115,7 @@ export const updateCategory = async (
       })
     ).json();
   } catch (err) {
-    alert(err);
+    throw new Error(`something went wrong(( Error: ${err}`);
   }
 };
 
@@ -119,7 +131,7 @@ export const deleteCategory = async (id: string): Promise<void> => {
       })
     ).json();
   } catch (err) {
-    alert(err);
+    throw new Error(`something went wrong(( Error: ${err}`);
   }
 };
 /*

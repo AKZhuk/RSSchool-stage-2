@@ -108,8 +108,25 @@ body {
       background-color: var(--hover-color);
     }
   }
+
+  &-load {
+    position: relative;
+    width: 40%;
+    min-width: 50px;
+    &--input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+  }
 }
 
+label {
+  font-size: 0.875rem !important;
+}
 .main {
   flex-wrap: wrap;
   justify-content: space-between;
@@ -128,6 +145,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  &__infinite-container {
+    height: calc(100vh - 150px);
+    overflow: auto;
+  }
 }
 
 .game {
@@ -245,6 +267,7 @@ body {
     background-color: green;
     border-radius: 20px;
   }
+
   &-container {
     height: 280px;
     width: calc(100% / 4 - 30px);
@@ -447,6 +470,75 @@ th[scope="col"]:hover {
   height: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  &_login {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+  &__img {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+  &__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__label {
+    width: 20%;
+  }
+  &-control-sm {
+    width: 60%;
+  }
+  &-control:focus {
+    border-color: var(--hover-color);
+    box-shadow: 0 0 0 0.25rem var(--hover-color);
+  }
+}
+
+.pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2d303a;
+  opacity: 0.4;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__container {
+    position: absolute;
+  }
+  &__content {
+    z-index: 1000;
+    position: absolute;
+
+    top: calc(50vh - 150px);
+    left: calc(50vw - 250px);
+    width: 500px;
+  }
+}
+.hidden {
+  display: none;
+}
+.notScrollable {
+  overflow: hidden;
+}
+
+.svg-play {
+  margin-left: 10px;
+  cursor: pointer;
+  @extend %transistion;
+  &:hover {
+    opacity: 0, 5;
+  }
 }

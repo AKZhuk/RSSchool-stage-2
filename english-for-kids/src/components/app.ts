@@ -9,6 +9,7 @@ import { Statistic } from './statisctic';
 import { Categories } from './categories';
 import { AdminCategories } from './adminPanel/adminCategories';
 import { AdminWords } from './adminPanel/adminWords';
+import { isAdmin } from '../shared/utils';
 
 export class App {
   readonly main: BaseComponent;
@@ -48,7 +49,7 @@ export class App {
       // this.header.toggleActiveLink(`/#/category/${index + 1}`);
       // $(`a[href="/#/category/${index + 1}"]`).classList.add('active-link');
       const words: TWord[] = appState.words.filter(
-        (word) => word.categoryID === appState.currentCategoryID
+        (word) => word.categoryID === appState.currentCategoryID,
       );
       this.renderWordCards(words);
     });
@@ -69,6 +70,7 @@ export class App {
     });
 
     this.router.add('admin/categories', () => {
+      if (!isAdmin()) return;
       this.game.resetGame();
       this.clearMain();
       this.header.toggleActiveLink('#/admin/categories');
@@ -97,7 +99,7 @@ export class App {
         this.main.element,
         'button',
         ['btn', 'game__start-btn', 'btn_colored'],
-        'Start Game'
+        'Start Game',
       );
 
       startBtn.element.addEventListener('click', () => {

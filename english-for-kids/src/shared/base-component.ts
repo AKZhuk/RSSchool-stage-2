@@ -12,4 +12,8 @@ export class BaseComponent {
     this.element.innerText = text;
     if (parent) parent.appendChild(this.element);
   }
+
+  clear = (): void => {
+    this.element.innerHTML = '';
+  };
 }

@@ -57,7 +57,7 @@ export class Statistic extends BaseComponent {
 
   private static calculateResult = (
     correct: number,
-    incorrect: number
+    incorrect: number,
   ): number => {
     if (correct === 0) {
       return 0;
@@ -74,11 +74,9 @@ export class Statistic extends BaseComponent {
     $('#trainBtn').addEventListener('click', () => {
       const words = this.getDifficultWords();
       const data = (cards.slice(1) as ICard[][]).reduce(
-        (acc: ICard[], val: ICard[]) => acc.concat(val)
+        (acc: ICard[], val: ICard[]) => acc.concat(val),
       );
-      appState.trainWords = data.filter((x: ICard) =>
-        words.some((y) => x.word === y.word)
-      );
+      appState.trainWords = data.filter((x: ICard) => words.some((y) => x.word === y.word));
     });
 
     $('thead').addEventListener('click', (e) => {
@@ -111,7 +109,7 @@ export class Statistic extends BaseComponent {
             correct: 0,
             incorect: 0,
             result: 0,
-          })
+          }),
         );
       });
     }
@@ -145,18 +143,17 @@ export class Statistic extends BaseComponent {
     return tempData;
   };
 
-  static getWordStatistic = (word: string): IWordStatistic =>
-    JSON.parse(localStorage.getItem(`${word}`) as string);
+  static getWordStatistic = (word: string): IWordStatistic => JSON.parse(localStorage.getItem(`${word}`) as string);
 
   static update = (
     word: string,
-    StatisticType: 'correct' | 'incorect' | 'trained'
+    StatisticType: 'correct' | 'incorect' | 'trained',
   ): void => {
     const wordStat: IWordStatistic = Statistic.getWordStatistic(word);
     wordStat[StatisticType] += 1;
     wordStat.result = Statistic.calculateResult(
       wordStat.correct,
-      wordStat.incorect
+      wordStat.incorect,
     );
     localStorage.setItem(word, JSON.stringify(wordStat));
   };
