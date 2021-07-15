@@ -128,7 +128,6 @@ export class AdminWords extends BaseComponent {
       this.element.innerHTML += `<div class="card-container card_admin card_word">
       ${this.renderWordCard(word)}
       </div>`;
-      // this.wordsCard[word._id] = new AdminWordCard(this.element, word);
     });
   };
 
@@ -297,7 +296,7 @@ export class AdminWords extends BaseComponent {
             type="file"
             accept="image/*"
             id="imageInput"
-            required
+
           />
         </label>
       </div>

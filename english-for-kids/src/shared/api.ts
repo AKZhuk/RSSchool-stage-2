@@ -1,7 +1,7 @@
 import { TWord, TCategory } from './interfaces';
 
-export const baseUrl: RequestInfo = 'http://127.0.0.1:3000';
-
+export const baseUrl: RequestInfo = 'https://akzhuk-english-for-kids.herokuapp.com';
+// http://127.0.0.1:3000
 export const getWords = async (): Promise<TWord[]> => {
   try {
     const response = await fetch(`${baseUrl}/words/getall`);

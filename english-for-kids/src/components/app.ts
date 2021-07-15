@@ -5,7 +5,7 @@ import { TWord } from '../shared/interfaces';
 import { Router } from '../shared/routes';
 import { WordCard } from './wordCard';
 import { Game } from './game';
-import { Statistic } from './statisctic';
+// import { Statistic } from './statisctic';
 import { Categories } from './categories';
 import { AdminCategories } from './adminPanel/adminCategories';
 import { AdminWords } from './adminPanel/adminWords';
@@ -20,7 +20,7 @@ export class App {
 
   router: Router;
 
-  statistic: Statistic;
+  // statistic: Statistic;
 
   categories: Categories;
 
@@ -31,29 +31,31 @@ export class App {
     this.header.listen(this.router);
     this.categories = new Categories();
     this.game = new Game(this.router);
-    this.statistic = new Statistic();
+    // this.statistic = new Statistic();
   }
 
   configRoutes = (): void => {
     this.router.add('/words', () => {
       this.clearMain();
+      this.header.renderAdminView('words');
       const view = new AdminWords(appState.currentCategoryID);
       this.main.element.appendChild(view.element);
       view.listen();
     });
 
     this.router.add('category', () => {
+      if (isAdmin()) {
+        document.location.hash = 'admin/categories';
+        return;
+      }
       this.game.resetGame();
       this.clearMain();
-
-      // this.header.toggleActiveLink(`/#/category/${index + 1}`);
-      // $(`a[href="/#/category/${index + 1}"]`).classList.add('active-link');
       const words: TWord[] = appState.words.filter(
         (word) => word.categoryID === appState.currentCategoryID,
       );
       this.renderWordCards(words);
     });
-    //
+    /*
     this.router.add('statistic', () => {
       this.game.resetGame();
       this.clearMain();
@@ -61,28 +63,38 @@ export class App {
       this.main.element.appendChild(this.statistic.element);
       this.statistic.renderData();
     });
-
+*/
     this.router.add('train', () => {
+      if (isAdmin()) {
+        document.location.hash = 'admin/categories';
+        return;
+      }
       this.game.resetGame();
       this.clearMain();
       this.header.toggleActiveLink('#/train');
-      // this.renderWordCards(appState.trainWords);
+      //   this.renderWordCards(appState.trainWords);
     });
 
     this.router.add('admin/categories', () => {
       if (!isAdmin()) return;
       this.game.resetGame();
       this.clearMain();
-      this.header.toggleActiveLink('#/admin/categories');
+      this.header.renderAdminView('categories');
+      // this.header.toggleActiveLink('#/admin/categories');
       const view = new AdminCategories();
       this.main.element.appendChild(view.element);
       view.listen();
     });
 
     this.router.add('', () => {
+      if (isAdmin()) {
+        document.location.hash = 'admin/categories';
+        return;
+      }
       this.game.resetGame();
       this.clearMain();
       this.header.toggleActiveLink('#');
+      this.categories.render();
       this.main.element.appendChild(this.categories.element);
     });
   };

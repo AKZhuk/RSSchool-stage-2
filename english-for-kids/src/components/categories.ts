@@ -8,11 +8,11 @@ export class Categories extends BaseComponent {
 
   constructor() {
     super(undefined, 'section', ['categories']);
-    this.renderCategories();
     this.listen();
   }
 
-  renderCategories = (): void => {
+  render = (): void => {
+    this.clear();
     appState.categories.forEach((category) => {
       const words: TWord[] = appState.words.filter(
         (word) => word.categoryID === category._id,

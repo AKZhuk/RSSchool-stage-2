@@ -517,6 +517,8 @@ th[scope="col"]:hover {
   align-items: center;
   &__container {
     position: absolute;
+    top: 0;
+    left: 0;
   }
   &__content {
     z-index: 1000;
@@ -541,4 +543,9 @@ th[scope="col"]:hover {
   &:hover {
     opacity: 0, 5;
   }
+}
+
+.breadcrumb {
+  background: none;
+  font-size: 20px;
 }

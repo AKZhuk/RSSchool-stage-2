@@ -1,9 +1,9 @@
 import { BaseComponent } from '../shared/base-component';
 import { appState } from '../shared/constants';
-import { TCardCustom } from '../shared/interfaces';
+import { TWord } from '../shared/interfaces';
 import { Router } from '../shared/routes';
 import { $, playAudio } from '../shared/utils';
-import { Statistic } from './statisctic';
+// import { Statistic } from './statisctic';
 
 export class Game {
   currentWord = '';
@@ -20,7 +20,7 @@ export class Game {
     this.listen();
   }
 
-  newGame = (cards: TCardCustom[]): void => {
+  newGame = (cards: TWord[]): void => {
     if (!appState.isGame) {
       appState.gameWords = [...cards.sort(() => Math.random() - 0.5)];
 
@@ -30,7 +30,7 @@ export class Game {
       $('.game__start-btn').innerText = 'repeat';
       $('.game__start-btn').classList.add('game__repeat-btn');
     }
-    playAudio((appState.currentGameWord as TCardCustom).audioSRC);
+    playAudio((appState.currentGameWord as TWord).audioSRC);
   };
 
   resetGame = (): void => {
@@ -54,10 +54,10 @@ export class Game {
 
       if (card.dataset.word === appState.currentGameWord?.word) {
         this.handleCorrect(card);
-        Statistic.update(card.dataset.word as string, 'correct');
+        // Statistic.update(card.dataset.word as string, 'correct');
       } else {
         this.handleError();
-        Statistic.update(appState.currentGameWord?.word as string, 'incorect');
+        // Statistic.update(appState.currentGameWord?.word as string, 'incorect');
       }
     });
   };
@@ -73,7 +73,7 @@ export class Game {
     this.rating.element.innerHTML
       += '<div class="rating__success rating"></div>';
     appState.currentGameWord = appState.gameWords.shift();
-    playAudio((appState.currentGameWord as TCardCustom).audioSRC);
+    playAudio((appState.currentGameWord as TWord).audioSRC);
   };
 
   handleError = (): void => {

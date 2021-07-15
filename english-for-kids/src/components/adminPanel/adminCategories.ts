@@ -45,13 +45,13 @@ export class AdminCategories extends BaseComponent {
       (word) => word.categoryID === category._id,
     );
     return `
-  <a class="closebtn delete-category">×</a>
+  <a class="closebtn deleteCategory">×</a>
   <p class="card__description">${category.name}</p>
   <p class="card__description">Кол-во слов: ${words ? words.length : 0}</p>
   <div>
     <a
       type="button"
-      class="btn btn-danger updateCategory"
+      class="btn btn-danger openUpdateForm"
       data-id="${category._id}"
        data-name="${category.name}"
       >Update</a
@@ -69,7 +69,7 @@ export class AdminCategories extends BaseComponent {
   renderAddCategoriesCard = (node: HTMLElement): void => {
     node.innerHTML = `
     <p class="card__description">Add new Category</p>
-    <div id="renderCreateForm" class="add"></div>
+    <div id="openCreateForm" class="add"></div>
     `;
   };
 
@@ -82,7 +82,7 @@ export class AdminCategories extends BaseComponent {
     node.innerHTML = `
       <div class="form-group">
       <label for="newCategoryName" class="form-label mt-4">Category Name</label>
-      <input type="text" class="form-control" id="input${action}Name"
+      <input type="text" class="form-control" required id="input${action}Name"
        placeholder="Enter name" value="${categoryName}">
       </div>
       <div>
@@ -95,7 +95,7 @@ export class AdminCategories extends BaseComponent {
   listen = (): void => {
     this.element.addEventListener('click', async (e) => {
       const elem = e.target as HTMLElement;
-      if (elem.classList.contains('delete-category')) {
+      if (elem.classList.contains('deleteCategory')) {
         const categoryId: string = elem.parentElement?.dataset.id as string;
         await deleteCategory(categoryId);
         appState.categories = await getCategories();
@@ -103,7 +103,7 @@ export class AdminCategories extends BaseComponent {
         this.render();
       }
 
-      if (elem.id === 'renderCreateForm') {
+      if (elem.id === 'openCreateForm') {
         this.renderForm(elem.parentElement as HTMLElement, 'Create');
       }
 
@@ -120,20 +120,11 @@ export class AdminCategories extends BaseComponent {
         this.renderAddCategoriesCard(card);
       }
 
-      if (elem.classList.contains('updateCategory')) {
+      if (elem.classList.contains('openUpdateForm')) {
         const categoryId: string = elem.dataset.id as string;
         const categoryName: string = elem.dataset.name as string;
         const card = elem.parentElement?.parentElement as HTMLElement;
         this.renderForm(card, 'Update', categoryId, categoryName);
-      }
-
-      if (elem.id === 'UpdateCategoryForm') {
-        const categoryId: string = elem.dataset.id as string;
-        const name = ($('#inputUpdateName') as HTMLInputElement).value;
-        await updateCategory(categoryId, name);
-        appState.categories = await getCategories();
-        this.clear();
-        this.render();
       }
 
       if (elem.id === 'closeUpdateForm') {
@@ -144,6 +135,15 @@ export class AdminCategories extends BaseComponent {
           _id: categoryId,
           name: categoryName,
         });
+      }
+
+      if (elem.id === 'UpdateCategoryBtn') {
+        const categoryId: string = elem.dataset.id as string;
+        const name = ($('#inputUpdateName') as HTMLInputElement).value;
+        await updateCategory(categoryId, name);
+        appState.categories = await getCategories();
+        this.clear();
+        this.render();
       }
 
       if (elem.classList.contains('addWord')) {

@@ -7,7 +7,7 @@ export class Header extends BaseComponent {
   constructor() {
     super(document.body, 'header', ['header']);
 
-    this.element.innerHTML += this.renderSideNav();
+    this.renderSideNav();
   }
 
   listen(router: Router): void {
@@ -42,25 +42,30 @@ export class Header extends BaseComponent {
           window.location.hash = '';
         }
         $('body').classList.remove('notScrollable');
-        this.element.innerHTML = this.renderSideNav();
+        this.renderSideNav();
       }
 
       if (elem.id === 'btnLogout') {
         window.sessionStorage.setItem('IsAdmin', 'false');
-        this.element.innerHTML = this.renderSideNav();
+        this.renderSideNav();
+        appState.isGameMode = false;
+        document.body.classList.remove('game__mode');
       }
 
       if (elem.classList.contains('pop-up__close')) {
         $('.pop-up__container').innerHTML = '';
+        $('body').classList.remove('notScrollable');
       }
     });
 
-    $('#gameCheck').addEventListener('input', (e) => {
+    this.element.addEventListener('input', (e) => {
       const element = <HTMLInputElement>e.target;
-      element.toggleAttribute('checked');
-      appState.isGameMode = element.checked;
-      document.body.classList.toggle('game__mode');
-      router.navigate(document.location.hash);
+      if (element.id === 'flexSwitchCheckChecked') {
+        element.toggleAttribute('checked');
+        appState.isGameMode = element.checked;
+        document.body.classList.toggle('game__mode');
+        router.navigate(document.location.hash);
+      }
     });
   }
 
@@ -70,8 +75,7 @@ export class Header extends BaseComponent {
       HTMLText += `<a href="/#/category/${category.name}" data-id="${category._id}"
        class="close category-link">${category.name}</a>`;
     });
-    HTMLText
-      += '<a href="/#/statistic" class="close category-link">Statistic</a></a>';
+    //  HTMLText += '<a href="/#/statistic" class="close category-link">Statistic</a></a>';
     $('.link-container').innerHTML = HTMLText;
   }
 
@@ -84,8 +88,8 @@ export class Header extends BaseComponent {
     return '<a id="openLoginForm" class="close" >Login</a>';
   };
 
-  renderSideNav(): string {
-    return `
+  renderSideNav(): void {
+    this.element.innerHTML = `
     <span class="openBtn">&#9776</span>
     <aside id="mySidenav" class="sidenav">
       <ul class="sidenav__links">
@@ -105,6 +109,20 @@ export class Header extends BaseComponent {
       <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
     </div>
     <div class="pop-up__container"></div>`;
+  }
+
+  renderAdminView(active: 'categories' | 'words'): void {
+    this.element.innerHTML = ` <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item ${
+  active === 'categories' ? 'active' : ''
+}" ><a href="#/admin/categories">Categories</a></li>
+      <li class="breadcrumb-item ${
+  active === 'words' ? 'active' : ''
+}" >Words</li>
+    </ol>
+  </nav>
+  <a id="btnLogout" href="#" class=" btn btn-danger">Logout</a>`;
   }
 
   renderLoginForm = (): void => {

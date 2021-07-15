@@ -2,7 +2,7 @@ import { BaseComponent } from '../shared/base-component';
 import { appState } from '../shared/constants';
 import { TWord } from '../shared/interfaces';
 import { $, playAudio } from '../shared/utils';
-import { Statistic } from './statisctic';
+// import { Statistic } from './statisctic';
 
 export class WordCard extends BaseComponent {
   readonly imageSRC: string;
